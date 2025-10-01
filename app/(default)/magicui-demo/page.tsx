@@ -25,6 +25,16 @@ import GlowingCard from "@/components/glowing-card";
 import AnimatedTabs from "@/components/animated-tabs";
 import ParticleEffect from "@/components/particle-effect";
 import WaveAnimation from "@/components/wave-animation";
+import SpotlightHero from "@/components/spotlight-hero";
+import AnimatedGridPattern from "@/components/animated-grid-pattern";
+import ScrollProgress from "@/components/scroll-progress";
+import ComparisonSlider from "@/components/comparison-slider";
+import ScrollNumberCounter from "@/components/scroll-number-counter";
+import TerminalCodeBlock from "@/components/terminal-code-block";
+import FeatureSpotlightCard from "@/components/feature-spotlight-card";
+import LogoCloudCarousel from "@/components/logo-cloud-carousel";
+import PricingComparisonTable from "@/components/pricing-comparison-table";
+import CTAWithRays from "@/components/cta-with-rays";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -877,10 +887,224 @@ export default function MagicUIDemoPage() {
           />
         </section>
 
+        {/* Hero Effects */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="gradient">
+              Hero Effects
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Landing Page Hero Components
+            </h2>
+            <p className="text-gray-400">
+              Create stunning hero sections with interactive effects
+            </p>
+          </div>
+          <div className="space-y-8">
+            <SpotlightHero className="h-96 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 flex items-center justify-center">
+              <div className="text-center">
+                <h3 className="text-4xl font-bold text-white mb-4">Spotlight Hero Effect</h3>
+                <p className="text-gray-400 mb-6">Move your mouse to see the spotlight follow</p>
+                <AnimatedButton variant="gradient">Get Started</AnimatedButton>
+              </div>
+            </SpotlightHero>
+            <div className="relative h-96 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 overflow-hidden flex items-center justify-center">
+              <AnimatedGridPattern gridSize={40} maxConnections={2} />
+              <div className="relative z-10 text-center">
+                <h3 className="text-4xl font-bold text-white mb-4">Animated Grid Pattern</h3>
+                <p className="text-gray-400">Connected dots with smooth animations</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison & Stats */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="success">
+              Interactive Comparisons
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Visual Comparisons & Counters
+            </h2>
+            <p className="text-gray-400">
+              Show before/after and impressive statistics
+            </p>
+          </div>
+          <div className="space-y-12">
+            <ComparisonSlider
+              beforeLabel="Others"
+              afterLabel="Kariz"
+              beforeContent={
+                <div className="h-full bg-gradient-to-br from-red-950 to-red-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl font-bold text-red-200 mb-4">2.5s</div>
+                    <p className="text-red-300">Execution Time</p>
+                  </div>
+                </div>
+              }
+              afterContent={
+                <div className="h-full bg-gradient-to-br from-green-950 to-green-900 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl font-bold text-green-200 mb-4">0.25s</div>
+                    <p className="text-green-300">10x Faster!</p>
+                  </div>
+                </div>
+              }
+            />
+            <div className="grid gap-8 md:grid-cols-3">
+              <div className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50 text-center">
+                <ScrollNumberCounter value={500} suffix="+" className="text-5xl font-bold text-indigo-400" />
+                <p className="mt-2 text-gray-400">Happy Customers</p>
+              </div>
+              <div className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50 text-center">
+                <ScrollNumberCounter value={99.9} decimals={1} suffix="%" className="text-5xl font-bold text-emerald-400" />
+                <p className="mt-2 text-gray-400">Uptime Guarantee</p>
+              </div>
+              <div className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50 text-center">
+                <ScrollNumberCounter value={10} suffix="x" className="text-5xl font-bold text-purple-400" />
+                <p className="mt-2 text-gray-400">Faster Execution</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Code & Terminal */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="info">
+              Developer Tools
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Terminal & Code Displays
+            </h2>
+            <p className="text-gray-400">
+              Show code execution with beautiful terminal animations
+            </p>
+          </div>
+          <TerminalCodeBlock
+            title="Installation & Setup"
+            lines={[
+              { type: "command", content: "npm install @kariz/sdk", delay: 500 },
+              { type: "output", content: "✓ Installing dependencies...", delay: 800 },
+              { type: "output", content: "✓ Setting up configuration...", delay: 800 },
+              { type: "success", content: "Installation complete!", delay: 500 },
+              { type: "command", content: "npm run dev", delay: 1000 },
+              { type: "output", content: "Starting development server...", delay: 800 },
+              { type: "success", content: "Server running on http://localhost:3000", delay: 500 },
+            ]}
+          />
+        </section>
+
+        {/* Spotlight Cards */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="gradient">
+              Feature Showcases
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Spotlight Feature Cards
+            </h2>
+            <p className="text-gray-400">
+              Highlight your best features with interactive spotlights
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <FeatureSpotlightCard>
+              <div className="p-8">
+                <div className="mb-4 inline-block rounded-lg bg-indigo-500/20 p-3">
+                  <svg className="h-8 w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Lightning Fast</h3>
+                <p className="text-gray-400">Process workflows at incredible speed with enterprise-grade infrastructure</p>
+              </div>
+            </FeatureSpotlightCard>
+            <FeatureSpotlightCard>
+              <div className="p-8">
+                <div className="mb-4 inline-block rounded-lg bg-purple-500/20 p-3">
+                  <svg className="h-8 w-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Flexible Workflows</h3>
+                <p className="text-gray-400">Build custom workflows visually with our intuitive drag-and-drop builder</p>
+              </div>
+            </FeatureSpotlightCard>
+            <FeatureSpotlightCard>
+              <div className="p-8">
+                <div className="mb-4 inline-block rounded-lg bg-emerald-500/20 p-3">
+                  <svg className="h-8 w-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Enterprise Security</h3>
+                <p className="text-gray-400">Bank-level security with encryption and compliance certifications</p>
+              </div>
+            </FeatureSpotlightCard>
+          </div>
+        </section>
+
+        {/* Logo Carousel */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="info">
+              Social Proof
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Trusted by Leading Companies
+            </h2>
+            <p className="text-gray-400">
+              Join hundreds of companies automating with Kariz
+            </p>
+          </div>
+          <LogoCloudCarousel
+            logos={companies}
+            speed={25}
+            direction="left"
+          />
+        </section>
+
+        {/* Pricing Table */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <AnimatedBadge variant="gradient">
+              Pricing
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Compare Plans Side by Side
+            </h2>
+            <p className="text-gray-400">
+              Choose the perfect plan for your team
+            </p>
+          </div>
+          <PricingComparisonTable
+            features={[
+              { name: "Monthly Executions", starter: "500", professional: "10,000", enterprise: "Unlimited" },
+              { name: "Custom Connectors", starter: false, professional: true, enterprise: true },
+              { name: "User Management", starter: false, professional: true, enterprise: true },
+              { name: "AI Agents", starter: false, professional: "5", enterprise: "Unlimited" },
+              { name: "Priority Support", starter: false, professional: true, enterprise: true },
+              { name: "SLA Guarantee", starter: false, professional: false, enterprise: true },
+              { name: "Dedicated Account Manager", starter: false, professional: false, enterprise: true },
+            ]}
+          />
+        </section>
+
+        {/* CTA Section */}
+        <CTAWithRays
+          title="Ready to Transform Your Workflows?"
+          description="Join 500+ teams already automating their processes with Kariz. Get started for free, no credit card required."
+          primaryCTA={{ text: "Start Free Trial", href: "https://app.trykariz.com" }}
+          secondaryCTA={{ text: "Book a Demo", href: "https://cal.com/kariz-pepijn/meeting" }}
+          className="mb-20"
+        />
+
         {/* Status */}
         <section className="rounded-2xl border border-green-500/30 bg-green-900/20 p-8">
-          <h2 className="mb-4 text-2xl font-bold text-white">✅ 26 Premium Components Ready</h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <h2 className="mb-4 text-2xl font-bold text-white">✅ 36 Premium Components Ready</h2>
+          <div className="grid gap-4 md:grid-cols-4">
             <div className="space-y-2">
               <h3 className="text-white font-semibold mb-3">Interactive</h3>
               <StatusItem label="Interactive Buttons" status="working" />
@@ -890,6 +1114,7 @@ export default function MagicUIDemoPage() {
               <StatusItem label="Expandable Card" status="working" />
               <StatusItem label="Animated Tabs" status="working" />
               <StatusItem label="Toast Notifications" status="working" />
+              <StatusItem label="Comparison Slider" status="working" />
             </div>
             <div className="space-y-2">
               <h3 className="text-white font-semibold mb-3">Animations</h3>
@@ -897,21 +1122,31 @@ export default function MagicUIDemoPage() {
               <StatusItem label="Flip Words" status="working" />
               <StatusItem label="Progress Rings" status="working" />
               <StatusItem label="Animated Timeline" status="working" />
-              <StatusItem label="Animated Counter" status="working" />
+              <StatusItem label="Scroll Number Counter" status="working" />
               <StatusItem label="Animated Badges" status="working" />
               <StatusItem label="Marquee / Infinite Scroll" status="working" />
+              <StatusItem label="Logo Cloud Carousel" status="working" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-white font-semibold mb-3">Backgrounds & Layout</h3>
+              <h3 className="text-white font-semibold mb-3">Backgrounds & Hero</h3>
               <StatusItem label="Sparkle Effect" status="working" />
               <StatusItem label="Background Beams" status="working" />
               <StatusItem label="Particle Effect" status="working" />
               <StatusItem label="Wave Animation" status="working" />
+              <StatusItem label="Spotlight Hero" status="working" />
+              <StatusItem label="Animated Grid Pattern" status="working" />
+              <StatusItem label="Scroll Progress" status="working" />
+              <StatusItem label="CTA with Rays" status="working" />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-white font-semibold mb-3">Layouts & Content</h3>
               <StatusItem label="Bento Grid Layout" status="working" />
-              <StatusItem label="Pricing Section" status="working" />
+              <StatusItem label="Pricing Comparison" status="working" />
               <StatusItem label="Feature Cards" status="working" />
+              <StatusItem label="Feature Spotlight Card" status="working" />
               <StatusItem label="Testimonial Cards" status="working" />
               <StatusItem label="User Management Graphics" status="working" />
+              <StatusItem label="Terminal Code Block" status="working" />
             </div>
           </div>
         </section>

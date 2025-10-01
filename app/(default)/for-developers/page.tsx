@@ -4,16 +4,18 @@ export const metadata = {
 };
 
 import DeveloperHero from "@/components/developer-hero";
+import AIAgentsFeature from "@/components/ai-agents-feature";
 import FeaturesNew from "@/components/features-new";
-import PricingNew from "@/components/pricing-new";
+import PricingTeaser from "@/components/pricing-teaser";
 import Cta from "@/components/cta";
 
 export default function ForDevelopersPage() {
   return (
     <>
       <DeveloperHero />
+      <AIAgentsFeature />
       <FeaturesNew />
-      <PricingNew />
+      <PricingTeaser />
       <Cta />
     </>
   );

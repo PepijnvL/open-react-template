@@ -67,10 +67,10 @@ export default function DirectionAwareCard({
   };
 
   const overlayVariants = {
-    top: { y: isHovering ? 0 : -100 },
-    right: { x: isHovering ? 0 : 100 },
-    bottom: { y: isHovering ? 0 : 100 },
-    left: { x: isHovering ? 0 : -100 },
+    top: { x: 0, y: isHovering ? 0 : -100 },
+    right: { x: isHovering ? 0 : 100, y: 0 },
+    bottom: { x: 0, y: isHovering ? 0 : 100 },
+    left: { x: isHovering ? 0 : -100, y: 0 },
   };
 
   return (

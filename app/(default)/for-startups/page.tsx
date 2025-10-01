@@ -5,8 +5,9 @@ export const metadata = {
 
 import StartupsHero from "@/components/startups-hero";
 import UserManagementExplainer from "@/components/user-management-explainer";
+import AIAgentsFeature from "@/components/ai-agents-feature";
 import FeaturesNew from "@/components/features-new";
-import PricingNew from "@/components/pricing-new";
+import PricingTeaser from "@/components/pricing-teaser";
 import Cta from "@/components/cta";
 
 export default function ForStartupsPage() {
@@ -14,8 +15,9 @@ export default function ForStartupsPage() {
     <>
       <StartupsHero />
       <UserManagementExplainer />
+      <AIAgentsFeature />
       <FeaturesNew />
-      <PricingNew />
+      <PricingTeaser />
       <Cta />
     </>
   );

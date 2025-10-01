@@ -67,7 +67,12 @@ export default function BackgroundBeams({
       </div>
 
       {/* Radial gradient overlay for better depth */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-slate-950/50" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(circle, transparent 0%, transparent 50%, rgba(2, 6, 23, 0.5) 100%)"
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10">{children}</div>

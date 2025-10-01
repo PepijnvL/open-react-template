@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface GlowingCardProps {
@@ -18,6 +18,7 @@ export default function GlowingCard({
   glowSize = 200,
 }: GlowingCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -38,13 +39,20 @@ export default function GlowingCard({
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
 
+    // For rotation
     x.set(mouseX / (rect.width / 2));
     y.set(mouseY / (rect.height / 2));
+
+    // For gradient position
+    const localX = e.clientX - rect.left;
+    const localY = e.clientY - rect.top;
+    setMousePosition({ x: localX, y: localY });
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    setMousePosition({ x: 0, y: 0 });
   };
 
   return (
@@ -82,10 +90,10 @@ export default function GlowingCard({
       />
 
       {/* Moving gradient overlay */}
-      <motion.div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: `radial-gradient(${glowSize}px circle at ${mouseXSpring}px ${mouseYSpring}px, ${glowColor}, transparent 80%)`,
+          background: `radial-gradient(${glowSize}px circle at ${mousePosition.x}px ${mousePosition.y}px, ${glowColor}, transparent 80%)`,
         }}
       />
 

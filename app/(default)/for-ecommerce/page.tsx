@@ -1,23 +1,23 @@
 export const metadata = {
-  title: "E-commerce Multi-Store Automation | Sync Shopify, Amazon, WooCommerce",
-  description: "Automate inventory sync, order management, and customer data across all your e-commerce stores. Real-time sync for Shopify, Amazon, WooCommerce, and Bol.com.",
+  title: "E-commerce Integration Platform for SaaS | Shopify, Amazon, WooCommerce",
+  description: "Build e-commerce integrations your customers manage. Stop rebuilding Shopify, Amazon, WooCommerce integrations for every customer. Built-in user management.",
 };
 
 import PageIllustration from "@/components/page-illustration";
-import EcommerceHero from "@/components/ecommerce-hero";
-import EcommerceProblems from "@/components/ecommerce-problems";
-import EcommerceSolution from "@/components/ecommerce-solution";
-import PricingNew from "@/components/pricing-new";
+import EcommerceSaasHero from "@/components/ecommerce-saas-hero";
+import UserManagementFeature from "@/components/user-management-feature";
+import EcommerceUseCases from "@/components/ecommerce-use-cases";
+import PricingTeaser from "@/components/pricing-teaser";
 import Cta from "@/components/cta";
 
 export default function ForEcommerce() {
   return (
     <>
       <PageIllustration />
-      <EcommerceHero />
-      <EcommerceProblems />
-      <EcommerceSolution />
-      <PricingNew />
+      <EcommerceSaasHero />
+      <UserManagementFeature />
+      <EcommerceUseCases />
+      <PricingTeaser />
       <Cta />
     </>
   );

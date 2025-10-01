@@ -28,6 +28,9 @@ export default function TextGenerateEffect({
   useEffect(() => {
     if (!isInView) return;
 
+    // Reset displayed words when words change
+    setDisplayedWords([]);
+
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex <= wordsArray.length) {
@@ -39,7 +42,8 @@ export default function TextGenerateEffect({
     }, duration * 100);
 
     return () => clearInterval(interval);
-  }, [isInView, wordsArray.length, duration]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInView, words, duration]);
 
   const variants = {
     fade: {
