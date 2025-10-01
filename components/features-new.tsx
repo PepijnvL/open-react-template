@@ -162,21 +162,30 @@ export default function FeaturesNew() {
               </div>
             </BentoCard>
 
-            {/* Guided Onboarding (USP #4) */}
+            {/* Guided Onboarding */}
             <BentoCard variant="subtle">
               <div className="flex h-full flex-col justify-between">
                 <div>
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-lg bg-cyan-500/20 px-3 py-1.5">
-                    <svg className="h-4 w-4 fill-cyan-400" viewBox="0 0 16 16">
-                      <path d="M8 0L0 6v4c0 5.5 3.5 7.5 8 8 4.5-.5 8-2.5 8-8V6L8 0zm0 2.3L14 6.5v3.4c0 4-2.5 5.5-6 6-3.5-.5-6-2-6-6V6.5l6-4.2z"/>
+                  <div className="mb-3 inline-block rounded-lg bg-cyan-500/20 p-3">
+                    <svg
+                      className="h-6 w-6 text-cyan-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
                     </svg>
-                    <span className="text-sm font-medium text-cyan-300">USP #4</span>
                   </div>
                   <h3 className="mb-2 text-lg font-bold text-white">
-                    Expert Onboarding
+                    Expert Support
                   </h3>
                   <p className="text-sm text-gray-400">
-                    $249/month for dedicated help. What agencies charge $10k for.
+                    Dedicated onboarding and ongoing help to get you up and running fast.
                   </p>
                 </div>
               </div>

@@ -7,6 +7,10 @@ import { RollingNumber } from "@/components/animated-counter";
 import AnimatedButton from "@/components/animated-button";
 import ShimmerButton from "@/components/shimmer-button";
 import TestimonialCard from "@/components/testimonial-card";
+import InteractiveButton from "@/components/interactive-button";
+import FeatureCard from "@/components/feature-card";
+import AnimatedBadge from "@/components/animated-badge";
+import UserManagementGraphic from "@/components/user-management-graphic";
 import Image from "next/image";
 
 export default function MagicUIDemoPage() {
@@ -268,21 +272,38 @@ export default function MagicUIDemoPage() {
         {/* Buttons Section */}
         <section className="mb-20">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white">
-              Beautiful Animated Buttons
+            <AnimatedBadge variant="gradient" icon={<div className="h-2 w-2 rounded-full bg-purple-400" />}>
+              Premium Components
+            </AnimatedBadge>
+            <h2 className="mt-6 mb-4 text-3xl font-bold text-white">
+              Interactive Button Collection
             </h2>
             <p className="text-gray-400">
-              Modern button components with stunning hover effects and animations
+              Premium button components with advanced animations and interactions
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <AnimatedButton variant="default">Default Gradient</AnimatedButton>
-            <AnimatedButton variant="shine">Shine Effect</AnimatedButton>
-            <AnimatedButton variant="gradient">Animated Gradient</AnimatedButton>
-            <AnimatedButton variant="glow">Glow Effect</AnimatedButton>
-            <AnimatedButton variant="border">Border Transform</AnimatedButton>
-            <AnimatedButton variant="hoverBorder">Hover Border</AnimatedButton>
-            <ShimmerButton>Shimmer Magic</ShimmerButton>
+
+          <div className="mb-12">
+            <h3 className="mb-6 text-xl font-semibold text-white text-center">Interactive Variants</h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              <InteractiveButton variant="default">Default Effect</InteractiveButton>
+              <InteractiveButton variant="rainbow">Rainbow Gradient</InteractiveButton>
+              <InteractiveButton variant="ripple">Ripple Effect</InteractiveButton>
+              <InteractiveButton variant="magnetic">Magnetic Button</InteractiveButton>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-6 text-xl font-semibold text-white text-center">Classic Variants</h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              <AnimatedButton variant="default">Default Gradient</AnimatedButton>
+              <AnimatedButton variant="shine">Shine Effect</AnimatedButton>
+              <AnimatedButton variant="gradient">Animated Gradient</AnimatedButton>
+              <AnimatedButton variant="glow">Glow Effect</AnimatedButton>
+              <AnimatedButton variant="border">Border Transform</AnimatedButton>
+              <AnimatedButton variant="hoverBorder">Hover Border</AnimatedButton>
+              <ShimmerButton>Shimmer Magic</ShimmerButton>
+            </div>
           </div>
         </section>
 
@@ -321,22 +342,110 @@ export default function MagicUIDemoPage() {
           </div>
         </section>
 
+        {/* Feature Cards Section */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              User Management Features
+            </h2>
+            <p className="text-gray-400">
+              Powerful tools to manage your team and control access
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+            <FeatureCard
+              icon={
+                <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              }
+              title="Team Management"
+              description="Easily add, remove, and organize team members. Assign roles and permissions with intuitive controls."
+              delay={0}
+            />
+            <FeatureCard
+              icon={
+                <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              }
+              title="Access Control"
+              description="Granular permission system to control what each user can see and do across your platform."
+              delay={0.1}
+            />
+            <FeatureCard
+              icon={
+                <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              }
+              title="Activity Tracking"
+              description="Monitor user activity and track changes across your workspace with detailed audit logs."
+              delay={0.2}
+            />
+          </div>
+
+          {/* User Management Graphics */}
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-sm">
+              <UserManagementGraphic variant="dashboard" />
+              <p className="mt-4 text-center text-sm text-gray-400">Dashboard View</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-sm">
+              <UserManagementGraphic variant="team" />
+              <p className="mt-4 text-center text-sm text-gray-400">Team Collaboration</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4 backdrop-blur-sm">
+              <UserManagementGraphic variant="permissions" />
+              <p className="mt-4 text-center text-sm text-gray-400">Permission Matrix</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Badge Collection */}
+        <section className="mb-20">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              Animated Badges
+            </h2>
+            <p className="text-gray-400">
+              Status indicators and labels with smooth animations
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <AnimatedBadge variant="default">Default</AnimatedBadge>
+            <AnimatedBadge variant="success" icon={<div className="h-2 w-2 rounded-full bg-emerald-400" />}>
+              Active
+            </AnimatedBadge>
+            <AnimatedBadge variant="warning" icon={<div className="h-2 w-2 rounded-full bg-amber-400" />}>
+              Pending
+            </AnimatedBadge>
+            <AnimatedBadge variant="info" pulse icon={<div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />}>
+              Live
+            </AnimatedBadge>
+            <AnimatedBadge variant="gradient">Premium</AnimatedBadge>
+          </div>
+        </section>
+
         {/* Status */}
         <section className="rounded-2xl border border-green-500/30 bg-green-900/20 p-8">
           <h2 className="mb-4 text-2xl font-bold text-white">✅ Components Ready</h2>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2">
+              <StatusItem label="Interactive Buttons" status="working" />
+              <StatusItem label="Feature Cards" status="working" />
+              <StatusItem label="Animated Badges" status="working" />
+              <StatusItem label="User Management Graphics" status="working" />
               <StatusItem label="Marquee / Infinite Scroll" status="working" />
               <StatusItem label="Pricing Section with Toggle" status="working" />
-              <StatusItem label="Bento Grid Layout" status="working" />
-              <StatusItem label="Glass Card Variants" status="working" />
-              <StatusItem label="Animated Buttons" status="working" />
             </div>
             <div className="space-y-2">
+              <StatusItem label="Bento Grid Layout" status="working" />
+              <StatusItem label="Glass Card Variants" status="working" />
               <StatusItem label="Animated Counter" status="working" />
               <StatusItem label="Orbiting Icons" status="working" />
               <StatusItem label="Workflow Nodes" status="working" />
-              <StatusItem label="Binary Matrix" status="working" />
               <StatusItem label="Testimonial Cards" status="working" />
             </div>
           </div>
