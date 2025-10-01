@@ -4,7 +4,7 @@ export const metadata = {
 };
 
 import PageIllustration from "@/components/page-illustration";
-import Pricing from "@/components/pricing";
+import PricingNew from "@/components/pricing-new";
 import Cta from "@/components/cta";
 
 export default function PricingPage() {
@@ -12,7 +12,7 @@ export default function PricingPage() {
     <>
       <PageIllustration />
       <div className="pt-16 md:pt-24">
-        <Pricing />
+        <PricingNew />
       </div>
       <Cta />
     </>
