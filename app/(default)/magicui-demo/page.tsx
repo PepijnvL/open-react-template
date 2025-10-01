@@ -267,36 +267,52 @@ export default function MagicUIDemoPage() {
 
         {/* Buttons Section */}
         <section className="mb-20">
-          <h2 className="mb-6 text-2xl font-bold text-white">Animated Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <AnimatedButton variant="default">Default Button</AnimatedButton>
-            <AnimatedButton variant="shine">Shine Button</AnimatedButton>
-            <AnimatedButton variant="gradient">Gradient Button</AnimatedButton>
-            <AnimatedButton variant="glow">Glow Button</AnimatedButton>
-            <ShimmerButton>Shimmer Button</ShimmerButton>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              Beautiful Animated Buttons
+            </h2>
+            <p className="text-gray-400">
+              Modern button components with stunning hover effects and animations
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-6">
+            <AnimatedButton variant="default">Default Gradient</AnimatedButton>
+            <AnimatedButton variant="shine">Shine Effect</AnimatedButton>
+            <AnimatedButton variant="gradient">Animated Gradient</AnimatedButton>
+            <AnimatedButton variant="glow">Glow Effect</AnimatedButton>
+            <AnimatedButton variant="border">Border Transform</AnimatedButton>
+            <AnimatedButton variant="hoverBorder">Hover Border</AnimatedButton>
+            <ShimmerButton>Shimmer Magic</ShimmerButton>
           </div>
         </section>
 
         {/* Testimonials Section */}
         <section className="mb-20">
-          <h2 className="mb-6 text-2xl font-bold text-white">Testimonials</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-white">
+              What Our Customers Say
+            </h2>
+            <p className="text-gray-400">
+              Real feedback from teams using our platform to automate their workflows
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <TestimonialCard
-              quote="Kariz transformed our integration process. We went from weeks to days building customer-facing integrations."
+              quote="Kariz transformed our integration process. We went from weeks to days building customer-facing integrations. The visual workflow builder is incredibly intuitive and powerful."
               author="Sarah Chen"
               role="CTO"
               company="TechFlow"
               rating={5}
             />
             <TestimonialCard
-              quote="The visual workflow builder is incredibly intuitive. Our team was up and running in hours, not days."
+              quote="The visual workflow builder is incredibly intuitive. Our team was up and running in hours, not days. The custom connectors saved us months of development time."
               author="Michael Rodriguez"
               role="VP of Engineering"
               company="DataSync Pro"
               rating={5}
             />
             <TestimonialCard
-              quote="Best automation platform we've used. The custom connectors feature is a game-changer for our business."
+              quote="Best automation platform we've used. The custom connectors feature is a game-changer for our business. We've automated 80% of our manual processes."
               author="Emily Watson"
               role="Product Manager"
               company="CloudBase"

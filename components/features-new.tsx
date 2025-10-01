@@ -26,17 +26,17 @@ export default function FeaturesNew() {
               </span>
             </div>
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Everything you need to automate
+              Everything you need to automate at scale
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Build sophisticated AI workflows with our intuitive drag-and-drop interface.
-              No coding required—just connect, configure, and automate.
+              From drag-and-drop workflow building to enterprise-grade user management.
+              Built for teams that need speed, reliability, and customer-facing capabilities.
             </p>
           </div>
 
           {/* Bento Grid Features */}
           <BentoGrid>
-            {/* Large card - Workflow Builder */}
+            {/* Large card - Performance */}
             <BentoCard colSpan={2} rowSpan={2} variant="vibrant">
               <div className="flex h-full flex-col">
                 <div className="mb-4">
@@ -51,87 +51,46 @@ export default function FeaturesNew() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
                       />
                     </svg>
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-white">
-                    Drag & Drop Builder
+                    10x Faster Execution
                   </h3>
                   <p className="text-gray-400">
-                    Create complex workflows visually with our intuitive interface.
-                    No coding required—build automation flows in minutes.
+                    Built for production workloads. Process thousands of workflows simultaneously
+                    with enterprise-grade infrastructure. What takes minutes elsewhere, takes seconds here.
                   </p>
                 </div>
                 <div className="mt-auto">
                   <div className="rounded-lg border border-gray-800/50 bg-gray-900/50 p-4">
-                    <div className="mb-2 flex items-center gap-2 text-sm text-gray-400">
-                      <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                      Active Workflows
+                    <div className="mb-4 text-sm text-gray-400">
+                      Average execution time
                     </div>
-                    <div className="text-4xl font-bold text-white">
-                      <RollingNumber value={1234} duration={2000} separator />
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-xs text-gray-500 mb-1">Others</div>
+                        <div className="text-2xl font-bold text-red-400">2.5s</div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-500 mb-1">Kariz</div>
+                        <div className="text-2xl font-bold text-green-400">0.25s</div>
+                      </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-gray-800">
+                      <div className="text-xs text-indigo-400 font-semibold">→ 10x faster for production workflows</div>
                     </div>
                   </div>
                 </div>
               </div>
             </BentoCard>
 
-            {/* AI-Powered */}
+            {/* Custom Connectors */}
             <BentoCard>
               <div className="mb-3 inline-block rounded-lg bg-purple-500/20 p-3">
                 <svg
                   className="h-6 w-6 text-purple-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-white">
-                AI-Powered
-              </h3>
-              <p className="text-sm text-gray-400">
-                Leverage advanced AI models to automate complex tasks intelligently.
-              </p>
-            </BentoCard>
-
-            {/* Real-time Monitoring */}
-            <BentoCard>
-              <div className="mb-3 inline-block rounded-lg bg-blue-500/20 p-3">
-                <svg
-                  className="h-6 w-6 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-white">
-                Real-time Monitoring
-              </h3>
-              <p className="text-sm text-gray-400">
-                Track workflows with detailed analytics and logs.
-              </p>
-            </BentoCard>
-
-            {/* Custom Connectors with logos */}
-            <BentoCard colSpan={2}>
-              <div className="mb-3 inline-block rounded-lg bg-emerald-500/20 p-3">
-                <svg
-                  className="h-6 w-6 text-emerald-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -147,8 +106,43 @@ export default function FeaturesNew() {
               <h3 className="mb-2 text-lg font-bold text-white">
                 Custom Connectors
               </h3>
+              <p className="text-sm text-gray-400">
+                Build API connectors visually in minutes. No code, no deployment needed.
+              </p>
+            </BentoCard>
+
+            {/* Free Tier */}
+            <BentoCard>
+              <div className="mb-3 inline-block rounded-lg bg-emerald-500/20 p-3">
+                <svg
+                  className="h-6 w-6 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-white">
+                Generous Free Tier
+              </h3>
+              <p className="text-sm text-gray-400">
+                500 executions/month free forever. No credit card required.
+              </p>
+            </BentoCard>
+
+            {/* Integration showcase with logos */}
+            <BentoCard colSpan={2}>
+              <h3 className="mb-2 text-lg font-bold text-white">
+                50+ Integrations (and growing)
+              </h3>
               <p className="mb-4 text-sm text-gray-400">
-                Build custom connectors in minutes. Connect to any API without coding.
+                Connect to popular apps instantly. Or build custom connectors for any API in minutes.
               </p>
               <div className="grid grid-cols-6 gap-3">
                 {integrationLogos.map((integration) => (
@@ -168,30 +162,23 @@ export default function FeaturesNew() {
               </div>
             </BentoCard>
 
-            {/* Performance stat */}
+            {/* Guided Onboarding (USP #4) */}
             <BentoCard variant="subtle">
               <div className="flex h-full flex-col justify-between">
                 <div>
-                  <div className="mb-2 inline-block rounded-lg bg-orange-500/20 p-2">
-                    <svg
-                      className="h-6 w-6 text-orange-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-lg bg-cyan-500/20 px-3 py-1.5">
+                    <svg className="h-4 w-4 fill-cyan-400" viewBox="0 0 16 16">
+                      <path d="M8 0L0 6v4c0 5.5 3.5 7.5 8 8 4.5-.5 8-2.5 8-8V6L8 0zm0 2.3L14 6.5v3.4c0 4-2.5 5.5-6 6-3.5-.5-6-2-6-6V6.5l6-4.2z"/>
                     </svg>
+                    <span className="text-sm font-medium text-cyan-300">USP #4</span>
                   </div>
-                  <h3 className="text-sm font-medium text-gray-400">
-                    5-10x Faster
+                  <h3 className="mb-2 text-lg font-bold text-white">
+                    Expert Onboarding
                   </h3>
+                  <p className="text-sm text-gray-400">
+                    $249/month for dedicated help. What agencies charge $10k for.
+                  </p>
                 </div>
-                <p className="text-2xl font-bold text-white">than n8n</p>
               </div>
             </BentoCard>
           </BentoGrid>

@@ -12,11 +12,11 @@ export default function HeroHome() {
           <div className="pb-12 text-center md:pb-16 lg:pb-20">
             {/* Badge */}
             <div className="mb-6" data-aos="fade-up">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
-                <svg className="h-4 w-4 fill-emerald-400" viewBox="0 0 16 16">
-                  <path d="M8 0L3 3v6l5 3 5-3V3L8 0zm0 2l3 1.7v4.6L8 10l-3-1.7V3.7L8 2z"/>
+              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
+                <svg className="h-4 w-4 fill-indigo-400" viewBox="0 0 16 16">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="currentColor"/>
                 </svg>
-                5-10x faster than n8n
+                10x faster execution
               </div>
             </div>
 
@@ -28,7 +28,7 @@ export default function HeroHome() {
               The automation platform
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                that's actually free
+                built for production workflows
               </span>
             </h1>
 
@@ -38,8 +38,8 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                500 free executions. Custom connectors. User management for customer-facing integrations.
-                5-10x faster than n8n. No credit card required.
+                Enterprise-grade performance meets intuitive design. Built-in user management lets your customers
+                manage their own integrations. Custom connectors, 500 free executions, and blazing-fast execution for production workloads.
               </p>
 
               {/* Audience navigation */}
@@ -81,22 +81,22 @@ export default function HeroHome() {
               {/* Trust elements */}
               <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={500}>
                 <div className="flex items-center gap-2">
-                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                  <svg className="h-4 w-4 fill-indigo-500" viewBox="0 0 16 16">
                     <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
                   </svg>
-                  <span>500 executions free</span>
+                  <span>500 executions/month free</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                  <svg className="h-4 w-4 fill-indigo-500" viewBox="0 0 16 16">
                     <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
                   </svg>
                   <span>No credit card required</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                  <svg className="h-4 w-4 fill-indigo-500" viewBox="0 0 16 16">
                     <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
                   </svg>
-                  <span>5-10x faster</span>
+                  <span>Trusted by 500+ teams</span>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Kariz - Customer-Facing Integration Platform | 5-10x Faster Than n8n",
-  description: "Build powerful integrations your customers can manage themselves. Free tier, custom connectors, and user management built-in. 5-10x faster than n8n.",
+  title: "Kariz - Customer-Facing Integration Platform | Build Integrations Your Customers Manage",
+  description: "Stop being the integration middleman. Built-in user management, custom connectors, and 500 free executions. What Paragon charges $50k for, you can build for $49/month.",
 };
 
 import PageIllustration from "@/components/page-illustration";

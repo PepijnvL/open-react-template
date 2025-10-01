@@ -29,52 +29,76 @@ import {
   MessageSquare,
   X,
   Loader2,
+  Zap,
+  ShoppingCart,
+  Globe,
+  Code,
+  Webhook,
 } from "lucide-react";
 
 import "@xyflow/react/dist/style.css";
 
-// Custom Node Component (n8n-style)
+// Enhanced Custom Node Component
 function CustomNode({ data, selected }: NodeProps) {
   const Icon = data.icon || FileText;
-  const nodeColor = data.color || "#FF6D5A";
+  const nodeColor = data.color || "#6366f1";
 
   return (
     <div
-      className={`relative min-w-[200px] rounded-lg bg-[#1a1a1a] shadow-xl transition-all duration-200 ${
-        selected ? "ring-2 ring-[#FF6D5A] ring-offset-2 ring-offset-[#0f0f0f]" : ""
+      className={`group relative min-w-[220px] rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] shadow-2xl transition-all duration-300 ${
+        selected
+          ? "scale-105 ring-2 ring-offset-2 ring-offset-[#0f0f0f]"
+          : "hover:scale-102"
       }`}
       style={{
         border: `2px solid ${selected ? nodeColor : "#2a2a2a"}`,
+        boxShadow: selected
+          ? `0 20px 40px -12px ${nodeColor}40, 0 0 0 2px ${nodeColor}`
+          : "0 10px 30px -10px rgba(0,0,0,0.5)",
+        ringColor: nodeColor,
       }}
     >
       {/* Connection Handles */}
       <Handle
         type="target"
         position={Position.Top}
-        className="!h-3 !w-3 !border-2 !border-gray-600 !bg-gray-800"
-        style={{ top: -6 }}
+        className="!h-3 !w-3 !rounded-full !border-2 !transition-all"
+        style={{
+          top: -6,
+          borderColor: nodeColor,
+          backgroundColor: "#1a1a1a",
+        }}
+      />
+
+      {/* Glow effect on hover */}
+      <div
+        className="absolute inset-0 rounded-xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20"
+        style={{ backgroundColor: nodeColor }}
       />
 
       {/* Node Content */}
-      <div className="flex items-center gap-3 p-3">
-        {/* Icon */}
+      <div className="relative flex items-center gap-4 p-4">
+        {/* Icon with gradient background */}
         <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md"
-          style={{ backgroundColor: `${nodeColor}20` }}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg shadow-lg"
+          style={{
+            background: `linear-gradient(135deg, ${nodeColor}30 0%, ${nodeColor}10 100%)`,
+            boxShadow: `0 4px 12px ${nodeColor}20`
+          }}
         >
           <Icon
-            className="h-5 w-5"
+            className="h-6 w-6"
             style={{ color: nodeColor }}
           />
         </div>
 
         {/* Content */}
-        <div className="flex-1">
-          <div className="text-sm font-semibold text-white">
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-semibold text-white mb-1">
             {data.label}
           </div>
           {data.description && (
-            <div className="mt-0.5 text-xs text-gray-500">
+            <div className="text-xs text-gray-400 leading-relaxed">
               {data.description}
             </div>
           )}
@@ -83,24 +107,24 @@ function CustomNode({ data, selected }: NodeProps) {
         {/* Status Badge */}
         {data.status && (
           <div
-            className="h-2 w-2 rounded-full"
-            style={{ backgroundColor: nodeColor }}
+            className="h-2.5 w-2.5 rounded-full animate-pulse"
+            style={{
+              backgroundColor: nodeColor,
+              boxShadow: `0 0 8px ${nodeColor}80`
+            }}
           />
         )}
       </div>
 
-      {/* Execution Count Badge */}
-      {data.executions && (
-        <div className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6D5A] text-[10px] font-bold text-white shadow-lg">
-          {data.executions}
-        </div>
-      )}
-
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!h-3 !w-3 !border-2 !border-gray-600 !bg-gray-800"
-        style={{ bottom: -6 }}
+        className="!h-3 !w-3 !rounded-full !border-2 !transition-all"
+        style={{
+          bottom: -6,
+          borderColor: nodeColor,
+          backgroundColor: "#1a1a1a",
+        }}
       />
     </div>
   );
@@ -110,16 +134,16 @@ const nodeTypes = {
   custom: CustomNode,
 };
 
-// Initial nodes - simplified to 5 nodes
+// Enhanced nodes with better icons and colors
 const initialNodes: Node[] = [
   {
     id: "1",
     type: "custom",
     data: {
-      label: "Webhook Trigger",
+      label: "Shopify Webhook",
       description: "New order received",
-      icon: Play,
-      color: "#7B68EE",
+      icon: ShoppingCart,
+      color: "#96BF48",
       status: "active",
     },
     position: { x: 250, y: 50 },
@@ -128,13 +152,13 @@ const initialNodes: Node[] = [
     id: "2",
     type: "custom",
     data: {
-      label: "Process Data",
-      description: "Extract order details",
-      icon: Filter,
-      color: "#10B981",
+      label: "Process Order",
+      description: "Extract & validate data",
+      icon: Zap,
+      color: "#F59E0B",
       status: "active",
     },
-    position: { x: 250, y: 180 },
+    position: { x: 250, y: 200 },
   },
   {
     id: "3",
@@ -146,42 +170,46 @@ const initialNodes: Node[] = [
       color: "#EA4335",
       status: "active",
     },
-    position: { x: 100, y: 310 },
+    position: { x: 100, y: 350 },
   },
   {
     id: "4",
     type: "custom",
     data: {
-      label: "Update Database",
-      description: "Store order info",
+      label: "PostgreSQL",
+      description: "Store order data",
       icon: Database,
       color: "#336791",
       status: "active",
     },
-    position: { x: 400, y: 310 },
+    position: { x: 400, y: 350 },
   },
   {
     id: "5",
     type: "custom",
     data: {
-      label: "Slack Notification",
-      description: "Alert team",
+      label: "Slack Alert",
+      description: "Notify sales team",
       icon: Send,
       color: "#4A154B",
       status: "active",
     },
-    position: { x: 250, y: 440 },
+    position: { x: 250, y: 500 },
   },
 ];
 
-// Simplified edges
+// Enhanced edges with better styling
 const initialEdges: Edge[] = [
   {
     id: "e1-2",
     source: "1",
     target: "2",
     animated: true,
-    style: { stroke: "#7B68EE", strokeWidth: 2 },
+    style: {
+      stroke: "#96BF48",
+      strokeWidth: 3,
+      strokeLinecap: "round" as const,
+    },
     type: "smoothstep",
   },
   {
@@ -189,7 +217,11 @@ const initialEdges: Edge[] = [
     source: "2",
     target: "3",
     animated: true,
-    style: { stroke: "#10B981", strokeWidth: 2 },
+    style: {
+      stroke: "#F59E0B",
+      strokeWidth: 3,
+      strokeLinecap: "round" as const,
+    },
     type: "smoothstep",
   },
   {
@@ -197,7 +229,11 @@ const initialEdges: Edge[] = [
     source: "2",
     target: "4",
     animated: true,
-    style: { stroke: "#10B981", strokeWidth: 2 },
+    style: {
+      stroke: "#F59E0B",
+      strokeWidth: 3,
+      strokeLinecap: "round" as const,
+    },
     type: "smoothstep",
   },
   {
@@ -205,7 +241,11 @@ const initialEdges: Edge[] = [
     source: "3",
     target: "5",
     animated: true,
-    style: { stroke: "#EA4335", strokeWidth: 2 },
+    style: {
+      stroke: "#EA4335",
+      strokeWidth: 3,
+      strokeLinecap: "round" as const,
+    },
     type: "smoothstep",
   },
   {
@@ -213,7 +253,11 @@ const initialEdges: Edge[] = [
     source: "4",
     target: "5",
     animated: true,
-    style: { stroke: "#336791", strokeWidth: 2 },
+    style: {
+      stroke: "#336791",
+      strokeWidth: 3,
+      strokeLinecap: "round" as const,
+    },
     type: "smoothstep",
   },
 ];
@@ -399,22 +443,24 @@ export default function ReactFlowDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 p-8">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-white">AI Workflow Builder Demo</h1>
-          <p className="mt-2 text-gray-400">
-            Describe your workflow and watch it come to life
+        {/* Header with enhanced typography */}
+        <div className="mb-8">
+          <h1 className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-4xl font-bold text-transparent">
+            AI Workflow Builder
+          </h1>
+          <p className="mt-3 text-lg text-gray-400">
+            Describe your workflow and watch it materialize in real-time
           </p>
         </div>
 
-        {/* Boxed Container */}
-        <div className="overflow-hidden rounded-2xl border border-gray-800 bg-[#0f0f0f] shadow-2xl">
+        {/* Enhanced Boxed Container */}
+        <div className="overflow-hidden rounded-3xl border border-gray-800/50 bg-gradient-to-br from-[#0f0f0f] to-[#000000] shadow-[0_20px_70px_-15px_rgba(0,0,0,0.8)] backdrop-blur-xl">
           {/* React Flow + Chat Grid */}
-          <div className="grid h-[700px] grid-cols-3 gap-0">
+          <div className="grid h-[750px] grid-cols-3 gap-0">
             {/* React Flow Section (Left 2/3) */}
-            <div className="col-span-2 border-r border-gray-800">
+            <div className="col-span-2 border-r border-gray-800/50">
               <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -423,51 +469,53 @@ export default function ReactFlowDemo() {
                 onConnect={onConnect}
                 nodeTypes={nodeTypes}
                 fitView
-                attributionPosition="bottom-right"
+                proOptions={{ hideAttribution: true }}
                 className="bg-[#0f0f0f]"
                 defaultEdgeOptions={{
                   animated: true,
-                  style: { strokeWidth: 2 },
+                  style: { strokeWidth: 3 },
                 }}
               >
-                <Controls className="!left-4 !bottom-4 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] shadow-xl" />
+                <Controls className="!left-6 !bottom-6 rounded-xl border border-gray-700/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] shadow-2xl backdrop-blur-xl" />
                 <Background
                   variant={BackgroundVariant.Dots}
-                  gap={20}
-                  size={1}
-                  color="#2a2a2a"
+                  gap={24}
+                  size={1.5}
+                  color="#333333"
                   className="bg-[#0f0f0f]"
                 />
               </ReactFlow>
             </div>
 
-            {/* Chat Interface Section (Right 1/3) */}
-            <div className="col-span-1 flex flex-col bg-[#0f0f0f]">
-              {/* Chat Header */}
-              <div className="border-b border-gray-800 p-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#FF6D5A] to-[#ff5842]">
-                    <Sparkles className="h-5 w-5 text-white" />
+            {/* Chat Interface Section (Right 1/3) - Enhanced */}
+            <div className="col-span-1 flex flex-col bg-gradient-to-b from-[#0f0f0f] to-[#000000]">
+              {/* Chat Header - Enhanced */}
+              <div className="border-b border-gray-800/50 bg-gradient-to-r from-[#1a1a1a]/50 to-transparent p-5">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF6D5A] to-[#ff5842] shadow-lg shadow-[#FF6D5A]/20">
+                    <Sparkles className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">AI Assistant</h3>
-                    <p className="text-xs text-gray-500">Describe your workflow</p>
+                    <h3 className="text-base font-semibold text-white">AI Assistant</h3>
+                    <p className="text-xs text-gray-500">Build workflows with natural language</p>
                   </div>
                 </div>
               </div>
 
-              {/* Chat Messages */}
-              <div className="flex-1 space-y-4 overflow-y-auto p-4">
+              {/* Chat Messages - Enhanced */}
+              <div className="flex-1 space-y-4 overflow-y-auto p-5">
                 {messages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                    className={`flex animate-in fade-in slide-in-from-bottom-2 duration-300 ${
+                      msg.role === "user" ? "justify-end" : "justify-start"
+                    }`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-lg px-4 py-2 text-sm ${
+                      className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-lg ${
                         msg.role === "user"
-                          ? "bg-[#FF6D5A] text-white"
-                          : "bg-[#2a2a2a] text-gray-200"
+                          ? "bg-gradient-to-r from-[#FF6D5A] to-[#ff5842] text-white"
+                          : "border border-gray-800/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] text-gray-200"
                       }`}
                     >
                       {msg.content}
@@ -476,46 +524,49 @@ export default function ReactFlowDemo() {
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="flex items-center gap-2 rounded-lg bg-[#2a2a2a] px-4 py-2">
+                    <div className="flex items-center gap-3 rounded-2xl border border-gray-800/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] px-4 py-3 shadow-lg">
                       <Loader2 className="h-4 w-4 animate-spin text-[#FF6D5A]" />
-                      <span className="text-sm text-gray-400">Generating...</span>
+                      <span className="text-sm text-gray-400">Generating workflow...</span>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Sign Up CTA */}
+              {/* Sign Up CTA - Enhanced */}
               {showSignupCTA && (
-                <div className="border-t border-gray-800 bg-gradient-to-r from-[#FF6D5A]/10 to-[#ff5842]/10 p-4">
+                <div className="border-t border-gray-800/50 bg-gradient-to-br from-[#FF6D5A]/10 via-[#ff5842]/5 to-transparent p-5">
                   <div className="mb-2 text-sm font-semibold text-white">
-                    Love what you see?
+                    ✨ Love what you see?
                   </div>
-                  <p className="mb-3 text-xs text-gray-400">
-                    Create an account to save and run your workflows!
+                  <p className="mb-4 text-xs leading-relaxed text-gray-400">
+                    Create a free account to save your workflows and automate your business processes!
                   </p>
-                  <button className="w-full rounded-lg bg-gradient-to-r from-[#FF6D5A] to-[#ff5842] px-4 py-2 text-sm font-semibold text-white transition-all hover:scale-[1.02]">
-                    Get Started Free →
+                  <button className="group w-full rounded-xl bg-gradient-to-r from-[#FF6D5A] to-[#ff5842] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#FF6D5A]/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-[#FF6D5A]/30">
+                    <span className="flex items-center justify-center gap-2">
+                      Get Started Free
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
                   </button>
                 </div>
               )}
 
-              {/* Chat Input */}
-              <div className="border-t border-gray-800 p-4">
-                <div className="flex gap-2">
+              {/* Chat Input - Enhanced */}
+              <div className="border-t border-gray-800/50 bg-gradient-to-r from-[#1a1a1a]/50 to-transparent p-5">
+                <div className="flex gap-3">
                   <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                    placeholder="e.g., Shopify order notification..."
-                    className="flex-1 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] px-4 py-2 text-sm text-white placeholder-gray-500 focus:border-[#FF6D5A] focus:outline-none"
+                    placeholder="e.g., Process Shopify orders and send to Slack..."
+                    className="flex-1 rounded-xl border border-gray-700/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] px-4 py-3 text-sm text-white placeholder-gray-500 shadow-inner transition-all focus:border-[#FF6D5A]/50 focus:outline-none focus:ring-2 focus:ring-[#FF6D5A]/20"
                   />
                   <button
                     onClick={handleSend}
                     disabled={isLoading || !input.trim()}
-                    className="rounded-lg bg-[#FF6D5A] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#ff5842] disabled:opacity-50"
+                    className="rounded-xl bg-gradient-to-r from-[#FF6D5A] to-[#ff5842] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#FF6D5A]/20 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#FF6D5A]/30 disabled:opacity-50 disabled:hover:scale-100"
                   >
-                    Send
+                    <Send className="h-4 w-4" />
                   </button>
                 </div>
               </div>
