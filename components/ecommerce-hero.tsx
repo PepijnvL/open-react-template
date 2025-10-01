@@ -62,13 +62,31 @@ export default function EcommerceHero() {
 
               {/* Store logos */}
               <div className="mt-12" data-aos="fade-up" data-aos-delay={400}>
-                <p className="mb-4 text-sm text-gray-400">Sync inventory across all major platforms</p>
-                <div className="flex flex-wrap items-center justify-center gap-8">
-                  <img src="https://cdn.simpleicons.org/shopify/96BF48" alt="Shopify" className="h-8 opacity-60" />
-                  <img src="https://cdn.simpleicons.org/amazon/FF9900" alt="Amazon" className="h-8 opacity-60" />
-                  <img src="https://cdn.simpleicons.org/woocommerce/96588A" alt="WooCommerce" className="h-8 opacity-60" />
-                  <img src="https://cdn.simpleicons.org/magento/EE672F" alt="Magento" className="h-8 opacity-60" />
-                  <div className="rounded bg-orange-600/20 px-3 py-1 text-sm text-orange-300">Bol.com</div>
+                <p className="mb-6 text-sm font-medium text-gray-400">Sync inventory across all major platforms</p>
+                <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+                  <img
+                    src="https://cdn.simpleicons.org/shopify/FFFFFF"
+                    alt="Shopify"
+                    className="h-8 opacity-70 transition-opacity hover:opacity-100"
+                  />
+                  <img
+                    src="https://cdn.simpleicons.org/amazon/FFFFFF"
+                    alt="Amazon"
+                    className="h-8 opacity-70 transition-opacity hover:opacity-100"
+                  />
+                  <img
+                    src="https://cdn.simpleicons.org/woocommerce/FFFFFF"
+                    alt="WooCommerce"
+                    className="h-8 opacity-70 transition-opacity hover:opacity-100"
+                  />
+                  <img
+                    src="https://cdn.simpleicons.org/magento/FFFFFF"
+                    alt="Magento"
+                    className="h-8 opacity-70 transition-opacity hover:opacity-100"
+                  />
+                  <div className="rounded-lg border border-orange-500/30 bg-orange-600/10 px-4 py-2 text-sm font-medium text-orange-300">
+                    Bol.com
+                  </div>
                 </div>
               </div>
             </div>
