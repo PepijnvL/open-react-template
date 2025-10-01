@@ -121,6 +121,7 @@ export default function MagicUIDemoPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 py-16">
+      <ScrollProgress />
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <h1 className="mb-12 text-center text-4xl font-bold text-white">
           MagicUI Components Demo

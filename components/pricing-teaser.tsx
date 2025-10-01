@@ -18,24 +18,41 @@ export default function PricingTeaser() {
             </p>
 
             {/* Quick pricing overview */}
-            <div className="mb-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-6 backdrop-blur-sm">
-                <div className="mb-2 font-nacelle text-3xl font-bold text-white">Free</div>
-                <div className="mb-2 text-sm text-gray-400">500 executions/mo</div>
-                <div className="text-xs text-indigo-400">Perfect for testing</div>
+            <div className="mb-8 grid gap-6 sm:grid-cols-3">
+              {/* Free Tier */}
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-8 backdrop-blur-sm transition-all hover:border-gray-700/50">
+                <div className="mb-4">
+                  <div className="mb-2 bg-gradient-to-br from-white to-gray-300 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
+                    Free
+                  </div>
+                  <div className="mb-3 text-lg font-semibold text-white">500 executions/mo</div>
+                  <div className="text-sm text-gray-400">Perfect for testing</div>
+                </div>
               </div>
-              <div className="rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-gray-900/50 to-gray-950/50 p-6 backdrop-blur-sm shadow-[0_0_20px_rgba(99,102,241,0.15)]">
-                <div className="mb-1 inline-block rounded-full bg-indigo-500/20 px-2 py-0.5 text-xs font-medium text-indigo-400">
+
+              {/* Pro Tier */}
+              <div className="group relative overflow-hidden rounded-2xl border border-indigo-500/40 bg-gradient-to-br from-indigo-500/10 via-gray-900/50 to-gray-950/50 p-8 backdrop-blur-sm shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all hover:border-indigo-500/60 hover:shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+                <div className="absolute right-4 top-4 rounded-full bg-indigo-500/20 px-3 py-1 text-xs font-semibold text-indigo-300">
                   Popular
                 </div>
-                <div className="mb-2 font-nacelle text-3xl font-bold text-white">€49</div>
-                <div className="mb-2 text-sm text-gray-400">10,000 executions/mo</div>
-                <div className="text-xs text-indigo-400">Everything you need</div>
+                <div className="mb-4">
+                  <div className="mb-2 bg-gradient-to-br from-white via-indigo-200 to-indigo-300 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
+                    €49
+                  </div>
+                  <div className="mb-3 text-lg font-semibold text-white">10,000 executions/mo</div>
+                  <div className="text-sm text-indigo-200/70">Everything you need</div>
+                </div>
               </div>
-              <div className="rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-6 backdrop-blur-sm">
-                <div className="mb-2 font-nacelle text-3xl font-bold text-white">Custom</div>
-                <div className="mb-2 text-sm text-gray-400">Unlimited executions</div>
-                <div className="text-xs text-indigo-400">Enterprise features</div>
+
+              {/* Custom Tier */}
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-8 backdrop-blur-sm transition-all hover:border-gray-700/50">
+                <div className="mb-4">
+                  <div className="mb-2 bg-gradient-to-br from-white to-gray-300 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
+                    Custom
+                  </div>
+                  <div className="mb-3 text-lg font-semibold text-white">Unlimited executions</div>
+                  <div className="text-sm text-gray-400">Enterprise features</div>
+                </div>
               </div>
             </div>
 

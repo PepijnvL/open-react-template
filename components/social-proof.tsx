@@ -35,24 +35,24 @@ export default function SocialProof() {
             */}
 
             {/* Alternative: Stats-based social proof (when you don't have logos) */}
-            <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-8 text-center md:gap-12">
-              <div className="min-w-[140px]">
-                <div className="mb-1 font-nacelle text-3xl font-bold text-white">
+            <div className="mx-auto grid max-w-3xl gap-6 text-center sm:grid-cols-3">
+              <div className="group rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/30 to-gray-950/30 p-6 backdrop-blur-sm transition-all hover:border-indigo-500/30">
+                <div className="mb-2 bg-gradient-to-br from-white to-indigo-200 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
                   500+
                 </div>
-                <div className="text-sm text-indigo-200/65">Free executions</div>
+                <div className="text-sm font-medium text-indigo-200/70">Free executions monthly</div>
               </div>
-              <div className="min-w-[140px]">
-                <div className="mb-1 font-nacelle text-3xl font-bold text-white">
+              <div className="group rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/30 to-gray-950/30 p-6 backdrop-blur-sm transition-all hover:border-purple-500/30">
+                <div className="mb-2 bg-gradient-to-br from-white to-purple-200 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
                   5-10x
                 </div>
-                <div className="text-sm text-indigo-200/65">Faster than alternatives</div>
+                <div className="text-sm font-medium text-purple-200/70">Faster execution</div>
               </div>
-              <div className="min-w-[140px]">
-                <div className="mb-1 font-nacelle text-3xl font-bold text-white">
+              <div className="group rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/30 to-gray-950/30 p-6 backdrop-blur-sm transition-all hover:border-cyan-500/30">
+                <div className="mb-2 bg-gradient-to-br from-white to-cyan-200 bg-clip-text font-nacelle text-4xl font-bold text-transparent">
                   50+
                 </div>
-                <div className="text-sm text-indigo-200/65">Integrations ready</div>
+                <div className="text-sm font-medium text-cyan-200/70">Integrations ready</div>
               </div>
             </div>
           </div>
