@@ -1,25 +1,39 @@
+import { Zap, BarChart3, Users, Plug, Store, Workflow, Package } from "lucide-react";
+
 export default function EcommerceSolution() {
   const solutions = [
     {
-      icon: "⚡",
+      icon: Zap,
+      iconColor: "text-emerald-400",
+      bgColor: "bg-emerald-500/10",
+      borderColor: "border-emerald-500/20",
       title: "Real-time inventory sync",
-      description: "5-10x faster than n8n means truly real-time updates across all stores",
+      description: "Lightning-fast updates across all stores with 5-10x better performance",
       benefit: "Stock levels update instantly across all channels",
     },
     {
-      icon: "📊",
+      icon: BarChart3,
+      iconColor: "text-indigo-400",
+      bgColor: "bg-indigo-500/10",
+      borderColor: "border-indigo-500/20",
       title: "Unified order management",
       description: "All orders from every platform consolidated in one place",
       benefit: "Process 100+ daily orders in minutes, not hours",
     },
     {
-      icon: "👥",
+      icon: Users,
+      iconColor: "text-purple-400",
+      bgColor: "bg-purple-500/10",
+      borderColor: "border-purple-500/20",
       title: "Customer data consolidation",
       description: "Track customer purchases across all your stores",
       benefit: "Build complete customer profiles for better marketing",
     },
     {
-      icon: "🔌",
+      icon: Plug,
+      iconColor: "text-cyan-400",
+      bgColor: "bg-cyan-500/10",
+      borderColor: "border-cyan-500/20",
       title: "Connect any system",
       description: "Custom connectors for your ERP, POS, inventory management, or warehouse system",
       benefit: "Build integrations in minutes without waiting for us",
@@ -52,60 +66,65 @@ export default function EcommerceSolution() {
 
           {/* Solutions grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
-            {solutions.map((item, index) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-green-500/20 bg-gradient-to-br from-green-500/5 to-transparent p-6"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="mb-4 flex items-start gap-3">
-                  <span className="text-3xl">{item.icon}</span>
-                  <div>
-                    <h3 className="mb-2 font-nacelle text-lg font-semibold text-green-300">
-                      ✅ {item.title}
-                    </h3>
-                    <p className="mb-2 text-gray-300">{item.description}</p>
-                    <p className="text-sm text-green-400/80">{item.benefit}</p>
+            {solutions.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className={`rounded-xl border ${item.borderColor} ${item.bgColor} p-6`}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="mb-4 flex items-start gap-4">
+                    <div className={`rounded-lg ${item.bgColor} p-3`}>
+                      <Icon className={`h-6 w-6 ${item.iconColor}`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="mb-2 font-nacelle text-lg font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mb-3 text-base text-gray-300">{item.description}</p>
+                      <p className={`text-sm font-medium ${item.iconColor}`}>{item.benefit}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Visual diagram */}
           <div className="mt-16" data-aos="fade-up">
-            <div className="rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/10 to-purple-500/5 p-8">
-              <h3 className="mb-6 text-center font-nacelle text-xl font-semibold text-white">
+            <div className="rounded-xl border border-indigo-500/20 bg-gray-900/50 p-8">
+              <h3 className="mb-8 text-center font-nacelle text-xl font-semibold text-white">
                 How It Works
               </h3>
-              <div className="flex flex-col items-center gap-4 md:flex-row md:justify-around">
+              <div className="flex flex-col items-center gap-6 md:flex-row md:justify-around">
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/20 text-2xl">
-                    🏪
+                  <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-indigo-500/10">
+                    <Store className="h-8 w-8 text-indigo-400" />
                   </div>
-                  <p className="text-sm text-gray-300">Your Stores</p>
-                  <p className="text-xs text-gray-500">Shopify, Amazon, etc.</p>
+                  <p className="text-base font-semibold text-gray-200">Your Stores</p>
+                  <p className="text-sm text-gray-400">Shopify, Amazon, etc.</p>
                 </div>
 
-                <div className="text-3xl text-indigo-400">→</div>
+                <div className="text-2xl text-indigo-400 font-bold">→</div>
 
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/20 text-2xl">
-                    ⚡
+                  <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-purple-500/10">
+                    <Workflow className="h-8 w-8 text-purple-400" />
                   </div>
-                  <p className="text-sm text-gray-300">Our Platform</p>
-                  <p className="text-xs text-gray-500">Workflows & sync</p>
+                  <p className="text-base font-semibold text-gray-200">Kariz Platform</p>
+                  <p className="text-sm text-gray-400">Workflows & sync</p>
                 </div>
 
-                <div className="text-3xl text-indigo-400">→</div>
+                <div className="text-2xl text-indigo-400 font-bold">→</div>
 
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20 text-2xl">
-                    📦
+                  <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-xl bg-emerald-500/10">
+                    <Package className="h-8 w-8 text-emerald-400" />
                   </div>
-                  <p className="text-sm text-gray-300">Your Systems</p>
-                  <p className="text-xs text-gray-500">ERP, POS, Warehouse</p>
+                  <p className="text-base font-semibold text-gray-200">Your Systems</p>
+                  <p className="text-sm text-gray-400">ERP, POS, Warehouse</p>
                 </div>
               </div>
             </div>
