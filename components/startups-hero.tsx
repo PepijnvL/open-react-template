@@ -35,8 +35,8 @@ export default function StartupsHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Unlike n8n's single-user workflows, our user management lets you build customer-facing integrations.
-                Stop being the middleman. Let your users set up and manage their own integrations.
+                Built-in user management enables true customer-facing integrations. Build once, deploy to unlimited users.
+                Stop being the middleman. Let your customers set up and manage their own integrations.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -72,7 +72,7 @@ export default function StartupsHero() {
                 </div>
                 <div>
                   <div className="mb-1 font-nacelle text-3xl font-bold text-white">5-10x</div>
-                  <div className="text-sm text-gray-400">Faster than n8n</div>
+                  <div className="text-sm text-gray-400">Execution speed</div>
                 </div>
               </div>
             </div>
