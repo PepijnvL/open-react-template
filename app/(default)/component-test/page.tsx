@@ -1,8 +1,8 @@
 "use client";
 
 import BinaryMatrix from "@/components/binary-matrix";
-import AnimatedCounter, { RollingNumber } from "@/components/animated-counter";
-import FloatingIcons, { OrbitingIcons, FloatingIconGrid } from "@/components/floating-icons";
+import FloatingIcons, { FloatingIconGrid } from "@/components/floating-icons";
+import { OrbitingIcons } from "@/components/orbiting-circles";
 import GlassCard, { GlassCardWithGlow, AnimatedGlassCard } from "@/components/glass-card";
 import WorkflowNodes, { CompactWorkflow } from "@/components/workflow-nodes";
 import GumloopHero from "@/components/gumloop-hero";
@@ -83,31 +83,22 @@ export default function ComponentTestPage() {
           <div className="grid gap-6 md:grid-cols-3">
             <GlassCard padding="lg" className="text-center">
               <h3 className="mb-4 text-sm font-semibold text-gray-400">Smooth Counter</h3>
-              <AnimatedCounter
-                value={1234567}
-                duration={2000}
-                className="text-4xl font-bold text-white"
-                prefix="$"
-              />
+              <div className="text-4xl font-bold text-white">$1,234,567</div>
+              <p className="mt-2 text-xs text-gray-500">(Animation disabled for demo)</p>
             </GlassCard>
 
             <GlassCard padding="lg" className="text-center">
               <h3 className="mb-4 text-sm font-semibold text-gray-400">Rolling Number</h3>
-              <RollingNumber
-                value={987654}
-                duration={1500}
-                className="text-4xl font-bold text-white"
-              />
+              <div className="text-4xl font-bold text-white">987,654</div>
+              <p className="mt-2 text-xs text-gray-500">(Animation disabled for demo)</p>
             </GlassCard>
 
             <GlassCard padding="lg" className="text-center">
               <h3 className="mb-4 text-sm font-semibold text-gray-400">Tasks Automated</h3>
-              <RollingNumber
-                value={42350}
-                duration={2000}
-                suffix="+"
-                className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
-              />
+              <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                42,350+
+              </div>
+              <p className="mt-2 text-xs text-gray-500">(Animation disabled for demo)</p>
             </GlassCard>
           </div>
         </section>
@@ -204,7 +195,7 @@ export default function ComponentTestPage() {
         <section className="mb-20" id="gumloop-hero">
           <h2 className="mb-6 text-2xl font-bold text-white">6. Gumloop Hero Section</h2>
           <div className="rounded-2xl border border-gray-700 bg-gray-900/50 p-8">
-            <GumloopHero autoRotate rotateInterval={6000} />
+            <GumloopHero autoRotate={false} />
           </div>
         </section>
 

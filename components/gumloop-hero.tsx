@@ -291,15 +291,11 @@ const useCaseWorkflows: Record<UseCase, UseCaseWorkflow> = {
             </div>
             <div className="flex items-center justify-between rounded-lg border border-blue-900/50 bg-blue-900/20 p-3">
               <div className="text-xs text-white">Feature Requests</div>
-              <div className="text-lg font-bold text-blue-400">
-                <RollingNumber value={23} duration={800} />
-              </div>
+              <div className="text-lg font-bold text-blue-400">23</div>
             </div>
             <div className="flex items-center justify-between rounded-lg border border-purple-900/50 bg-purple-900/20 p-3">
               <div className="text-xs text-white">Enterprise Call-outs</div>
-              <div className="text-lg font-bold text-purple-400">
-                <RollingNumber value={5} duration={800} />
-              </div>
+              <div className="text-lg font-bold text-purple-400">5</div>
             </div>
           </div>
         </div>

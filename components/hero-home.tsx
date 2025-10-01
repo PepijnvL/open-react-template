@@ -25,10 +25,10 @@ export default function HeroHome() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              The fastest way to build
+              The automation platform
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                customer-facing integrations
+                that's actually free
               </span>
             </h1>
 
@@ -38,8 +38,8 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Build powerful integrations your customers can manage themselves. Free tier, custom connectors,
-                and user management built-in. 5-10x faster than n8n.
+                500 free executions. Custom connectors. User management for customer-facing integrations.
+                5-10x faster than n8n. No credit card required.
               </p>
 
               {/* Audience navigation */}

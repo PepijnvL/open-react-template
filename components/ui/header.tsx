@@ -19,33 +19,35 @@ export default function Header() {
           {/* Navigation */}
           <nav className="hidden md:flex flex-1 items-center justify-center gap-6">
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setSolutionsOpen(true)}
               onMouseLeave={() => setSolutionsOpen(false)}
             >
-              <button className="text-sm text-gray-300 hover:text-white transition-colors">
+              <button className="text-sm text-gray-300 hover:text-white transition-colors py-2">
                 Solutions
               </button>
               {solutionsOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 rounded-lg border border-gray-800 bg-gray-900/95 py-2 shadow-xl backdrop-blur-sm">
-                  <Link
-                    href="/for-developers"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-emerald-400 transition-colors"
-                  >
-                    For Developers
-                  </Link>
-                  <Link
-                    href="/for-ecommerce"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-indigo-400 transition-colors"
-                  >
-                    For E-commerce
-                  </Link>
-                  <Link
-                    href="/for-startups"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-purple-400 transition-colors"
-                  >
-                    For Startups
-                  </Link>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
+                  <div className="rounded-lg border border-gray-800 bg-gray-900/95 py-2 shadow-xl backdrop-blur-sm">
+                    <Link
+                      href="/for-developers"
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-emerald-400 transition-colors"
+                    >
+                      For Developers
+                    </Link>
+                    <Link
+                      href="/for-ecommerce"
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-indigo-400 transition-colors"
+                    >
+                      For E-commerce
+                    </Link>
+                    <Link
+                      href="/for-startups"
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-purple-400 transition-colors"
+                    >
+                      For Startups
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

@@ -49,6 +49,8 @@
 
   --animate-shine: shine 5s ease-in-out 500ms infinite;
   --animate-gradient: gradient 6s linear infinite;
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-float: float 3s ease-in-out infinite;
 
   @keyframes shine {
     0% {
@@ -73,6 +75,22 @@
   @keyframes gradient {
     to {
       background-position: 200% center;
+    }
+  }
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg);
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
     }
   }
 }

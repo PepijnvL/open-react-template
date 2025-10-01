@@ -7,11 +7,11 @@ export default function DeveloperHero() {
         <div className="py-16 md:py-24 lg:py-32">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-1.5 text-sm text-green-300">
-              <svg className="h-4 w-4 fill-green-400" viewBox="0 0 16 16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
+              <svg className="h-4 w-4 fill-emerald-400" viewBox="0 0 16 16">
                 <path d="M8 0L0 8l8 8 8-8-8-8zm0 14L2 8l6-6 6 6-6 6z"/>
               </svg>
-              No DevOps. No $24/month. Just build.
+              500 free executions · No credit card required
             </div>
           </div>
 
@@ -22,13 +22,13 @@ export default function DeveloperHero() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              n8n's power.
+              Build automation.
               <br />
-              <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-green-400),var(--color-emerald-400),var(--color-teal-400),var(--color-green-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                Cloud convenience.
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+                Ship faster.
               </span>
               <br />
-              Actually free.
+              Pay nothing.
             </h1>
 
             <div className="mx-auto max-w-3xl">
@@ -37,8 +37,8 @@ export default function DeveloperHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Build automation for side projects without paying $24/month. Managed cloud, custom connectors,
-                and 5-10x faster performance. Start building in seconds.
+                Managed cloud platform for developers. Build workflows, connect APIs, automate tasks.
+                Custom connectors in minutes. 5-10x faster performance. Zero DevOps.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -84,14 +84,16 @@ export default function DeveloperHero() {
                 </div>
               </div>
 
-              {/* Code snippet */}
+              {/* Quick start CTA */}
               <div className="mt-12" data-aos="fade-up" data-aos-delay={500}>
-                <div className="rounded-lg border border-gray-800 bg-gray-950 p-4 text-left font-mono text-sm">
-                  <div className="mb-2 text-gray-500"># Get started in 30 seconds</div>
-                  <div className="text-green-400">$ npm install @your-platform/cli</div>
-                  <div className="text-blue-400">$ your-platform login</div>
-                  <div className="text-purple-400">$ your-platform deploy</div>
-                  <div className="mt-2 text-gray-500"># Or just use the web UI →</div>
+                <div className="rounded-lg border border-gray-800 bg-gray-950 p-6 text-center">
+                  <div className="mb-3 text-gray-400">Start building in seconds with the web UI</div>
+                  <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
+                    <button className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-500">
+                      Open Builder
+                      <span>→</span>
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>

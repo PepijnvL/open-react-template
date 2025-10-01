@@ -1,6 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useCurrency } from "@/hooks/useCurrency";
 
 export default function Pricing() {
+  const { formatPrice } = useCurrency();
   const plans = [
     {
       name: "Free",
@@ -37,30 +41,13 @@ export default function Pricing() {
       popular: true,
     },
     {
-      name: "Team",
-      description: "For teams scaling their integrations",
-      price: "149",
-      period: "per month",
-      features: [
-        "50,000 executions/month",
-        "Everything in Pro",
-        "SSO & RBAC",
-        "Dedicated support",
-        "Custom SLA",
-        "Onboarding assistance",
-      ],
-      cta: "Get Started Free",
-      ctaLink: "https://app.trykariz.com",
-      popular: false,
-    },
-    {
       name: "Guided",
       description: "Hands-on expert support for your integrations",
       price: "249",
       period: "per month",
       features: [
         "50,000 executions/month",
-        "Everything in Team",
+        "Everything in Pro",
         "Dedicated integration expert",
         "Weekly strategy calls",
         "Custom workflow building",
@@ -107,7 +94,7 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-sm gap-8 lg:max-w-none lg:grid-cols-5 lg:gap-4 xl:gap-6">
+          <div className="mx-auto grid max-w-sm gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-none lg:grid-cols-4 lg:gap-6">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
@@ -133,7 +120,7 @@ export default function Pricing() {
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
                     <span className="font-nacelle text-5xl font-bold text-white">
-                      {plan.price === "Custom" ? plan.price : `$${plan.price}`}
+                      {formatPrice(plan.price)}
                     </span>
                   </div>
                   <p className="mt-1 text-sm text-gray-400">{plan.period}</p>

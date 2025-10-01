@@ -120,11 +120,12 @@ export default function AnimatedCounter({
   }, []);
 
   useEffect(() => {
-    if (animateOnChange && !startOnMount) {
-      startAnimation();
-    } else if (animateOnChange) {
-      startAnimation();
-    }
+    if (!animateOnChange) return;
+
+    // Don't animate on initial mount if startOnMount is true (handled by first useEffect)
+    if (startOnMount && displayValue === 0) return;
+
+    startAnimation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
@@ -144,17 +145,22 @@ interface RollingDigitProps {
  * Rolling digit component - displays a single digit with slot-machine style animation
  */
 export function RollingDigit({ digit, duration = 500, className }: RollingDigitProps) {
-  const [currentDigit, setCurrentDigit] = useState(0);
+  const [currentDigit, setCurrentDigit] = useState(digit);
   const [isRolling, setIsRolling] = useState(false);
+  const previousDigitRef = useRef(digit);
 
   useEffect(() => {
-    if (currentDigit === digit) return;
+    if (previousDigitRef.current === digit) return;
+
+    const startDigit = previousDigitRef.current;
+    previousDigitRef.current = digit;
 
     setIsRolling(true);
 
     // Calculate how many steps to roll through
-    let steps = digit - currentDigit;
+    let steps = digit - startDigit;
     if (steps < 0) steps += 10;
+    if (steps === 0) steps = 10;
 
     const stepDuration = duration / steps;
     let currentStep = 0;
@@ -165,12 +171,13 @@ export function RollingDigit({ digit, duration = 500, className }: RollingDigitP
 
       if (currentStep >= steps) {
         clearInterval(interval);
+        setCurrentDigit(digit);
         setIsRolling(false);
       }
     }, stepDuration);
 
     return () => clearInterval(interval);
-  }, [digit, currentDigit, duration]);
+  }, [digit, duration]);
 
   return (
     <span

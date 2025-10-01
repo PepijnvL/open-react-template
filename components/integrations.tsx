@@ -19,7 +19,7 @@ export default function Integrations() {
   ];
 
   return (
-    <section className="relative">
+    <section id="integrations" className="relative">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
           {/* Section header */}
@@ -75,10 +75,12 @@ export default function Integrations() {
                 Build custom connectors in minutes with our visual builder. No coding required.
               </p>
               <a
-                href="#0"
+                href="https://app.trykariz.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-indigo-400 transition-colors hover:text-indigo-300"
               >
-                <span className="text-sm font-medium">Learn about custom connectors</span>
+                <span className="text-sm font-medium">Start building custom connectors</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={12}

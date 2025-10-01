@@ -19,7 +19,7 @@ export default function DeveloperComparison() {
               <thead>
                 <tr className="border-b border-gray-800">
                   <th className="p-4 text-left text-sm font-semibold text-gray-400">Feature</th>
-                  <th className="p-4 text-center text-sm font-semibold text-green-400">Your Platform</th>
+                  <th className="p-4 text-center text-sm font-semibold text-green-400">Kariz</th>
                   <th className="p-4 text-center text-sm font-semibold text-gray-400">n8n Cloud</th>
                   <th className="p-4 text-center text-sm font-semibold text-gray-400">n8n Self-Hosted</th>
                 </tr>

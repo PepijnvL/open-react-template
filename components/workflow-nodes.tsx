@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -108,8 +108,8 @@ export default function WorkflowNodes({
       {/* Nodes */}
       <div className={cn("relative z-10 flex items-center", layoutClasses)} style={{ gap: spacing }}>
         {nodes.map((node, index) => (
-          <>
-            <WorkflowNodeItem key={node.id} node={node} />
+          <React.Fragment key={node.id}>
+            <WorkflowNodeItem node={node} />
             {index < nodes.length - 1 && direction === "vertical" && (
               <div className="flex h-12 items-center justify-center">
                 <div className="h-full w-0.5 bg-gradient-to-b from-purple-500/50 to-pink-500/50" />
@@ -120,7 +120,7 @@ export default function WorkflowNodes({
                 <div className="h-0.5 w-full bg-gradient-to-r from-purple-500/50 to-pink-500/50" />
               </div>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
@@ -263,9 +263,8 @@ export function CompactWorkflow({ steps, activeStep = 0, className }: CompactWor
         const isComplete = index < activeStep;
 
         return (
-          <>
+          <React.Fragment key={`step-${index}`}>
             <div
-              key={`step-${index}`}
               className={cn(
                 "flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all",
                 isActive && "border-purple-500 bg-purple-500/20 text-purple-300",
@@ -294,7 +293,7 @@ export function CompactWorkflow({ steps, activeStep = 0, className }: CompactWor
                 />
               </div>
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </div>

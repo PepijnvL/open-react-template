@@ -45,8 +45,8 @@ export default function EcommerceSolution() {
               </span>
             </h2>
             <p className="text-lg text-gray-400">
-              User management means each store gets its own workspace, but they all share the same workflows.
-              Set it up once, apply to all stores.
+              Connect all your stores to a single automation hub. Build workflows once,
+              apply to all stores. Sync inventory, orders, and customer data in real-time.
             </p>
           </div>
 

@@ -5,7 +5,7 @@ import FeaturesImage from "@/public/images/features.png";
 
 export default function Features() {
   return (
-    <section className="relative">
+    <section id="features" className="relative">
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"
         aria-hidden="true"
@@ -111,11 +111,10 @@ export default function Features() {
                 />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                1000+ Integrations
+                Custom Connectors
               </h3>
               <p className="text-indigo-200/65">
-                Connect with all your favorite tools and services. From Slack to Salesforce,
-                integrate seamlessly with your existing tech stack.
+                Build custom connectors in minutes with our visual builder. Connect to any API without coding—extend the platform to fit your exact needs.
               </p>
             </article>
             <article>
