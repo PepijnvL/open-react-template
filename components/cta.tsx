@@ -40,20 +40,24 @@ export default function Cta() {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={200}>
-              <Button
-                size="lg"
-                className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 text-base font-semibold hover:from-indigo-500 hover:to-purple-500 sm:w-auto"
-              >
-                Start Building Free
-                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full border-gray-700 bg-gray-900/50 text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
-              >
-                Schedule a Demo
-              </Button>
+              <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 text-base font-semibold hover:from-indigo-500 hover:to-purple-500 sm:w-auto"
+                >
+                  Get Started Free
+                  <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                </Button>
+              </a>
+              <a href="https://cal.com/kariz-pepijn/meeting" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-gray-700 bg-gray-900/50 text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
+                >
+                  Book Consultation
+                </Button>
+              </a>
             </div>
 
             {/* Trust badges */}

@@ -30,11 +30,11 @@ export default function Integrations() {
               </span>
             </div>
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Connect your entire tech stack
+              Connect your favorite tools
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Seamlessly integrate with 1000+ apps and services. From communication tools to CRMs,
-              connect all your favorite platforms in one powerful automation workflow.
+              Integrate with popular apps and services. Or build custom connectors in minutes with our
+              visual connector builder—no coding required.
             </p>
           </div>
 
@@ -66,13 +66,19 @@ export default function Integrations() {
               ))}
             </div>
 
-            {/* View all CTA */}
-            <div className="mt-12 text-center" data-aos="fade-up" data-aos-delay={400}>
+            {/* Custom connector CTA */}
+            <div className="mt-12 rounded-2xl border border-indigo-500/20 bg-gradient-to-br from-indigo-500/10 to-transparent p-8 text-center" data-aos="fade-up" data-aos-delay={400}>
+              <h3 className="mb-2 font-nacelle text-xl font-semibold text-white">
+                Don't see your tool?
+              </h3>
+              <p className="mb-4 text-gray-400">
+                Build custom connectors in minutes with our visual builder. No coding required.
+              </p>
               <a
                 href="#0"
                 className="inline-flex items-center gap-2 text-indigo-400 transition-colors hover:text-indigo-300"
               >
-                <span className="text-sm font-medium">View all 1000+ integrations</span>
+                <span className="text-sm font-medium">Learn about custom connectors</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={12}

@@ -12,12 +12,11 @@ export default function HeroHome() {
           <div className="pb-12 text-center md:pb-16 lg:pb-20">
             {/* Badge */}
             <div className="mb-6" data-aos="fade-up">
-              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500"></span>
-                </span>
-                Now with AI-powered automation
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
+                <svg className="h-4 w-4 fill-emerald-400" viewBox="0 0 16 16">
+                  <path d="M8 0L3 3v6l5 3 5-3V3L8 0zm0 2l3 1.7v4.6L8 10l-3-1.7V3.7L8 2z"/>
+                </svg>
+                5-10x faster than n8n
               </div>
             </div>
 
@@ -26,10 +25,10 @@ export default function HeroHome() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Build AI workflows
+              The fastest way to build
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                without writing code
+                customer-facing integrations
               </span>
             </h1>
 
@@ -39,30 +38,66 @@ export default function HeroHome() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Transform your business with powerful AI automation. Connect your favorite tools,
-                build sophisticated workflows, and automate repetitive tasks in minutes—no coding required.
+                Build powerful integrations your customers can manage themselves. Free tier, custom connectors,
+                and user management built-in. 5-10x faster than n8n.
               </p>
 
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
-                <Button
-                  size="lg"
-                  className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 text-base font-semibold hover:from-indigo-500 hover:to-purple-500 sm:w-auto"
-                >
-                  Start Building Free
-                  <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full border-gray-700 bg-gray-900/50 text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
-                >
-                  Watch Demo
-                </Button>
+              {/* Audience navigation */}
+              <div className="mb-10 flex flex-wrap items-center justify-center gap-4 text-sm" data-aos="fade-up" data-aos-delay={300}>
+                <a href="/for-developers" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                  For Developers
+                </a>
+                <span className="text-gray-600">•</span>
+                <a href="/for-ecommerce" className="text-gray-400 hover:text-indigo-400 transition-colors">
+                  For E-commerce
+                </a>
+                <span className="text-gray-600">•</span>
+                <a href="/for-startups" className="text-gray-400 hover:text-purple-400 transition-colors">
+                  For Startups
+                </a>
               </div>
 
-              {/* Social proof */}
-              <div className="mt-8 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={400}>
-                <p>Trusted by 10,000+ teams worldwide</p>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={400}>
+                <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 text-base font-semibold hover:from-indigo-500 hover:to-purple-500 sm:w-auto"
+                  >
+                    Get Started Free
+                    <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                  </Button>
+                </a>
+                <a href="https://cal.com/kariz-pepijn/meeting" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full border-gray-700 bg-gray-900/50 text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
+                  >
+                    Book Consultation
+                  </Button>
+                </a>
+              </div>
+
+              {/* Trust elements */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={500}>
+                <div className="flex items-center gap-2">
+                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                    <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
+                  </svg>
+                  <span>500 executions free</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                    <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
+                  </svg>
+                  <span>No credit card required</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="h-4 w-4 fill-emerald-500" viewBox="0 0 16 16">
+                    <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
+                  </svg>
+                  <span>5-10x faster</span>
+                </div>
               </div>
             </div>
           </div>

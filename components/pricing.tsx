@@ -3,53 +3,88 @@ import { Button } from "@/components/ui/button";
 export default function Pricing() {
   const plans = [
     {
-      name: "Starter",
-      description: "Perfect for individuals and small teams getting started",
+      name: "Free",
+      description: "Perfect for developers and side projects",
       price: "0",
       period: "forever",
       features: [
-        "100 workflow runs/month",
-        "5 active workflows",
-        "Basic integrations",
+        "500 executions/month",
+        "Unlimited workflows",
+        "All integrations",
         "Community support",
-        "7-day execution history",
+        "User management",
+        "Custom connectors",
       ],
-      cta: "Start Free",
+      cta: "Get Started Free",
+      ctaLink: "https://app.trykariz.com",
       popular: false,
     },
     {
       name: "Pro",
-      description: "For growing teams that need more power and flexibility",
+      description: "For growing businesses and teams",
       price: "49",
       period: "per month",
       features: [
-        "10,000 workflow runs/month",
-        "Unlimited workflows",
-        "All integrations",
+        "10,000 executions/month",
+        "Everything in Free",
         "Priority support",
-        "90-day execution history",
-        "Advanced AI actions",
+        "Advanced analytics",
         "Team collaboration",
+        "99.9% uptime SLA",
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started Free",
+      ctaLink: "https://app.trykariz.com",
       popular: true,
     },
     {
+      name: "Team",
+      description: "For teams scaling their integrations",
+      price: "149",
+      period: "per month",
+      features: [
+        "50,000 executions/month",
+        "Everything in Pro",
+        "SSO & RBAC",
+        "Dedicated support",
+        "Custom SLA",
+        "Onboarding assistance",
+      ],
+      cta: "Get Started Free",
+      ctaLink: "https://app.trykariz.com",
+      popular: false,
+    },
+    {
+      name: "Guided",
+      description: "Hands-on expert support for your integrations",
+      price: "249",
+      period: "per month",
+      features: [
+        "50,000 executions/month",
+        "Everything in Team",
+        "Dedicated integration expert",
+        "Weekly strategy calls",
+        "Custom workflow building",
+        "Priority feature requests",
+      ],
+      cta: "Book Consultation",
+      ctaLink: "https://cal.com/kariz-pepijn/meeting",
+      popular: false,
+    },
+    {
       name: "Enterprise",
-      description: "For large organizations with advanced needs",
+      description: "For large organizations with custom needs",
       price: "Custom",
       period: "contact us",
       features: [
-        "Unlimited runs",
-        "Unlimited workflows",
+        "Unlimited executions",
+        "Everything in Guided",
         "Custom integrations",
-        "Dedicated support",
-        "Unlimited history",
-        "SLA guarantee",
-        "SSO & advanced security",
-        "Custom AI models",
+        "On-premise deployment",
+        "99.99% uptime SLA",
+        "Dedicated account manager",
       ],
       cta: "Contact Sales",
+      ctaLink: "https://cal.com/kariz-pepijn/meeting",
       popular: false,
     },
   ];
@@ -72,7 +107,7 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-sm gap-8 lg:max-w-none lg:grid-cols-3 lg:gap-6">
+          <div className="mx-auto grid max-w-sm gap-8 lg:max-w-none lg:grid-cols-5 lg:gap-4 xl:gap-6">
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
@@ -119,13 +154,15 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <Button
-                  size="lg"
-                  className="w-full"
-                  variant={plan.popular ? "default" : "outline"}
-                >
-                  {plan.cta}
-                </Button>
+                <a href={plan.ctaLink} target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button
+                    size="lg"
+                    className="w-full"
+                    variant={plan.popular ? "default" : "outline"}
+                  >
+                    {plan.cta}
+                  </Button>
+                </a>
               </div>
             ))}
           </div>

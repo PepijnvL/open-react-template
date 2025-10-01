@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "AI Automation Platform - Build Workflows Without Code",
-  description: "Transform your business with AI automation. Build powerful workflows without coding. Connect your favorite tools and automate tasks in minutes.",
+  title: "Kariz - Customer-Facing Integration Platform | 5-10x Faster Than n8n",
+  description: "Build powerful integrations your customers can manage themselves. Free tier, custom connectors, and user management built-in. 5-10x faster than n8n.",
 };
 
 import PageIllustration from "@/components/page-illustration";
