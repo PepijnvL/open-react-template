@@ -12,8 +12,8 @@ interface PricingFeature {
 interface PricingTier {
   name: string;
   description: string;
-  monthlyPrice: number;
-  yearlyPrice: number;
+  monthlyPrice: number | null;
+  yearlyPrice: number | null;
   features: PricingFeature[];
   cta: string;
   ctaLink: string;
@@ -68,7 +68,7 @@ export default function PricingSection({ tiers, className }: PricingSectionProps
       </div>
 
       {/* Pricing Cards */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {tiers.map((tier, index) => (
           <PricingCard
             key={index}
@@ -95,8 +95,8 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
     >
       {/* Popular Badge */}
       {tier.popular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 text-xs font-semibold text-white">
+        <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
+          <span className="whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 text-xs font-semibold text-white">
             Popular
           </span>
         </div>
@@ -110,14 +110,22 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
 
       {/* Price */}
       <div className="mb-6">
-        <div className="flex items-baseline">
-          <span className="text-4xl font-bold text-white">${price}</span>
-          <span className="ml-2 text-gray-400">/{period}</span>
-        </div>
-        {isYearly && (
-          <p className="mt-1 text-xs text-gray-500">
-            billed annually
-          </p>
+        {price === null ? (
+          <div className="flex items-baseline">
+            <span className="text-3xl font-bold text-white">Custom pricing</span>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-baseline">
+              <span className="text-4xl font-bold text-white">${price}</span>
+              <span className="ml-2 text-gray-400">/{period}</span>
+            </div>
+            {isYearly && (
+              <p className="mt-1 text-xs text-gray-500">
+                billed annually
+              </p>
+            )}
+          </>
         )}
       </div>
 

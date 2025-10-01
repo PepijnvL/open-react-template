@@ -6,12 +6,12 @@ import Image from "next/image";
 
 export default function FeaturesNew() {
   const integrationLogos = [
-    { name: "Slack", logo: "https://cdn.simpleicons.org/slack/4A154B" },
-    { name: "Gmail", logo: "https://cdn.simpleicons.org/gmail/EA4335" },
-    { name: "Salesforce", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" },
-    { name: "HubSpot", logo: "https://cdn.simpleicons.org/hubspot/FF7A59" },
-    { name: "Airtable", logo: "https://cdn.simpleicons.org/airtable/18BFFF" },
-    { name: "Notion", logo: "https://cdn.simpleicons.org/notion/000000" },
+    { name: "Slack", logo: "/icons/Slack.svg" },
+    { name: "Gmail", logo: "/icons/Gmail.svg" },
+    { name: "Google", logo: "/icons/Google.svg" },
+    { name: "Shopify", logo: "/icons/Shopify.svg" },
+    { name: "Notion", logo: "/icons/Notion.svg" },
+    { name: "GitHub", logo: "/icons/GitHub-dark.svg" },
   ];
 
   return (

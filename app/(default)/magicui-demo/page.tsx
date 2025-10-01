@@ -4,19 +4,22 @@ import Marquee, { MarqueeItem } from "@/components/marquee";
 import PricingSection from "@/components/pricing-section";
 import BentoGrid, { BentoCard } from "@/components/bento-grid";
 import { RollingNumber } from "@/components/animated-counter";
+import AnimatedButton from "@/components/animated-button";
+import ShimmerButton from "@/components/shimmer-button";
+import TestimonialCard from "@/components/testimonial-card";
 import Image from "next/image";
 
 export default function MagicUIDemoPage() {
   // Company logos for marquee
   const companies = [
-    { name: "Google", logo: "https://cdn.simpleicons.org/google/4285F4" },
-    { name: "Microsoft", logo: "https://cdn.simpleicons.org/microsoft/00A4EF" },
-    { name: "Amazon", logo: "https://cdn.simpleicons.org/amazon/FF9900" },
-    { name: "Netflix", logo: "https://cdn.simpleicons.org/netflix/E50914" },
-    { name: "YouTube", logo: "https://cdn.simpleicons.org/youtube/FF0000" },
-    { name: "Instagram", logo: "https://cdn.simpleicons.org/instagram/E4405F" },
-    { name: "Uber", logo: "https://cdn.simpleicons.org/uber/000000" },
-    { name: "Spotify", logo: "https://cdn.simpleicons.org/spotify/1DB954" },
+    { name: "Google", logo: "/icons/Google.svg" },
+    { name: "Slack", logo: "/icons/Slack.svg" },
+    { name: "Shopify", logo: "/icons/Shopify.svg" },
+    { name: "Notion", logo: "/icons/Notion.svg" },
+    { name: "YouTube", logo: "/icons/YouTube.svg" },
+    { name: "Discord", logo: "/icons/Discord.svg" },
+    { name: "GitHub", logo: "/icons/GitHub-dark.svg" },
+    { name: "Spotify", logo: "/icons/Spotify.svg" },
   ];
 
   // Pricing tiers
@@ -262,6 +265,46 @@ export default function MagicUIDemoPage() {
           <PricingSection tiers={pricingTiers} />
         </section>
 
+        {/* Buttons Section */}
+        <section className="mb-20">
+          <h2 className="mb-6 text-2xl font-bold text-white">Animated Buttons</h2>
+          <div className="flex flex-wrap gap-4">
+            <AnimatedButton variant="default">Default Button</AnimatedButton>
+            <AnimatedButton variant="shine">Shine Button</AnimatedButton>
+            <AnimatedButton variant="gradient">Gradient Button</AnimatedButton>
+            <AnimatedButton variant="glow">Glow Button</AnimatedButton>
+            <ShimmerButton>Shimmer Button</ShimmerButton>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="mb-20">
+          <h2 className="mb-6 text-2xl font-bold text-white">Testimonials</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <TestimonialCard
+              quote="Kariz transformed our integration process. We went from weeks to days building customer-facing integrations."
+              author="Sarah Chen"
+              role="CTO"
+              company="TechFlow"
+              rating={5}
+            />
+            <TestimonialCard
+              quote="The visual workflow builder is incredibly intuitive. Our team was up and running in hours, not days."
+              author="Michael Rodriguez"
+              role="VP of Engineering"
+              company="DataSync Pro"
+              rating={5}
+            />
+            <TestimonialCard
+              quote="Best automation platform we've used. The custom connectors feature is a game-changer for our business."
+              author="Emily Watson"
+              role="Product Manager"
+              company="CloudBase"
+              rating={5}
+            />
+          </div>
+        </section>
+
         {/* Status */}
         <section className="rounded-2xl border border-green-500/30 bg-green-900/20 p-8">
           <h2 className="mb-4 text-2xl font-bold text-white">✅ Components Ready</h2>
@@ -271,12 +314,14 @@ export default function MagicUIDemoPage() {
               <StatusItem label="Pricing Section with Toggle" status="working" />
               <StatusItem label="Bento Grid Layout" status="working" />
               <StatusItem label="Glass Card Variants" status="working" />
+              <StatusItem label="Animated Buttons" status="working" />
             </div>
             <div className="space-y-2">
               <StatusItem label="Animated Counter" status="working" />
               <StatusItem label="Orbiting Icons" status="working" />
               <StatusItem label="Workflow Nodes" status="working" />
               <StatusItem label="Binary Matrix" status="working" />
+              <StatusItem label="Testimonial Cards" status="working" />
             </div>
           </div>
         </section>

@@ -47,7 +47,7 @@ export default function PricingNew() {
       popular: true,
     },
     {
-      name: "Guided",
+      name: "Business",
       description: "Hands-on expert support for your integrations",
       monthlyPrice: 249,
       yearlyPrice: 199,
@@ -68,11 +68,11 @@ export default function PricingNew() {
     {
       name: "Enterprise",
       description: "For large organizations with custom needs",
-      monthlyPrice: 0,
-      yearlyPrice: 0,
+      monthlyPrice: null,
+      yearlyPrice: null,
       features: [
         { text: "Unlimited executions", included: true },
-        { text: "Everything in Guided", included: true },
+        { text: "Everything in Business", included: true },
         { text: "Custom integrations", included: true },
         { text: "On-premise deployment", included: true },
         { text: "99.99% uptime SLA", included: true },
@@ -80,7 +80,7 @@ export default function PricingNew() {
         { text: "Custom SLA agreements", included: true },
         { text: "White-label options", included: true },
       ],
-      cta: "Contact Sales",
+      cta: "Book Consultation",
       ctaLink: "https://cal.com/kariz-pepijn/meeting",
       popular: false,
     },

@@ -5,22 +5,22 @@ import Image from "next/image";
 
 export default function IntegrationsNew() {
   const integrations = [
-    { name: "Slack", logo: "https://cdn.simpleicons.org/slack/4A154B" },
-    { name: "Gmail", logo: "https://cdn.simpleicons.org/gmail/EA4335" },
-    { name: "Salesforce", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" },
-    { name: "HubSpot", logo: "https://cdn.simpleicons.org/hubspot/FF7A59" },
-    { name: "Airtable", logo: "https://cdn.simpleicons.org/airtable/18BFFF" },
-    { name: "Notion", logo: "https://cdn.simpleicons.org/notion/000000" },
-    { name: "Google Sheets", logo: "https://cdn.simpleicons.org/googlesheets/34A853" },
-    { name: "Trello", logo: "https://cdn.simpleicons.org/trello/0052CC" },
-    { name: "Asana", logo: "https://cdn.simpleicons.org/asana/F06A6A" },
-    { name: "Jira", logo: "https://cdn.simpleicons.org/jira/0052CC" },
-    { name: "GitHub", logo: "https://cdn.simpleicons.org/github/181717" },
-    { name: "Discord", logo: "https://cdn.simpleicons.org/discord/5865F2" },
-    { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/7AB55C" },
-    { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe/008CDD" },
-    { name: "Mailchimp", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B" },
-    { name: "Zoom", logo: "https://cdn.simpleicons.org/zoom/2D8CFF" },
+    { name: "Slack", logo: "/icons/Slack.svg" },
+    { name: "Gmail", logo: "/icons/Gmail.svg" },
+    { name: "Google", logo: "/icons/Google.svg" },
+    { name: "Shopify", logo: "/icons/Shopify.svg" },
+    { name: "Notion", logo: "/icons/Notion.svg" },
+    { name: "GitHub", logo: "/icons/GitHub-dark.svg" },
+    { name: "Discord", logo: "/icons/Discord.svg" },
+    { name: "LinkedIn", logo: "/icons/LinkedIn.svg" },
+    { name: "YouTube", logo: "/icons/YouTube.svg" },
+    { name: "Twitter", logo: "/icons/Twitter.svg" },
+    { name: "Meta", logo: "/icons/Meta.svg" },
+    { name: "Spotify", logo: "/icons/Spotify.svg" },
+    { name: "WhatsApp", logo: "/icons/WhatsApp.svg" },
+    { name: "Telegram", logo: "/icons/Telegram.svg" },
+    { name: "Reddit", logo: "/icons/Reddit.svg" },
+    { name: "TikTok", logo: "/icons/TikTok.svg" },
   ];
 
   // Split integrations into two rows
