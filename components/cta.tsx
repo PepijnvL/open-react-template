@@ -43,7 +43,7 @@ export default function Cta() {
               <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="group w-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 text-base font-semibold hover:from-indigo-500 hover:to-purple-500 sm:w-auto"
+                  className="group w-full bg-indigo-600 px-8 text-base font-semibold text-white hover:bg-indigo-500 sm:w-auto"
                 >
                   Get Started Free
                   <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>

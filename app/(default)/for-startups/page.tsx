@@ -5,8 +5,8 @@ export const metadata = {
 
 import StartupsHero from "@/components/startups-hero";
 import UserManagementExplainer from "@/components/user-management-explainer";
-import Features from "@/components/features";
-import Pricing from "@/components/pricing";
+import FeaturesNew from "@/components/features-new";
+import PricingNew from "@/components/pricing-new";
 import Cta from "@/components/cta";
 
 export default function ForStartupsPage() {
@@ -14,8 +14,8 @@ export default function ForStartupsPage() {
     <>
       <StartupsHero />
       <UserManagementExplainer />
-      <Features />
-      <Pricing />
+      <FeaturesNew />
+      <PricingNew />
       <Cta />
     </>
   );

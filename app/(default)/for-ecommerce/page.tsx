@@ -7,7 +7,7 @@ import PageIllustration from "@/components/page-illustration";
 import EcommerceHero from "@/components/ecommerce-hero";
 import EcommerceProblems from "@/components/ecommerce-problems";
 import EcommerceSolution from "@/components/ecommerce-solution";
-import Pricing from "@/components/pricing";
+import PricingNew from "@/components/pricing-new";
 import Cta from "@/components/cta";
 
 export default function ForEcommerce() {
@@ -17,7 +17,7 @@ export default function ForEcommerce() {
       <EcommerceHero />
       <EcommerceProblems />
       <EcommerceSolution />
-      <Pricing />
+      <PricingNew />
       <Cta />
     </>
   );

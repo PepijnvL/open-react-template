@@ -14,13 +14,13 @@ export default function UserManagementExplainer() {
               The feature that changes everything
             </h2>
             <p className="text-lg text-gray-400">
-              n8n is built for internal workflows. We're built for customer-facing integrations.
+              Traditional platforms are built for internal workflows. We're built for customer-facing integrations.
             </p>
           </div>
 
           {/* Comparison: Before vs After */}
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Without User Management (n8n) */}
+            {/* Without User Management */}
             <div
               className="rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-transparent p-6"
               data-aos="fade-up"
@@ -28,7 +28,7 @@ export default function UserManagementExplainer() {
               <div className="mb-4 flex items-center gap-2">
                 <span className="text-2xl">❌</span>
                 <h3 className="font-nacelle text-xl font-semibold text-red-300">
-                  Without User Management (n8n)
+                  Without User Management
                 </h3>
               </div>
               <ul className="space-y-3 text-gray-400">

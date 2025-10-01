@@ -45,7 +45,7 @@ export default function DeveloperHero() {
                 <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
-                    className="group w-full bg-gradient-to-r from-green-600 to-emerald-600 px-8 text-base font-semibold hover:from-green-500 hover:to-emerald-500 sm:w-auto"
+                    className="group w-full bg-emerald-600 px-8 text-base font-semibold text-white hover:bg-emerald-500 sm:w-auto"
                   >
                     Get Started Free
                     <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
@@ -55,7 +55,7 @@ export default function DeveloperHero() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full border-gray-700 bg-gray-900/50 text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
+                    className="w-full border-gray-700 bg-transparent text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
                   >
                     Book Demo
                   </Button>

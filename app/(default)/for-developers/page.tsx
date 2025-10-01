@@ -4,16 +4,16 @@ export const metadata = {
 };
 
 import DeveloperHero from "@/components/developer-hero";
-import Features from "@/components/features";
-import Pricing from "@/components/pricing";
+import FeaturesNew from "@/components/features-new";
+import PricingNew from "@/components/pricing-new";
 import Cta from "@/components/cta";
 
 export default function ForDevelopersPage() {
   return (
     <>
       <DeveloperHero />
-      <Features />
-      <Pricing />
+      <FeaturesNew />
+      <PricingNew />
       <Cta />
     </>
   );
