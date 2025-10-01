@@ -10,113 +10,101 @@ import {
   addEdge,
   BackgroundVariant,
   Connection,
-  Edge,
   Node,
   Handle,
   Position,
   NodeProps,
+  type Edge,
 } from "@xyflow/react";
 import {
-  Mail,
-  Send,
-  Database,
   Zap,
-  ShoppingCart,
   Plus,
   Search,
   X,
-  Sparkles,
-  Calendar,
   FileText,
-  Webhook,
-  Code,
-  Globe,
 } from "lucide-react";
+import Image from "next/image";
 
 import "@xyflow/react/dist/style.css";
 
-// Enhanced Custom Node Component
+// Enhanced Custom Node Component (n8n style)
 function CustomNode({ data, selected }: NodeProps) {
-  const Icon = data.icon || FileText;
   const nodeColor = data.color || "#6366f1";
+  const isImageIcon = typeof data.icon === "string";
+  const isFirstNode = data.isFirst === true;
 
   return (
-    <div
-      className={`group relative min-w-[220px] rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] shadow-2xl transition-all duration-300 ${
-        selected
-          ? "scale-105 ring-2 ring-offset-2 ring-offset-[#0f0f0f]"
-          : "hover:scale-102"
-      }`}
-      style={{
-        border: `2px solid ${selected ? nodeColor : "#2a2a2a"}`,
-        boxShadow: selected
-          ? `0 20px 40px -12px ${nodeColor}40, 0 0 0 2px ${nodeColor}`
-          : "0 10px 30px -10px rgba(0,0,0,0.5)",
-        ringColor: nodeColor,
-      }}
-    >
-      <Handle
-        type="target"
-        position={Position.Top}
-        className="!h-3 !w-3 !rounded-full !border-2 !transition-all"
-        style={{
-          top: -6,
-          borderColor: nodeColor,
-          backgroundColor: "#1a1a1a",
-        }}
-      />
-
-      <div
-        className="absolute inset-0 rounded-xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20"
-        style={{ backgroundColor: nodeColor }}
-      />
-
-      <div className="relative flex items-center gap-4 p-4">
-        <div
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg shadow-lg"
+    <div className="relative">
+      {/* Input handle on LEFT (hidden for first node) */}
+      {!isFirstNode && (
+        <Handle
+          type="target"
+          position={Position.Left}
+          className="!h-4 !w-4 !rounded-full !border-2 !bg-white !transition-all hover:!scale-110"
           style={{
-            background: `linear-gradient(135deg, ${nodeColor}30 0%, ${nodeColor}10 100%)`,
-            boxShadow: `0 4px 12px ${nodeColor}20`
+            left: -8,
+            borderColor: "#888",
           }}
-        >
-          <Icon
-            className="h-6 w-6"
-            style={{ color: nodeColor }}
-          />
-        </div>
+        />
+      )}
 
-        <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-white mb-1">
-            {data.label}
-          </div>
-          {data.description && (
-            <div className="text-xs text-gray-400 leading-relaxed">
-              {data.description}
-            </div>
-          )}
-        </div>
-
-        {data.status && (
+      {/* Main node */}
+      <div
+        className={`group relative min-w-[240px] rounded-lg bg-white shadow-lg transition-all duration-200 ${
+          selected
+            ? "ring-2 ring-blue-500"
+            : "hover:shadow-xl"
+        }`}
+        style={{
+          border: `2px solid ${selected ? nodeColor : "#e5e5e5"}`,
+        }}
+      >
+        <div className="flex items-center gap-3 p-3">
           <div
-            className="h-2.5 w-2.5 rounded-full animate-pulse"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded"
             style={{
-              backgroundColor: nodeColor,
-              boxShadow: `0 0 8px ${nodeColor}80`
+              backgroundColor: `${nodeColor}15`,
             }}
-          />
-        )}
+          >
+            {isImageIcon ? (
+              <Image src={data.icon} alt={data.label} width={20} height={20} className="h-5 w-5" />
+            ) : (
+              <FileText className="h-5 w-5" style={{ color: nodeColor }} />
+            )}
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-semibold text-gray-900">
+              {data.label}
+            </div>
+            {data.description && (
+              <div className="text-xs text-gray-500 truncate">
+                {data.description}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
-      <Handle
-        type="source"
-        position={Position.Bottom}
-        className="!h-3 !w-3 !rounded-full !border-2 !transition-all"
-        style={{
-          bottom: -6,
-          borderColor: nodeColor,
-          backgroundColor: "#1a1a1a",
-        }}
-      />
+      {/* Output handle on RIGHT with + button */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center">
+        <Handle
+          type="source"
+          position={Position.Right}
+          className="!h-4 !w-4 !rounded-full !border-2 !bg-white !transition-all hover:!scale-110"
+          style={{
+            right: -8,
+            borderColor: "#888",
+          }}
+        />
+        {/* Plus button appears on hover */}
+        <button
+          onClick={() => data.onAddNode && data.onAddNode()}
+          className="ml-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex h-6 w-6 items-center justify-center rounded-full bg-gray-700 hover:bg-gray-900 text-white"
+        >
+          <Plus className="h-4 w-4" />
+        </button>
+      </div>
     </div>
   );
 }
@@ -125,59 +113,55 @@ const nodeTypes = {
   custom: CustomNode,
 };
 
+// Initial empty arrays with proper types
+const initialNodes: Node[] = [];
+const initialEdges: Edge[] = [];
+
 // Available nodes catalog
 const availableNodes = [
   {
     category: "Triggers",
     nodes: [
-      { id: "webhook", label: "Webhook", description: "Trigger on HTTP request", icon: Webhook, color: "#6366f1" },
-      { id: "schedule", label: "Schedule", description: "Run on a schedule", icon: Calendar, color: "#8b5cf6" },
+      { id: "webhook", label: "Webhook", description: "Trigger on HTTP request", icon: "/icons/apps/webhook.svg", color: "#6366f1" },
+      { id: "schedule", label: "Schedule", description: "Run on a schedule", icon: "/icons/apps/calendar.svg", color: "#8b5cf6" },
     ]
   },
   {
     category: "Apps",
     nodes: [
-      { id: "shopify", label: "Shopify", description: "E-commerce platform", icon: ShoppingCart, color: "#96BF48" },
-      { id: "gmail", label: "Gmail", description: "Send & receive emails", icon: Mail, color: "#EA4335" },
-      { id: "slack", label: "Slack", description: "Team messaging", icon: Send, color: "#4A154B" },
-      { id: "postgres", label: "PostgreSQL", description: "SQL database", icon: Database, color: "#336791" },
+      { id: "shopify", label: "Shopify", description: "E-commerce platform", icon: "/icons/apps/shopify.svg", color: "#96BF48" },
+      { id: "gmail", label: "Gmail", description: "Send & receive emails", icon: "/icons/apps/gmail.svg", color: "#EA4335" },
+      { id: "slack", label: "Slack", description: "Team messaging", icon: "/icons/apps/slack.svg", color: "#4A154B" },
+      { id: "postgres", label: "PostgreSQL", description: "SQL database", icon: "/icons/apps/postgres.svg", color: "#336791" },
     ]
   },
   {
     category: "Core",
     nodes: [
-      { id: "code", label: "Code", description: "Run JavaScript/Python", icon: Code, color: "#F59E0B" },
-      { id: "http", label: "HTTP Request", description: "Make API calls", icon: Globe, color: "#10B981" },
-      { id: "ai", label: "AI", description: "OpenAI GPT-4", icon: Sparkles, color: "#8B5CF6" },
+      { id: "code", label: "Code", description: "Run JavaScript/Python", icon: "/icons/apps/code.svg", color: "#F59E0B" },
+      { id: "http", label: "HTTP Request", description: "Make API calls", icon: "/icons/apps/http.svg", color: "#10B981" },
+      { id: "ai", label: "AI", description: "OpenAI GPT-4", icon: "/icons/apps/ai.svg", color: "#8B5CF6" },
     ]
   },
 ];
 
 export default function WorkflowBuilder() {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [showNodePanel, setShowNodePanel] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [nodeCounter, setNodeCounter] = useState(1);
 
   const onConnect = useCallback(
-    (params: Connection) =>
-      setEdges((eds) =>
-        addEdge(
-          {
-            ...params,
-            animated: true,
-            style: { stroke: "#6366f1", strokeWidth: 3 },
-            type: "smoothstep",
-          },
-          eds
-        )
-      ),
+    (params: Connection) => {
+      setEdges((eds) => addEdge(params, eds));
+    },
     [setEdges]
   );
 
   const addNodeToCanvas = (nodeTemplate: any) => {
-    const newNode: Node = {
+    const isFirst = nodes.length === 0;
+    const newNode = {
       id: `node-${nodeCounter}`,
       type: "custom",
       data: {
@@ -185,15 +169,31 @@ export default function WorkflowBuilder() {
         description: nodeTemplate.description,
         icon: nodeTemplate.icon,
         color: nodeTemplate.color,
-        status: "active",
+        isFirst: isFirst,
+        onAddNode: () => setShowNodePanel(true),
       },
       position: {
-        x: 250 + Math.random() * 100,
-        y: 100 + nodeCounter * 150,
+        x: 100 + (nodeCounter - 1) * 300,
+        y: 250,
       },
     };
 
     setNodes((nds) => [...nds, newNode]);
+
+    // Auto-connect to previous node
+    if (nodes.length > 0) {
+      const lastNode = nodes[nodes.length - 1];
+      const newEdge = {
+        id: `edge-${lastNode.id}-${newNode.id}`,
+        source: lastNode.id,
+        target: newNode.id,
+        animated: true,
+        style: { stroke: "#888", strokeWidth: 2 },
+        type: "smoothstep",
+      };
+      setEdges((eds) => [...eds, newEdge]);
+    }
+
     setNodeCounter((c) => c + 1);
     setShowNodePanel(false);
     setSearchQuery("");
@@ -208,19 +208,19 @@ export default function WorkflowBuilder() {
   })).filter(category => category.nodes.length > 0);
 
   return (
-    <div className="relative h-screen w-screen bg-[#0f0f0f]">
-      {/* Top Bar */}
-      <div className="absolute left-0 right-0 top-0 z-10 border-b border-gray-800/50 bg-gradient-to-r from-[#1a1a1a] to-[#0f0f0f] px-6 py-4">
+    <div className="relative h-screen w-screen bg-[#f5f5f5]">
+      {/* Top Bar - n8n style */}
+      <div className="absolute left-0 right-0 top-0 z-10 border-b border-gray-200 bg-white px-6 py-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-white">Workflow Builder</h1>
-            <p className="text-sm text-gray-400">Click + to add nodes</p>
+            <h1 className="text-xl font-bold text-gray-900">Workflow Builder</h1>
+            <p className="text-sm text-gray-500">Build your automation workflow</p>
           </div>
           <button
             onClick={() => setShowNodePanel(true)}
-            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] px-6 py-3 font-semibold text-white shadow-lg shadow-[#6366f1]/20 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#6366f1]/30"
+            className="flex items-center gap-2 rounded-lg bg-[#ff6d5a] px-5 py-2.5 font-medium text-white shadow-sm transition-all hover:bg-[#ff5542] hover:shadow-md"
           >
-            <Plus className="h-5 w-5" />
+            <Plus className="h-4 w-4" />
             Add Node
           </button>
         </div>
@@ -236,19 +236,19 @@ export default function WorkflowBuilder() {
         nodeTypes={nodeTypes}
         fitView
         proOptions={{ hideAttribution: true }}
-        className="bg-[#0f0f0f]"
+        className="bg-[#f5f5f5]"
         defaultEdgeOptions={{
-          animated: true,
-          style: { strokeWidth: 3 },
+          animated: false,
+          style: { strokeWidth: 2, stroke: "#999" },
         }}
       >
-        <Controls className="!left-6 !bottom-6 rounded-xl border border-gray-700/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] shadow-2xl" />
+        <Controls className="!left-6 !bottom-6 rounded-lg border border-gray-300 bg-white shadow-lg" />
         <Background
           variant={BackgroundVariant.Dots}
-          gap={24}
-          size={1.5}
-          color="#333333"
-          className="bg-[#0f0f0f]"
+          gap={20}
+          size={1}
+          color="#d0d0d0"
+          className="bg-[#f5f5f5]"
         />
       </ReactFlow>
 
@@ -257,13 +257,13 @@ export default function WorkflowBuilder() {
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="mb-6 flex justify-center">
-              <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] shadow-2xl shadow-[#6366f1]/20">
-                <Zap className="h-12 w-12 text-white" />
+              <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-[#ff6d5a] shadow-lg">
+                <Zap className="h-10 w-10 text-white" />
               </div>
             </div>
-            <h2 className="mb-3 text-2xl font-bold text-white">Build Your First Workflow</h2>
-            <p className="mb-6 text-gray-400">
-              Click the "+ Add Node" button to get started
+            <h2 className="mb-2 text-2xl font-bold text-gray-900">Build Your First Workflow</h2>
+            <p className="text-gray-600">
+              Click the "Add Node" button to get started
             </p>
           </div>
         </div>
@@ -273,17 +273,17 @@ export default function WorkflowBuilder() {
       {showNodePanel && (
         <>
           <div
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
             onClick={() => setShowNodePanel(false)}
           />
-          <div className="fixed right-0 top-0 z-50 h-full w-[450px] border-l border-gray-800/50 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] shadow-2xl">
+          <div className="fixed right-0 top-0 z-50 h-full w-[420px] border-l border-gray-200 bg-white shadow-2xl">
             {/* Panel Header */}
-            <div className="border-b border-gray-800/50 p-6">
+            <div className="border-b border-gray-200 p-5">
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-white">Add Node</h2>
+                <h2 className="text-lg font-semibold text-gray-900">Add Node</h2>
                 <button
                   onClick={() => setShowNodePanel(false)}
-                  className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white"
+                  className="rounded-md p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -291,20 +291,20 @@ export default function WorkflowBuilder() {
 
               {/* Search */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500" />
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search nodes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-xl border border-gray-700/50 bg-[#0f0f0f] py-3 pl-11 pr-4 text-sm text-white placeholder-gray-500 focus:border-[#6366f1] focus:outline-none focus:ring-2 focus:ring-[#6366f1]/20"
+                  className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-[#ff6d5a] focus:outline-none focus:ring-2 focus:ring-[#ff6d5a]/20"
                   autoFocus
                 />
               </div>
             </div>
 
             {/* Node List */}
-            <div className="h-[calc(100%-140px)] overflow-y-auto p-6">
+            <div className="h-[calc(100%-130px)] overflow-y-auto p-5">
               {filteredNodes.map((category) => (
                 <div key={category.category} className="mb-6">
                   <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
@@ -312,32 +312,30 @@ export default function WorkflowBuilder() {
                   </h3>
                   <div className="space-y-2">
                     {category.nodes.map((node) => {
-                      const Icon = node.icon;
                       return (
                         <button
                           key={node.id}
                           onClick={() => addNodeToCanvas(node)}
-                          className="group w-full rounded-xl border border-gray-800/50 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] p-4 text-left transition-all hover:scale-[1.02] hover:border-gray-700 hover:shadow-xl"
+                          className="group w-full rounded-lg border border-gray-200 bg-white p-3.5 text-left transition-all hover:border-gray-300 hover:shadow-md"
                         >
-                          <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-3">
                             <div
-                              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg shadow-lg transition-transform group-hover:scale-110"
+                              className="flex h-10 w-10 shrink-0 items-center justify-center rounded shadow-sm"
                               style={{
-                                background: `linear-gradient(135deg, ${node.color}30 0%, ${node.color}10 100%)`,
-                                boxShadow: `0 4px 12px ${node.color}20`,
+                                backgroundColor: `${node.color}15`,
                               }}
                             >
-                              <Icon className="h-6 w-6" style={{ color: node.color }} />
+                              <Image src={node.icon} alt={node.label} width={20} height={20} className="h-5 w-5" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="mb-1 text-sm font-semibold text-white">
+                              <div className="mb-0.5 text-sm font-medium text-gray-900">
                                 {node.label}
                               </div>
-                              <div className="text-xs text-gray-400">
+                              <div className="text-xs text-gray-500 truncate">
                                 {node.description}
                               </div>
                             </div>
-                            <Plus className="h-5 w-5 text-gray-500 opacity-0 transition-opacity group-hover:opacity-100" />
+                            <Plus className="h-4 w-4 text-gray-400 opacity-0 transition-opacity group-hover:opacity-100" />
                           </div>
                         </button>
                       );
@@ -348,10 +346,10 @@ export default function WorkflowBuilder() {
 
               {filteredNodes.length === 0 && (
                 <div className="py-12 text-center">
-                  <p className="text-gray-500">No nodes found</p>
+                  <p className="text-gray-600 text-sm">No nodes found</p>
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="mt-2 text-sm text-[#6366f1] hover:underline"
+                    className="mt-2 text-sm text-[#ff6d5a] hover:underline"
                   >
                     Clear search
                   </button>

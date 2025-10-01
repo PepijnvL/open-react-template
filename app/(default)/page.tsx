@@ -5,6 +5,8 @@ export const metadata = {
 
 import PageIllustration from "@/components/page-illustration";
 import Hero from "@/components/hero-home";
+import SocialProof from "@/components/social-proof";
+import HowItWorks from "@/components/how-it-works";
 import FeaturesNew from "@/components/features-new";
 import UserManagementFeature from "@/components/user-management-feature";
 import IntegrationsNew from "@/components/integrations-new";
@@ -16,6 +18,8 @@ export default function Home() {
     <>
       <PageIllustration />
       <Hero />
+      <SocialProof />
+      <HowItWorks />
       <FeaturesNew />
       <UserManagementFeature />
       <IntegrationsNew />

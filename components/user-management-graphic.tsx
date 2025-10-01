@@ -152,17 +152,18 @@ export default function UserManagementGraphic({
 
         {/* Connection Lines */}
         <g opacity="0.2" stroke="url(#gradient1)" strokeWidth="2">
-          {[0, 1, 2, 3, 4, 5].map((i) => {
-            const angle = (i * 60 * Math.PI) / 180;
-            const x = Math.cos(angle) * 150 + 400;
-            const y = Math.sin(angle) * 150 + 300;
-
-            return (
-              <line key={i} x1="400" y1="300" x2={x} y2={y}>
-                <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite" />
-              </line>
-            );
-          })}
+          {[
+            { x: 550, y: 300 },
+            { x: 475, y: 429.9 },
+            { x: 325, y: 429.9 },
+            { x: 250, y: 300 },
+            { x: 325, y: 170.1 },
+            { x: 475, y: 170.1 },
+          ].map((point, i) => (
+            <line key={i} x1="400" y1="300" x2={point.x} y2={point.y}>
+              <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite" />
+            </line>
+          ))}
         </g>
       </svg>
     );
