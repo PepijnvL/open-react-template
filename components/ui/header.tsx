@@ -51,8 +51,17 @@ export default function Header() {
                 </div>
               )}
             </div>
+            <Link href="/enterprise" className="text-sm text-gray-300 hover:text-white transition-colors">
+              Enterprise
+            </Link>
             <Link href="/pricing" className="text-sm text-gray-300 hover:text-white transition-colors">
               Pricing
+            </Link>
+            <Link href="/docs" className="text-sm text-gray-300 hover:text-white transition-colors">
+              Docs
+            </Link>
+            <Link href="/community" className="text-sm text-gray-300 hover:text-white transition-colors">
+              Community
             </Link>
           </nav>
 
