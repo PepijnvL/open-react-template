@@ -1,11 +1,51 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const integrations = [
+interface AppIcon {
+  name: string;
+  gradient: string;
+  initials: string;
+}
+
+interface Integration {
+  name: string;
+  gradient: string;
+  initials: string;
+  description: string;
+  fields: Array<{ label: string; value: string }>;
+}
+
+const appIcons: AppIcon[] = [
+  { name: "Airtable", gradient: "bg-gradient-to-br from-yellow-400 to-orange-500", initials: "AT" },
+  { name: "Salesforce", gradient: "bg-gradient-to-br from-blue-400 to-blue-600", initials: "SF" },
+  { name: "Gmail", gradient: "bg-gradient-to-br from-red-400 to-red-600", initials: "GM" },
+  { name: "Slack", gradient: "bg-gradient-to-br from-purple-400 to-pink-500", initials: "SL" },
+  { name: "Apollo", gradient: "bg-gradient-to-br from-indigo-500 to-purple-600", initials: "AP" },
+  { name: "Google Sheets", gradient: "bg-gradient-to-br from-green-400 to-green-600", initials: "GS" },
+  { name: "Google Meet", gradient: "bg-gradient-to-br from-blue-500 to-green-500", initials: "GM" },
+  { name: "Google Docs", gradient: "bg-gradient-to-br from-blue-500 to-blue-700", initials: "GD" },
+  { name: "HubSpot", gradient: "bg-gradient-to-br from-orange-500 to-orange-700", initials: "HS" },
+  { name: "Google Drive", gradient: "bg-gradient-to-br from-blue-400 to-yellow-400", initials: "GD" },
+  { name: "Google Calendar", gradient: "bg-gradient-to-br from-blue-500 to-blue-700", initials: "GC" },
+  { name: "Semrush", gradient: "bg-gradient-to-br from-orange-400 to-orange-600", initials: "SR" },
+  { name: "Ahrefs", gradient: "bg-gradient-to-br from-blue-600 to-blue-800", initials: "AH" },
+  { name: "Linear", gradient: "bg-gradient-to-br from-purple-600 to-indigo-700", initials: "LN" },
+  { name: "Outlook", gradient: "bg-gradient-to-br from-blue-500 to-blue-700", initials: "OL" },
+  { name: "Instagram", gradient: "bg-gradient-to-br from-pink-500 via-purple-500 to-yellow-500", initials: "IG" },
+  { name: "YouTube", gradient: "bg-gradient-to-br from-red-500 to-red-700", initials: "YT" },
+  { name: "Notion", gradient: "bg-gradient-to-br from-gray-700 to-gray-900", initials: "N" },
+  { name: "Microsoft Teams", gradient: "bg-gradient-to-br from-purple-600 to-blue-600", initials: "MT" },
+  { name: "LinkedIn", gradient: "bg-gradient-to-br from-blue-600 to-blue-800", initials: "LI" },
+  { name: "TikTok", gradient: "bg-gradient-to-br from-cyan-400 to-pink-500", initials: "TT" },
+];
+
+const integrations: Integration[] = [
   {
     name: "Salesforce",
-    icon: "☁️",
+    gradient: "bg-gradient-to-br from-blue-400 to-blue-600",
+    initials: "SF",
     description: "Access and modify Salesforce CRM data",
     fields: [
       { label: "Name", value: "Jane Smith" },
@@ -14,7 +54,8 @@ const integrations = [
   },
   {
     name: "Apollo",
-    icon: "🚀",
+    gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
+    initials: "AP",
     description: "Sales intelligence and prospecting",
     fields: [
       { label: "Query", value: "AI startups" },
@@ -23,7 +64,8 @@ const integrations = [
   },
   {
     name: "Gmail",
-    icon: "📧",
+    gradient: "bg-gradient-to-br from-red-400 to-red-600",
+    initials: "GM",
     description: "Read and send Gmail messages",
     fields: [
       { label: "To", value: "jane@gumloop.com" },
@@ -32,7 +74,8 @@ const integrations = [
   },
   {
     name: "Slack",
-    icon: "💬",
+    gradient: "bg-gradient-to-br from-purple-400 to-pink-500",
+    initials: "SL",
     description: "Send and receive Slack messages",
     fields: [
       { label: "Channel", value: "#general" },
@@ -41,7 +84,8 @@ const integrations = [
   },
   {
     name: "Google Sheets",
-    icon: "📊",
+    gradient: "bg-gradient-to-br from-green-400 to-green-600",
+    initials: "GS",
     description: "Read and write Google Sheets data",
     fields: [
       { label: "Spreadsheet", value: "Lead Tracker" },
@@ -50,7 +94,8 @@ const integrations = [
   },
   {
     name: "LinkedIn",
-    icon: "💼",
+    gradient: "bg-gradient-to-br from-blue-600 to-blue-800",
+    initials: "LI",
     description: "Interact with LinkedIn",
     fields: [
       { label: "Post Type", value: "Article" },
@@ -59,120 +104,131 @@ const integrations = [
   },
 ];
 
-const appIcons = [
-  { name: "Airtable", icon: "🗂️" },
-  { name: "Salesforce", icon: "☁️" },
-  { name: "Gmail", icon: "📧" },
-  { name: "Slack", icon: "💬" },
-  { name: "Apollo", icon: "🚀" },
-  { name: "Google Sheets", icon: "📊" },
-  { name: "Google Meet", icon: "📹" },
-  { name: "Google Docs", icon: "📝" },
-  { name: "HubSpot", icon: "🧡" },
-  { name: "Google Drive", icon: "📁" },
-  { name: "Google Calendar", icon: "📅" },
-  { name: "Semrush", icon: "📈" },
-  { name: "Ahrefs", icon: "🔗" },
-  { name: "Linear", icon: "📐" },
-  { name: "Outlook", icon: "📮" },
-  { name: "Instagram", icon: "📷" },
-  { name: "YouTube", icon: "▶️" },
-  { name: "Notion", icon: "📓" },
-  { name: "Microsoft Teams", icon: "👥" },
-  { name: "LinkedIn", icon: "💼" },
-  { name: "TikTok", icon: "🎵" },
-];
-
 export default function IntegrationCarousel() {
-  const [selectedApp, setSelectedApp] = useState<number | null>(null);
+  const [selectedApp, setSelectedApp] = useState<number>(0);
 
-  const selectedIntegration = selectedApp !== null ? integrations[selectedApp % integrations.length] : integrations[0];
+  const selectedIntegration = integrations[selectedApp % integrations.length];
 
   return (
     <div className="w-full max-w-5xl mx-auto">
       {/* App Icons Grid */}
       <div className="flex flex-wrap gap-3 justify-center mb-8 px-4">
         {appIcons.map((app, index) => (
-          <button
+          <motion.button
             key={index}
-            className="w-14 h-14 rounded-xl bg-white border-2 border-gray-200 flex items-center justify-center text-2xl shadow-sm hover:shadow-lg hover:scale-110 hover:border-blue-400 transition-all duration-300 cursor-pointer"
+            className={`w-14 h-14 rounded-xl ${app.gradient} flex items-center justify-center shadow-md border border-white/20 backdrop-blur-sm cursor-pointer relative overflow-hidden group`}
             onClick={() => setSelectedApp(index)}
             onMouseEnter={() => setSelectedApp(index)}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20,
+            }}
           >
-            {app.icon}
-          </button>
+            {/* Glow effect on hover */}
+            <motion.div
+              className="absolute inset-0 bg-white/30 rounded-xl"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+
+            <span className="text-white font-bold text-xs relative z-10 select-none">
+              {app.initials}
+            </span>
+          </motion.button>
         ))}
       </div>
 
       {/* Integration Detail Card */}
-      <div className="bg-white rounded-2xl border-2 border-gray-200 p-6 shadow-xl transition-all duration-500 animate-fade-in">
-        <div className="flex items-start gap-4 mb-6">
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 flex items-center justify-center text-3xl shadow-sm">
-            {selectedIntegration.icon}
-          </div>
-          <div className="flex-1">
-            <h4 className="text-xl font-bold text-gray-900 mb-1">
-              {selectedIntegration.name}
-            </h4>
-            <p className="text-sm text-gray-600">
-              {selectedIntegration.description}
-            </p>
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          {selectedIntegration.fields.map((field, index) => (
-            <div
-              key={index}
-              className="animate-slide-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedApp}
+          className="bg-white rounded-2xl border border-gray-200 p-8 shadow-2xl"
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -20, scale: 0.95 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+          }}
+        >
+          <div className="flex items-start gap-5 mb-8">
+            {/* App icon with bounce animation */}
+            <motion.div
+              className={`w-16 h-16 rounded-2xl ${selectedIntegration.gradient} flex items-center justify-center shadow-lg border border-white/20`}
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 15,
+                delay: 0.1,
+              }}
             >
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                {field.label}
-              </label>
-              <input
-                type="text"
-                value={field.value}
-                readOnly
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <span className="text-white font-bold text-lg">
+                {selectedIntegration.initials}
+              </span>
+            </motion.div>
+
+            <div className="flex-1">
+              <motion.h4
+                className="text-2xl font-bold text-gray-900 mb-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15 }}
+              >
+                {selectedIntegration.name}
+              </motion.h4>
+              <motion.p
+                className="text-sm text-gray-600"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                {selectedIntegration.description}
+              </motion.p>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.5s ease-out forwards;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.4s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
+          {/* Form fields with staggered animation */}
+          <div className="space-y-4">
+            {selectedIntegration.fields.map((field, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 25,
+                  delay: 0.25 + index * 0.1,
+                }}
+              >
+                <label className="block text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">
+                  {field.label}
+                </label>
+                <motion.input
+                  type="text"
+                  value={field.value}
+                  readOnly
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  whileFocus={{
+                    scale: 1.01,
+                    boxShadow: "0 4px 12px rgba(59, 130, 246, 0.1)",
+                  }}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

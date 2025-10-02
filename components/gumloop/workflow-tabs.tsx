@@ -1,14 +1,31 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const workflows = [
+interface Workflow {
+  id: string;
+  name: string;
+  subtitle: string;
+  gradient: string;
+  apps: Array<{ name: string; initials: string; gradient: string }>;
+  steps: string[];
+}
+
+const workflows: Workflow[] = [
   {
     id: "marketing",
     name: "Marketing",
     subtitle: "An AI copilot for your marketing team",
-    color: "from-pink-500 to-pink-600",
-    apps: ["X", "Instagram", "Perplexity", "Apollo", "Reddit", "Semrush"],
+    gradient: "from-pink-500 to-pink-600",
+    apps: [
+      { name: "X", initials: "X", gradient: "bg-gradient-to-br from-gray-800 to-black" },
+      { name: "Instagram", initials: "IG", gradient: "bg-gradient-to-br from-pink-500 via-purple-500 to-yellow-500" },
+      { name: "Perplexity", initials: "P", gradient: "bg-gradient-to-br from-blue-500 to-cyan-500" },
+      { name: "Apollo", initials: "AP", gradient: "bg-gradient-to-br from-indigo-500 to-purple-600" },
+      { name: "Reddit", initials: "R", gradient: "bg-gradient-to-br from-orange-500 to-red-600" },
+      { name: "Semrush", initials: "SR", gradient: "bg-gradient-to-br from-orange-400 to-orange-600" },
+    ],
     steps: [
       "Categorize recent comments based on urgency",
       "Generate AI Report",
@@ -20,8 +37,15 @@ const workflows = [
     id: "sales",
     name: "Sales",
     subtitle: "Automate your entire sales pipeline",
-    color: "from-blue-500 to-blue-600",
-    apps: ["Salesforce", "Apollo", "LinkedIn", "Gmail", "HubSpot", "Calendar"],
+    gradient: "from-blue-500 to-blue-600",
+    apps: [
+      { name: "Salesforce", initials: "SF", gradient: "bg-gradient-to-br from-blue-400 to-blue-600" },
+      { name: "Apollo", initials: "AP", gradient: "bg-gradient-to-br from-indigo-500 to-purple-600" },
+      { name: "LinkedIn", initials: "LI", gradient: "bg-gradient-to-br from-blue-600 to-blue-800" },
+      { name: "Gmail", initials: "GM", gradient: "bg-gradient-to-br from-red-400 to-red-600" },
+      { name: "HubSpot", initials: "HS", gradient: "bg-gradient-to-br from-orange-500 to-orange-700" },
+      { name: "Calendar", initials: "C", gradient: "bg-gradient-to-br from-blue-500 to-blue-700" },
+    ],
     steps: [
       "Read my Salesforce book of business",
       "Generate an AI analysis of the account",
@@ -32,8 +56,15 @@ const workflows = [
     id: "operations",
     name: "Operations",
     subtitle: "Streamline operational workflows",
-    color: "from-purple-500 to-purple-600",
-    apps: ["Stripe", "Google Sheets", "Calendar", "Gmail", "Slack", "Notion"],
+    gradient: "from-purple-500 to-purple-600",
+    apps: [
+      { name: "Stripe", initials: "S", gradient: "bg-gradient-to-br from-purple-500 to-indigo-600" },
+      { name: "Google Sheets", initials: "GS", gradient: "bg-gradient-to-br from-green-400 to-green-600" },
+      { name: "Calendar", initials: "C", gradient: "bg-gradient-to-br from-blue-500 to-blue-700" },
+      { name: "Gmail", initials: "GM", gradient: "bg-gradient-to-br from-red-400 to-red-600" },
+      { name: "Slack", initials: "SL", gradient: "bg-gradient-to-br from-purple-400 to-pink-500" },
+      { name: "Notion", initials: "N", gradient: "bg-gradient-to-br from-gray-700 to-gray-900" },
+    ],
     steps: [
       "Read my Stripe payments database",
       "AI score each lead",
@@ -45,8 +76,15 @@ const workflows = [
     id: "engineering",
     name: "Engineering",
     subtitle: "Build powerful automation workflows",
-    color: "from-green-500 to-green-600",
-    apps: ["GitHub", "Linear", "Slack", "Google Sheets", "HubSpot", "AWS"],
+    gradient: "from-green-500 to-green-600",
+    apps: [
+      { name: "GitHub", initials: "GH", gradient: "bg-gradient-to-br from-gray-700 to-gray-900" },
+      { name: "Linear", initials: "LN", gradient: "bg-gradient-to-br from-purple-600 to-indigo-700" },
+      { name: "Slack", initials: "SL", gradient: "bg-gradient-to-br from-purple-400 to-pink-500" },
+      { name: "Google Sheets", initials: "GS", gradient: "bg-gradient-to-br from-green-400 to-green-600" },
+      { name: "HubSpot", initials: "HS", gradient: "bg-gradient-to-br from-orange-500 to-orange-700" },
+      { name: "AWS", initials: "AWS", gradient: "bg-gradient-to-br from-orange-400 to-yellow-500" },
+    ],
     steps: [
       "Listen to webhook events",
       "Parse and format webhook data into desired structure",
@@ -57,8 +95,15 @@ const workflows = [
     id: "support",
     name: "Support",
     subtitle: "Enhance customer support operations",
-    color: "from-orange-500 to-orange-600",
-    apps: ["Zendesk", "Intercom", "Slack", "Gmail", "Notion", "Google Docs"],
+    gradient: "from-orange-500 to-orange-600",
+    apps: [
+      { name: "Zendesk", initials: "Z", gradient: "bg-gradient-to-br from-green-500 to-green-700" },
+      { name: "Intercom", initials: "IC", gradient: "bg-gradient-to-br from-blue-500 to-blue-700" },
+      { name: "Slack", initials: "SL", gradient: "bg-gradient-to-br from-purple-400 to-pink-500" },
+      { name: "Gmail", initials: "GM", gradient: "bg-gradient-to-br from-red-400 to-red-600" },
+      { name: "Notion", initials: "N", gradient: "bg-gradient-to-br from-gray-700 to-gray-900" },
+      { name: "Google Docs", initials: "GD", gradient: "bg-gradient-to-br from-blue-500 to-blue-700" },
+    ],
     steps: [
       "Read all Zendesk support tickets for this week",
       "Use AI to categorize which tickets are highest priority",
@@ -77,116 +122,200 @@ export default function WorkflowTabs() {
       {/* Tabs */}
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
         {workflows.map((wf, index) => (
-          <button
+          <motion.button
             key={wf.id}
             onClick={() => setActiveTab(index)}
-            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
+            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 whitespace-nowrap relative ${
               activeTab === index
-                ? "bg-gray-900 text-white shadow-lg scale-105"
+                ? "bg-gray-900 text-white shadow-lg"
                 : "bg-white text-gray-600 border border-gray-200 hover:border-gray-300 hover:shadow-md"
             }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
           >
-            {wf.name}
-          </button>
+            {activeTab === index && (
+              <motion.div
+                className="absolute inset-0 bg-gray-900 rounded-full"
+                layoutId="activeTab"
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">{wf.name}</span>
+          </motion.button>
         ))}
       </div>
 
       {/* Content Area */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Left: Apps + Steps */}
-        <div className="space-y-6">
-          {/* Apps Row */}
-          <div className="flex gap-2 flex-wrap">
-            {workflow.apps.map((app, index) => (
-              <div
-                key={app}
-                className="w-12 h-12 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-xs font-medium shadow-sm animate-fade-in"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                {app.slice(0, 2).toUpperCase()}
-              </div>
-            ))}
-          </div>
-
-          <div className={`text-sm font-medium text-white px-4 py-2 rounded-lg bg-gradient-to-r ${workflow.color} inline-block`}>
-            {workflow.subtitle}
-          </div>
-
-          {/* Workflow Steps */}
-          <div className="space-y-3">
-            {workflow.steps.map((step, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 animate-slide-up"
-                style={{ animationDelay: `${index * 100 + 200}ms` }}
-              >
-                <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${workflow.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5`}>
-                  {index + 1}
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">{step}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right: Preview Card */}
-        <div className={`rounded-2xl bg-gradient-to-br ${workflow.color} p-8 shadow-2xl animate-fade-in`}>
-          <div className="bg-white/95 backdrop-blur rounded-xl p-6 shadow-lg">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
-              <div className="flex-1">
-                <div className="h-3 bg-gray-200 rounded w-3/4 mb-2 animate-pulse"></div>
-                <div className="h-2 bg-gray-100 rounded w-1/2 animate-pulse"></div>
-              </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          className="grid md:grid-cols-2 gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Left: Apps + Steps */}
+          <div className="space-y-6">
+            {/* Apps Row */}
+            <div className="flex gap-3 flex-wrap">
+              {workflow.apps.map((app, index) => (
+                <motion.div
+                  key={app.name}
+                  className={`w-14 h-14 rounded-xl ${app.gradient} flex items-center justify-center text-white text-xs font-bold shadow-lg border border-white/20`}
+                  initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 20,
+                    delay: index * 0.05,
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  {app.initials}
+                </motion.div>
+              ))}
             </div>
 
+            <motion.div
+              className={`text-sm font-medium text-white px-4 py-2 rounded-lg bg-gradient-to-r ${workflow.gradient} inline-block shadow-lg`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              {workflow.subtitle}
+            </motion.div>
+
+            {/* Workflow Steps */}
             <div className="space-y-3">
-              <div className="h-2 bg-gray-100 rounded w-full animate-pulse" style={{ animationDelay: "100ms" }}></div>
-              <div className="h-2 bg-gray-100 rounded w-5/6 animate-pulse" style={{ animationDelay: "200ms" }}></div>
-              <div className="h-2 bg-gray-100 rounded w-4/6 animate-pulse" style={{ animationDelay: "300ms" }}></div>
-            </div>
-
-            <div className="mt-6 flex items-center gap-2 text-xs text-gray-500">
-              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${workflow.color} animate-pulse`}></div>
-              <span className="animate-pulse">Processing workflow...</span>
+              {workflow.steps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
+                    delay: 0.35 + index * 0.1,
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div
+                    className={`w-7 h-7 rounded-full bg-gradient-to-r ${workflow.gradient} flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-md`}
+                  >
+                    {index + 1}
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed font-medium">{step}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
-      </div>
 
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
+          {/* Right: Preview Card */}
+          <motion.div
+            className={`rounded-2xl bg-gradient-to-br ${workflow.gradient} p-1 shadow-2xl`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25, delay: 0.2 }}
+          >
+            <div className="bg-white/95 backdrop-blur rounded-xl p-6 h-full">
+              <div className="flex items-center gap-3 mb-4">
+                <motion.div
+                  className="w-10 h-10 rounded-full bg-gray-200"
+                  animate={{
+                    opacity: [0.4, 0.8, 0.4],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <div className="flex-1">
+                  <motion.div
+                    className="h-3 bg-gray-200 rounded w-3/4 mb-2"
+                    animate={{
+                      opacity: [0.4, 0.8, 0.4],
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 0.1,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="h-2 bg-gray-100 rounded w-1/2"
+                    animate={{
+                      opacity: [0.4, 0.8, 0.4],
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 0.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </div>
+              </div>
 
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+              <div className="space-y-3">
+                {[1, 2, 3].map((_, index) => (
+                  <motion.div
+                    key={index}
+                    className={`h-2 bg-gray-100 rounded ${
+                      index === 0 ? "w-full" : index === 1 ? "w-5/6" : "w-4/6"
+                    }`}
+                    animate={{
+                      opacity: [0.4, 0.8, 0.4],
+                    }}
+                    transition={{
+                      duration: 2,
+                      delay: 0.3 + index * 0.1,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                ))}
+              </div>
 
-        .animate-fade-in {
-          animation: fade-in 0.5s ease-out forwards;
-          opacity: 0;
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.5s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
+              <div className="mt-6 flex items-center gap-2 text-xs text-gray-500">
+                <motion.div
+                  className={`w-2 h-2 rounded-full bg-gradient-to-r ${workflow.gradient}`}
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.span
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  Processing workflow...
+                </motion.span>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

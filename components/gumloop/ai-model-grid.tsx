@@ -1,15 +1,22 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 
-const aiModels = [
-  { name: "Anthropic", icon: "🤖", color: "from-orange-100 to-orange-200 border-orange-300" },
-  { name: "OpenAI", icon: "⚡", color: "from-green-100 to-green-200 border-green-300" },
-  { name: "ChatGPT", icon: "💬", color: "from-emerald-100 to-emerald-200 border-emerald-300" },
-  { name: "Gemini", icon: "✨", color: "from-blue-100 to-blue-200 border-blue-300" },
-  { name: "Copilot", icon: "🚀", color: "from-purple-100 to-purple-200 border-purple-300" },
-  { name: "Perplexity", icon: "🔮", color: "from-indigo-100 to-indigo-200 border-indigo-300" },
-  { name: "Meta", icon: "🎯", color: "from-pink-100 to-pink-200 border-pink-300" },
+interface AIModel {
+  name: string;
+  gradient: string;
+  initials: string;
+}
+
+const aiModels: AIModel[] = [
+  { name: "Anthropic", gradient: "bg-gradient-to-br from-orange-400 to-orange-600", initials: "A" },
+  { name: "OpenAI", gradient: "bg-gradient-to-br from-green-400 to-green-600", initials: "O" },
+  { name: "ChatGPT", gradient: "bg-gradient-to-br from-emerald-400 to-emerald-600", initials: "GPT" },
+  { name: "Gemini", gradient: "bg-gradient-to-br from-blue-400 to-blue-600", initials: "G" },
+  { name: "Copilot", gradient: "bg-gradient-to-br from-purple-400 to-purple-600", initials: "CP" },
+  { name: "Perplexity", gradient: "bg-gradient-to-br from-indigo-400 to-indigo-600", initials: "P" },
+  { name: "Meta", gradient: "bg-gradient-to-br from-pink-400 to-pink-600", initials: "M" },
 ];
 
 export default function AIModelGrid() {
@@ -18,109 +25,209 @@ export default function AIModelGrid() {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="relative">
-        {/* Center glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        {/* Center glow with animation */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
         {/* Grid Layout */}
-        <div className="relative grid grid-cols-2 gap-4 p-4">
+        <div className="relative grid grid-cols-2 gap-6 p-4">
           {/* Top Row */}
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             {aiModels.slice(0, 2).map((model, index) => (
-              <button
+              <motion.button
                 key={model.name}
-                className={`flex-1 aspect-square rounded-2xl bg-gradient-to-br ${model.color} border-2 flex flex-col items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-fade-in`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`flex-1 aspect-square rounded-2xl ${model.gradient} border border-white/20 shadow-xl flex flex-col items-center justify-center gap-3 backdrop-blur-sm`}
+                initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: index * 0.1,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+                  rotate: 5,
+                }}
+                whileTap={{ scale: 0.95 }}
                 onMouseEnter={() => setSelectedModel(index)}
                 onClick={() => setSelectedModel(index)}
               >
-                <span className="text-4xl">{model.icon}</span>
-                <span className="text-sm font-semibold text-gray-700">{model.name}</span>
-              </button>
+                <motion.div
+                  className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="text-white font-bold text-lg">{model.initials}</span>
+                </motion.div>
+                <span className="text-sm font-bold text-white">{model.name}</span>
+
+                {/* Hover glow */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl bg-white/10"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
             ))}
           </div>
 
-          {/* Center Logo */}
+          {/* Center Logo with pulse */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-24 h-24 rounded-2xl bg-white border-4 border-gray-200 shadow-2xl flex items-center justify-center animate-pulse-slow">
+            <motion.div
+              className="w-28 h-28 rounded-2xl bg-gradient-to-br from-white to-gray-100 border-4 border-white shadow-2xl flex items-center justify-center"
+              animate={{
+                scale: [1, 1.05, 1],
+                boxShadow: [
+                  "0 10px 40px rgba(0, 0, 0, 0.2)",
+                  "0 15px 50px rgba(59, 130, 246, 0.3)",
+                  "0 10px 40px rgba(0, 0, 0, 0.2)",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              whileHover={{
+                scale: 1.1,
+                rotate: 180,
+              }}
+            >
               <div className="text-center">
-                <div className="text-3xl mb-1">🔄</div>
-                <div className="text-xs font-bold text-gray-600">AI Hub</div>
+                <motion.div
+                  className="text-4xl mb-1"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                >
+                  🔄
+                </motion.div>
+                <div className="text-xs font-bold text-gray-600">AI Router</div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Bottom Row */}
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             {aiModels.slice(2, 4).map((model, index) => (
-              <button
+              <motion.button
                 key={model.name}
-                className={`flex-1 aspect-square rounded-2xl bg-gradient-to-br ${model.color} border-2 flex flex-col items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-fade-in`}
-                style={{ animationDelay: `${(index + 2) * 100}ms` }}
+                className={`flex-1 aspect-square rounded-2xl ${model.gradient} border border-white/20 shadow-xl flex flex-col items-center justify-center gap-3 backdrop-blur-sm`}
+                initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: (index + 2) * 0.1,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+                  rotate: -5,
+                }}
+                whileTap={{ scale: 0.95 }}
                 onMouseEnter={() => setSelectedModel(index + 2)}
                 onClick={() => setSelectedModel(index + 2)}
               >
-                <span className="text-4xl">{model.icon}</span>
-                <span className="text-sm font-semibold text-gray-700">{model.name}</span>
-              </button>
+                <motion.div
+                  className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="text-white font-bold text-lg">{model.initials}</span>
+                </motion.div>
+                <span className="text-sm font-bold text-white">{model.name}</span>
+
+                {/* Hover glow */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl bg-white/10"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
             ))}
           </div>
         </div>
 
         {/* Bottom Row - Additional Models */}
-        <div className="grid grid-cols-3 gap-3 mt-4 px-4">
+        <div className="grid grid-cols-3 gap-4 mt-6 px-4">
           {aiModels.slice(4).map((model, index) => (
-            <button
+            <motion.button
               key={model.name}
-              className={`aspect-square rounded-xl bg-gradient-to-br ${model.color} border-2 flex flex-col items-center justify-center gap-1 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 animate-fade-in`}
-              style={{ animationDelay: `${(index + 4) * 100}ms` }}
+              className={`aspect-square rounded-xl ${model.gradient} border border-white/20 shadow-lg flex flex-col items-center justify-center gap-2 backdrop-blur-sm`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 25,
+                delay: (index + 4) * 0.1,
+              }}
+              whileHover={{
+                scale: 1.15,
+                boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setSelectedModel(index + 4)}
               onClick={() => setSelectedModel(index + 4)}
             >
-              <span className="text-2xl">{model.icon}</span>
-              <span className="text-xs font-semibold text-gray-700">{model.name}</span>
-            </button>
+              <motion.div
+                className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur flex items-center justify-center"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="text-white font-bold text-xs">{model.initials}</span>
+              </motion.div>
+              <span className="text-xs font-bold text-white">{model.name}</span>
+
+              {/* Pulse effect */}
+              <motion.div
+                className="absolute inset-0 rounded-xl bg-white/20"
+                animate={{
+                  opacity: [0, 0.5, 0],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  delay: index * 0.3,
+                  repeat: Infinity,
+                }}
+              />
+            </motion.button>
           ))}
         </div>
       </div>
 
       {/* Description */}
-      <div className="mt-8 text-center">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">One Subscription For All</h3>
-        <p className="text-sm text-gray-600">
+      <motion.div
+        className="mt-10 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 }}
+      >
+        <h3 className="text-2xl font-bold text-gray-900 mb-3">One Subscription For All</h3>
+        <p className="text-sm text-gray-600 max-w-md mx-auto">
           No add-ons, data subscriptions or per-model fees
         </p>
-      </div>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes pulse-slow {
-          0%, 100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.05);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
-          opacity: 0;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-      `}</style>
+      </motion.div>
     </div>
   );
 }
