@@ -11,7 +11,7 @@ export default function PricingPage() {
   return (
     <>
       <PageIllustration />
-      <div className="pt-16 md:pt-24">
+      <div className="pt-8 md:pt-12">
         <PricingNew />
       </div>
       <Cta />

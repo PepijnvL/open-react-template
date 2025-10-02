@@ -6,23 +6,22 @@ import SocialProofV2 from "@/components/social-proof-v2";
 import HowItWorks from "@/components/how-it-works";
 import FeaturesNew from "@/components/features-new";
 import AIAgentsFeatureV3 from "@/components/ai-agents-feature-v3";
-import WorkflowShowcase from "@/components/workflow-showcase";
-import UserManagementV3 from "@/components/user-management-v3";
+import UserManagementV4 from "@/components/user-management-v4";
 import IntegrationsNew from "@/components/integrations-new";
 import PricingTeaser from "@/components/pricing-teaser";
 import CTAWithRays from "@/components/cta-with-rays";
 
-export default function LandingV3() {
+export default function LandingV4() {
   return (
     <>
       <PageIllustration />
       <HeroHomeV3 />
       <SocialProofV2 />
       <HowItWorks />
-      <WorkflowShowcase />
+      {/* Removed WorkflowShowcase - too heavy, causes slow compilation */}
       <FeaturesNew />
       <AIAgentsFeatureV3 />
-      <UserManagementV3 />
+      <UserManagementV4 />
       <IntegrationsNew />
       <PricingTeaser />
       <CTAWithRays

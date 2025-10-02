@@ -12,7 +12,7 @@ export default function HeroHomeV3() {
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Hero content */}
-        <div className="py-16 md:py-24 lg:py-32">
+        <div className="py-8 md:py-12 lg:py-16">
           {/* Section header */}
           <div className="pb-12 text-center md:pb-16 lg:pb-20">
             <h1
