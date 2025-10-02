@@ -1,0 +1,87 @@
+/**
+ * Lightweight scroll animations - AOS replacement
+ * Zero dependencies, pure CSS with Intersection Observer trigger
+ */
+
+/* Base state - elements are invisible until animated */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animate-in state - applied by Intersection Observer */
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation delays for staggered effects */
+[data-animate-delay="100"] {
+  transition-delay: 0.1s;
+}
+
+[data-animate-delay="200"] {
+  transition-delay: 0.2s;
+}
+
+[data-animate-delay="300"] {
+  transition-delay: 0.3s;
+}
+
+[data-animate-delay="400"] {
+  transition-delay: 0.4s;
+}
+
+[data-animate-delay="500"] {
+  transition-delay: 0.5s;
+}
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Different animation types */
+[data-animate="fade"] {
+  transform: none;
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(20px);
+}
+
+[data-animate="fade-down"] {
+  transform: translateY(-20px);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(20px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(-20px);
+}
+
+[data-animate="zoom-in"] {
+  transform: scale(0.95);
+}
+
+/* Smooth easing - matches the premium feel of AOS */
+[data-animate].animate-in {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* For phone/mobile - disable animations to improve performance */
+@media (max-width: 640px) {
+  [data-animate][data-disable="phone"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
