@@ -1,4 +1,7 @@
-"use client";
+export const metadata = {
+  title: "Enterprise Solutions - Kariz",
+  description: "Get dedicated support, custom integrations, and enterprise-grade security. Schedule a consultation to discuss your organization's integration needs.",
+};
 
 import PageIllustration from "@/components/page-illustration";
 

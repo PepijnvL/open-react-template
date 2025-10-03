@@ -1,4 +1,7 @@
-"use client";
+export const metadata = {
+  title: "Book a Demo - Kariz",
+  description: "Schedule a personalized demo to see how Kariz helps you ship customer-facing integrations in minutes, not months.",
+};
 
 import PageIllustration from "@/components/page-illustration";
 
