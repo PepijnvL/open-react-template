@@ -41,15 +41,6 @@ const nacelle = localFont({
 export const metadata = {
   title: "Kariz - Customer-Facing Integration Platform",
   description: "Build powerful integrations your customers can manage themselves. Free tier, custom connectors, 5-10x faster than n8n.",
-  icons: {
-    icon: [
-      { url: '/icon-light.png', media: '(prefers-color-scheme: dark)', type: 'image/png', sizes: '32x32' },
-      { url: '/icon-dark.png', media: '(prefers-color-scheme: light)', type: 'image/png', sizes: '32x32' },
-      { url: '/icon-dark.png', type: 'image/png', sizes: '32x32' }, // fallback
-    ],
-    shortcut: '/icon-dark.png',
-    apple: '/icon-dark.png',
-  },
 };
 
 export default function RootLayout({
