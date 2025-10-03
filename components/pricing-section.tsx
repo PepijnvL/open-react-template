@@ -86,7 +86,7 @@ export default function PricingSection({ tiers, className }: PricingSectionProps
 function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean }) {
   const { formatPrice } = useCurrency();
   const price = isYearly ? tier.yearlyPrice : tier.monthlyPrice;
-  const period = isYearly ? "year" : "month";
+  const period = "month";
 
   return (
     <GlassCard
@@ -114,9 +114,16 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
       {/* Price */}
       <div className="mb-6">
         {price === null ? (
-          <div className="flex items-baseline">
-            <span className="text-3xl font-bold text-white">Custom pricing</span>
-          </div>
+          <>
+            <div className="flex items-baseline">
+              <span className="text-3xl font-bold text-white">Custom pricing</span>
+            </div>
+            {isYearly && (
+              <p className="mt-1 text-xs text-gray-500">
+                billed annually
+              </p>
+            )}
+          </>
         ) : (
           <>
             <div className="flex items-baseline">

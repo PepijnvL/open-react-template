@@ -7,7 +7,7 @@ export default function DeveloperHero() {
   const [rotatingText, setRotatingText] = useState("any API");
 
   useEffect(() => {
-    const options = ["any API", "any app"];
+    const options = ["any API", "any App"];
     let currentIndex = 0;
 
     const interval = setInterval(() => {
@@ -24,8 +24,8 @@ export default function DeveloperHero() {
         <div className="pb-16 pt-8 md:pb-24 md:pt-10">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
-              <svg className="h-4 w-4 fill-emerald-400" viewBox="0 0 16 16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
+              <svg className="h-4 w-4 fill-indigo-400" viewBox="0 0 16 16">
                 <path d="M8 0L0 8l8 8 8-8-8-8zm0 14L2 8l6-6 6 6-6 6z"/>
               </svg>
               500 free executions · No credit card required
@@ -40,7 +40,7 @@ export default function DeveloperHero() {
               data-aos-delay={100}
             >
               Connect to{" "}
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
                 {rotatingText}
               </span>{" "}
               in minutes

@@ -20,15 +20,15 @@ export default function FeaturesNew() {
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,theme(colors.gray.400/.25),transparent)1] md:py-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-16">
-            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-emerald-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-emerald-200/50">
-              <span className="bg-gradient-to-r from-emerald-500 to-emerald-200 bg-clip-text text-transparent">
+            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
+              <span className="bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                 Built for Developers
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.emerald.200),theme(colors.gray.50),theme(colors.emerald.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
               Ship integrations in minutes, not months
             </h2>
-            <p className="text-lg text-emerald-200/65">
+            <p className="text-lg text-indigo-200/65">
               Lightning-fast execution, custom connectors without code, and built-in user management.
               Everything you need to build production-ready integrations.
             </p>
@@ -109,6 +109,35 @@ export default function FeaturesNew() {
               <p className="text-sm text-gray-400">
                 Build API connectors to any service without writing code. What takes weeks takes minutes here.
               </p>
+            </BentoCard>
+
+            {/* Developer-First API */}
+            <BentoCard variant="subtle">
+              <div className="flex h-full flex-col justify-between">
+                <div>
+                  <div className="mb-3 inline-block rounded-lg bg-indigo-500/20 p-3">
+                    <svg
+                      className="h-6 w-6 text-indigo-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-white">
+                    Full REST API Access
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    Complete programmatic control over workflows. Build, trigger, and monitor workflows via API. Perfect for embedding automation into your product.
+                  </p>
+                </div>
+              </div>
             </BentoCard>
 
             {/* Integration showcase with logos */}

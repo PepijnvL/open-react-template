@@ -59,7 +59,7 @@ export default function CustomConnectorShowcase() {
           {/* Main Visual Demo */}
           <div className="relative">
             {/* Time Comparison Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 rounded-full border border-emerald-500/30 bg-gray-950 px-4 py-2 text-sm font-semibold text-emerald-400 shadow-lg">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 rounded-full border border-indigo-500/30 bg-gray-950 px-4 py-2 text-sm font-semibold text-indigo-400 shadow-lg">
               <span className="text-gray-500">Traditional: 2-4 weeks</span>
               <span className="mx-2">→</span>
               <span>Kariz: 5 minutes</span>
@@ -126,7 +126,7 @@ export default function CustomConnectorShowcase() {
                       <div className="text-sm font-medium text-gray-400">Try with:</div>
                       <div className="mt-3 flex flex-wrap gap-3">
                         <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
-                          <Code2 className="h-4 w-4 text-blue-400" />
+                          <Image src="/icons/apps/stripe-logo.svg" alt="Stripe" width={16} height={16} className="h-4 w-4" />
                           <span>Stripe</span>
                         </div>
                         <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
@@ -256,10 +256,10 @@ export default function CustomConnectorShowcase() {
                   exit={{ opacity: 0, y: -20 }}
                   className="mx-auto max-w-2xl h-[380px] flex flex-col justify-center"
                 >
-                  <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/30 p-6">
+                  <div className="rounded-xl border border-indigo-500/20 bg-indigo-950/30 p-6">
                     <div className="mb-4 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20">
-                        <Check className="h-5 w-5 text-emerald-400" />
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/20">
+                        <Check className="h-5 w-5 text-indigo-400" />
                       </div>
                       <div>
                         <div className="font-semibold text-white">Connector Ready!</div>
@@ -275,7 +275,7 @@ export default function CustomConnectorShowcase() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.1 }}
-                          className="group flex items-center justify-between rounded-lg border border-gray-800 bg-gray-900/50 p-3 transition-all hover:border-emerald-500/30 hover:bg-gray-900"
+                          className="group flex items-center justify-between rounded-lg border border-gray-800 bg-gray-900/50 p-3 transition-all hover:border-indigo-500/30 hover:bg-gray-900"
                         >
                           <div className="flex items-center gap-3">
                             <span
@@ -301,7 +301,7 @@ export default function CustomConnectorShowcase() {
                       ))}
                     </div>
 
-                    <button className="mt-4 w-full rounded-lg bg-emerald-600 py-3 font-semibold text-white transition-colors hover:bg-emerald-500">
+                    <button className="mt-4 w-full rounded-lg bg-indigo-600 py-3 font-semibold text-white transition-colors hover:bg-indigo-500">
                       Add to Workflow
                     </button>
                   </div>
@@ -312,34 +312,41 @@ export default function CustomConnectorShowcase() {
 
           {/* Feature Highlights */}
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: Zap,
-                title: "Lightning Fast",
-                description: "Executions in <0.1s. 10x faster than competitors like n8n and Zapier.",
-              },
-              {
-                icon: Code2,
-                title: "Minutes, Not Months",
-                description: "Build custom connectors in 5-10 minutes. Traditional development takes 2-4 weeks.",
-              },
-              {
-                icon: Check,
-                title: "Built-in User Management",
-                description: "Let your users connect their own accounts. No OAuth headaches, just magic links.",
-              },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-gray-800 bg-gray-950/50 p-6 transition-all hover:border-gray-700"
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-              >
-                <feature.icon className="mb-3 h-8 w-8 text-emerald-400" />
-                <h3 className="mb-2 font-semibold text-white">{feature.title}</h3>
-                <p className="text-sm text-gray-400">{feature.description}</p>
-              </div>
-            ))}
+            <div
+              className="rounded-xl border border-gray-800 bg-gray-950/50 p-6 transition-all hover:border-gray-700"
+              data-aos="fade-up"
+              data-aos-delay={0}
+            >
+              <Zap className="mb-3 h-8 w-8 text-indigo-400" />
+              <h3 className="mb-2 font-semibold text-white">Executions in &lt;0.1 Seconds</h3>
+              <p className="text-sm text-gray-400">
+                10x faster than competitors like n8n and Zapier. Built for real-time workflows where milliseconds matter.
+              </p>
+            </div>
+
+            <div
+              className="rounded-xl border border-gray-800 bg-gray-950/50 p-6 transition-all hover:border-gray-700"
+              data-aos="fade-up"
+              data-aos-delay={100}
+            >
+              <Code2 className="mb-3 h-8 w-8 text-indigo-400" />
+              <h3 className="mb-2 font-semibold text-white">Custom Connectors in Minutes</h3>
+              <p className="text-sm text-gray-400">
+                Build API connectors to any service without writing code. What takes weeks takes minutes here.
+              </p>
+            </div>
+
+            <div
+              className="rounded-xl border border-gray-800 bg-gray-950/50 p-6 transition-all hover:border-gray-700"
+              data-aos="fade-up"
+              data-aos-delay={200}
+            >
+              <Check className="mb-3 h-8 w-8 text-indigo-400" />
+              <h3 className="mb-2 font-semibold text-white">Built-in User Management</h3>
+              <p className="text-sm text-gray-400">
+                Let your users connect their own accounts. No OAuth headaches, no credential management. Just magic links that work.
+              </p>
+            </div>
           </div>
         </div>
       </div>
