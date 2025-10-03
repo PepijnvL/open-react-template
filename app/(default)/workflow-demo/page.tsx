@@ -195,9 +195,6 @@ export default function WorkflowDemo() {
           <ReactFlow
             nodes={nodes}
             edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onConnect={onConnect}
             nodeTypes={nodeTypes}
             fitView
             proOptions={{ hideAttribution: true }}
@@ -206,10 +203,13 @@ export default function WorkflowDemo() {
               animated: false,
               style: { strokeWidth: 2, stroke: "#999" },
             }}
+            nodesDraggable={false}
+            nodesConnectable={false}
+            elementsSelectable={false}
+            panOnDrag={false}
             zoomOnScroll={false}
             zoomOnPinch={false}
             zoomOnDoubleClick={false}
-            preventScrolling={false}
           >
             <Controls className="!left-4 !bottom-4 rounded-lg border border-gray-300 bg-white shadow-lg" />
             <Background
