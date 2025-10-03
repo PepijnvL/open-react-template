@@ -40,7 +40,7 @@ const nacelle = localFont({
 
 export const metadata = {
   title: "Kariz - Integration Platform for SaaS Products",
-  description: "Add user-facing integrations to your product. Your customers connect their apps, you skip months of OAuth development.",
+  description: "The fastest automation platform for building AI-powered integrations for you and your customers.",
 };
 
 export default function RootLayout({

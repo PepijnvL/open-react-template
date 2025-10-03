@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "E-commerce Integration Platform for SaaS | Shopify, Amazon, WooCommerce",
-  description: "Build e-commerce integrations your customers manage. Stop rebuilding Shopify, Amazon, WooCommerce integrations for every customer. Built-in user management.",
+  title: "Kariz for E-commerce | Shopify, Amazon & WooCommerce Integrations",
+  description: "Add e-commerce integrations to your platform in hours, not months. Your customers connect their stores, you focus on building features.",
 };
 
 import PageIllustration from "@/components/page-illustration";

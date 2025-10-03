@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Customer-Facing Integrations for SaaS Companies | Your Platform",
-  description: "Build integrations your customers can manage themselves. Stop being the middleman with built-in user management that n8n doesn't have.",
+  title: "Kariz for Startups | Let Your Customers Connect Their Apps",
+  description: "Focus on your core product while we handle integrations. Customer-managed OAuth, 50+ pre-built connectors, built for scale.",
 };
 
 import PageIllustration from "@/components/page-illustration";

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Automation Platform for Developers | 500 Executions Free - Kariz",
-  description: "Build powerful automation workflows in seconds. 500 free executions, managed cloud, custom connectors. No credit card required.",
+  title: "Kariz for Developers | Ship Integrations in Minutes",
+  description: "Stop wrestling with API integrations. Build customer-facing connections to any app with AI-powered workflows and sub-100ms execution.",
 };
 
 import PageIllustration from "@/components/page-illustration";
