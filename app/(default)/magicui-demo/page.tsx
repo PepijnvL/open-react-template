@@ -50,14 +50,14 @@ export default function MagicUIDemoPage() {
 
   // Company logos for marquee
   const companies = [
-    { name: "Google", logo: "/icons/Google.svg" },
-    { name: "Slack", logo: "/icons/Slack.svg" },
-    { name: "Shopify", logo: "/icons/Shopify.svg" },
-    { name: "Notion", logo: "/icons/Notion.svg" },
-    { name: "YouTube", logo: "/icons/YouTube.svg" },
-    { name: "Discord", logo: "/icons/Discord.svg" },
-    { name: "GitHub", logo: "/icons/GitHub-dark.svg" },
-    { name: "Spotify", logo: "/icons/Spotify.svg" },
+    { name: "Google", src: "/icons/Google.svg" },
+    { name: "Slack", src: "/icons/Slack.svg" },
+    { name: "Shopify", src: "/icons/Shopify.svg" },
+    { name: "Notion", src: "/icons/Notion.svg" },
+    { name: "YouTube", src: "/icons/YouTube.svg" },
+    { name: "Discord", src: "/icons/Discord.svg" },
+    { name: "GitHub", src: "/icons/GitHub-dark.svg" },
+    { name: "Spotify", src: "/icons/Spotify.svg" },
   ];
 
   // Pricing tiers
@@ -138,7 +138,7 @@ export default function MagicUIDemoPage() {
               <MarqueeItem key={company.name} className="mx-8">
                 <div className="flex items-center gap-3 rounded-lg border border-gray-800 bg-gray-900/50 px-6 py-4 backdrop-blur-sm">
                   <Image
-                    src={company.logo}
+                    src={company.src}
                     alt={company.name}
                     width={32}
                     height={32}
@@ -156,7 +156,7 @@ export default function MagicUIDemoPage() {
               <MarqueeItem key={`reverse-${company.name}`} className="mx-8">
                 <div className="rounded-lg bg-gray-800/30 p-4 backdrop-blur-sm transition-all hover:bg-gray-800/50">
                   <Image
-                    src={company.logo}
+                    src={company.src}
                     alt={company.name}
                     width={48}
                     height={48}
@@ -210,7 +210,7 @@ export default function MagicUIDemoPage() {
                     className="flex items-center justify-center rounded-lg bg-gray-800/30 p-3 transition-all hover:bg-gray-800/50"
                   >
                     <Image
-                      src={company.logo}
+                      src={company.src}
                       alt={company.name}
                       width={32}
                       height={32}

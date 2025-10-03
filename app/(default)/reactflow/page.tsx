@@ -38,9 +38,16 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
+interface CustomNodeData {
+  label: string;
+  description?: string;
+  icon?: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+  color?: string;
+}
+
 // Enhanced Custom Node Component
-function CustomNode({ data, selected }: NodeProps) {
-  const Icon = data.icon || FileText;
+function CustomNode({ data, selected }: NodeProps<CustomNodeData>) {
+  const Icon = (data.icon || FileText) as React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   const nodeColor = data.color || "#6366f1";
 
   return (
@@ -55,7 +62,6 @@ function CustomNode({ data, selected }: NodeProps) {
         boxShadow: selected
           ? `0 20px 40px -12px ${nodeColor}40, 0 0 0 2px ${nodeColor}`
           : "0 10px 30px -10px rgba(0,0,0,0.5)",
-        ringColor: nodeColor,
       }}
     >
       {/* Connection Handles */}
@@ -65,15 +71,15 @@ function CustomNode({ data, selected }: NodeProps) {
         className="!h-3 !w-3 !rounded-full !border-2 !transition-all"
         style={{
           top: -6,
-          borderColor: nodeColor,
+          borderColor: nodeColor as string,
           backgroundColor: "#1a1a1a",
-        }}
+        } as React.CSSProperties}
       />
 
       {/* Glow effect on hover */}
       <div
         className="absolute inset-0 rounded-xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20"
-        style={{ backgroundColor: nodeColor }}
+        style={{ backgroundColor: nodeColor } as React.CSSProperties}
       />
 
       {/* Node Content */}
@@ -88,7 +94,7 @@ function CustomNode({ data, selected }: NodeProps) {
         >
           <Icon
             className="h-6 w-6"
-            style={{ color: nodeColor }}
+            style={{ color: nodeColor } as React.CSSProperties}
           />
         </div>
 

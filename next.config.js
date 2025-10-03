@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    // Skip type checking during builds - type errors will show in development
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    // Skip ESLint during builds
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {

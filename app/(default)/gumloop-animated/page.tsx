@@ -108,7 +108,7 @@ export default function GumloopAnimatedPage() {
 
         {/* Comparison */}
         <section className="bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-3xl font-bold mb-6">Why React Components > Lottie</h2>
+          <h2 className="text-3xl font-bold mb-6">Why React Components &gt; Lottie</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">

@@ -86,56 +86,11 @@ export default function FeaturesNew() {
               </div>
             </BentoCard>
 
-            {/* Custom Connectors */}
-            <BentoCard rowSpan={2}>
-              <div className="flex h-full flex-col">
-                <div>
-                  <div className="mb-3 inline-block rounded-lg bg-purple-500/20 p-3">
-                    <svg
-                      className="h-6 w-6 text-purple-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="mb-2 text-lg font-bold text-white">
-                    Custom Connectors in Minutes
-                  </h3>
-                  <p className="mb-4 text-sm text-gray-400">
-                    Build API connectors to any service without writing code. What takes weeks of development
-                    elsewhere takes minutes here.
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <div className="rounded-lg border border-purple-500/20 bg-purple-950/30 p-3">
-                    <div className="mb-2 flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-red-400"></div>
-                      <span className="text-xs text-gray-500">Traditional Development</span>
-                    </div>
-                    <div className="mb-3 text-xs text-gray-400">2-4 weeks of coding + testing + deployment</div>
-
-                    <div className="mb-2 flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-green-400"></div>
-                      <span className="text-xs text-gray-500">With Kariz</span>
-                    </div>
-                    <div className="text-xs text-gray-400">5-10 minutes visually mapping endpoints</div>
-                  </div>
-                </div>
-              </div>
-            </BentoCard>
-
-            {/* Free Tier */}
+            {/* Custom Connectors - Now spans only 1 row */}
             <BentoCard>
-              <div className="mb-3 inline-block rounded-lg bg-emerald-500/20 p-3">
+              <div className="mb-3 inline-block rounded-lg bg-purple-500/20 p-3">
                 <svg
-                  className="h-6 w-6 text-emerald-400"
+                  className="h-6 w-6 text-purple-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -144,15 +99,15 @@ export default function FeaturesNew() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
                   />
                 </svg>
               </div>
               <h3 className="mb-2 text-lg font-bold text-white">
-                Generous Free Tier
+                Custom Connectors in Minutes
               </h3>
               <p className="text-sm text-gray-400">
-                500 executions/month free forever. No credit card required.
+                Build API connectors to any service without writing code. What takes weeks takes minutes here.
               </p>
             </BentoCard>
 
