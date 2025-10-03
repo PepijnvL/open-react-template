@@ -20,17 +20,17 @@ export default function FeaturesNew() {
         <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,theme(colors.gray.400/.25),transparent)1] md:py-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-16">
-            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                Powerful Features
+            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-emerald-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-emerald-200/50">
+              <span className="bg-gradient-to-r from-emerald-500 to-emerald-200 bg-clip-text text-transparent">
+                Built for Developers
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Everything you need to automate at scale
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.emerald.200),theme(colors.gray.50),theme(colors.emerald.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+              Ship integrations in minutes, not months
             </h2>
-            <p className="text-lg text-indigo-200/65">
-              From drag-and-drop workflow building to enterprise-grade user management.
-              Built for teams that need speed, reliability, and customer-facing capabilities.
+            <p className="text-lg text-emerald-200/65">
+              Lightning-fast execution, custom connectors without code, and built-in user management.
+              Everything you need to build production-ready integrations.
             </p>
           </div>
 
@@ -40,9 +40,9 @@ export default function FeaturesNew() {
             <BentoCard colSpan={2} rowSpan={2} variant="vibrant">
               <div className="flex h-full flex-col">
                 <div className="mb-4">
-                  <div className="mb-3 inline-block rounded-lg bg-indigo-500/20 p-3">
+                  <div className="mb-3 inline-block rounded-lg bg-emerald-500/20 p-3">
                     <svg
-                      className="h-6 w-6 text-indigo-400"
+                      className="h-6 w-6 text-emerald-400"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -56,11 +56,11 @@ export default function FeaturesNew() {
                     </svg>
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-white">
-                    10x Faster Execution
+                    Executions in &lt;0.1 Seconds
                   </h3>
                   <p className="text-gray-400">
-                    Built for production workloads. Process thousands of workflows simultaneously
-                    with enterprise-grade infrastructure. What takes minutes elsewhere, takes seconds here.
+                    10x faster than competitors like n8n and Zapier. Built for real-time workflows
+                    where milliseconds matter. Production-grade infrastructure that scales instantly.
                   </p>
                 </div>
                 <div className="mt-auto">
@@ -70,16 +70,16 @@ export default function FeaturesNew() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <div className="text-xs text-gray-500 mb-1">Others</div>
-                        <div className="text-2xl font-bold text-red-400">2.5s</div>
+                        <div className="text-xs text-gray-500 mb-1">n8n / Zapier</div>
+                        <div className="text-2xl font-bold text-red-400">1-3s</div>
                       </div>
                       <div>
                         <div className="text-xs text-gray-500 mb-1">Kariz</div>
-                        <div className="text-2xl font-bold text-green-400">0.25s</div>
+                        <div className="text-2xl font-bold text-green-400">&lt;0.1s</div>
                       </div>
                     </div>
                     <div className="mt-3 pt-3 border-t border-gray-800">
-                      <div className="text-xs text-indigo-400 font-semibold">→ 10x faster for production workflows</div>
+                      <div className="text-xs text-emerald-400 font-semibold">→ 10x faster for production workflows</div>
                     </div>
                   </div>
                 </div>
@@ -87,28 +87,48 @@ export default function FeaturesNew() {
             </BentoCard>
 
             {/* Custom Connectors */}
-            <BentoCard>
-              <div className="mb-3 inline-block rounded-lg bg-purple-500/20 p-3">
-                <svg
-                  className="h-6 w-6 text-purple-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                  />
-                </svg>
+            <BentoCard rowSpan={2}>
+              <div className="flex h-full flex-col">
+                <div>
+                  <div className="mb-3 inline-block rounded-lg bg-purple-500/20 p-3">
+                    <svg
+                      className="h-6 w-6 text-purple-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-white">
+                    Custom Connectors in Minutes
+                  </h3>
+                  <p className="mb-4 text-sm text-gray-400">
+                    Build API connectors to any service without writing code. What takes weeks of development
+                    elsewhere takes minutes here.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <div className="rounded-lg border border-purple-500/20 bg-purple-950/30 p-3">
+                    <div className="mb-2 flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-red-400"></div>
+                      <span className="text-xs text-gray-500">Traditional Development</span>
+                    </div>
+                    <div className="mb-3 text-xs text-gray-400">2-4 weeks of coding + testing + deployment</div>
+
+                    <div className="mb-2 flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-green-400"></div>
+                      <span className="text-xs text-gray-500">With Kariz</span>
+                    </div>
+                    <div className="text-xs text-gray-400">5-10 minutes visually mapping endpoints</div>
+                  </div>
+                </div>
               </div>
-              <h3 className="mb-2 text-lg font-bold text-white">
-                Custom Connectors
-              </h3>
-              <p className="text-sm text-gray-400">
-                Build API connectors visually in minutes. No code, no deployment needed.
-              </p>
             </BentoCard>
 
             {/* Free Tier */}
@@ -162,7 +182,7 @@ export default function FeaturesNew() {
               </div>
             </BentoCard>
 
-            {/* Guided Onboarding */}
+            {/* User Management for Projects */}
             <BentoCard variant="subtle">
               <div className="flex h-full flex-col justify-between">
                 <div>
@@ -182,10 +202,11 @@ export default function FeaturesNew() {
                     </svg>
                   </div>
                   <h3 className="mb-2 text-lg font-bold text-white">
-                    Expert Support
+                    Built-in User Management
                   </h3>
                   <p className="text-sm text-gray-400">
-                    Dedicated onboarding and ongoing help to get you up and running fast.
+                    Let your users connect their own accounts. No OAuth headaches, no credential management.
+                    Just magic links that work.
                   </p>
                 </div>
               </div>

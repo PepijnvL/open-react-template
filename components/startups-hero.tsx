@@ -4,14 +4,14 @@ export default function StartupsHero() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="py-16 md:py-24 lg:py-32">
+        <div className="pb-12 pt-20 md:pb-20 md:pt-28">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
               <svg className="h-4 w-4 fill-indigo-400" viewBox="0 0 16 16">
-                <path d="M8 0L1 4v5c0 5 3 7 7 7s7-2 7-7V4L8 0zm0 2.2L13 5v4c0 3.5-2 5-5 5s-5-1.5-5-5V5l5-2.8z"/>
+                <path d="M8 0L1 4v5c0 5 7 7 7 7s7-2 7-7V4L8 0zm0 2.2L13 5v4c0 3.5-2 5-5 5s-5-1.5-5-5V5l5-2.8z"/>
               </svg>
-              Trusted by SaaS companies and enterprises
+              Built for SaaS startups
             </div>
           </div>
 
@@ -22,10 +22,10 @@ export default function StartupsHero() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Build integrations
+              Stop being the
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                your customers can manage
+                integration middleman
               </span>
             </h1>
 
@@ -35,8 +35,7 @@ export default function StartupsHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Built-in user management enables true customer-facing integrations. Build once, deploy to unlimited users.
-                Stop being the middleman. Let your customers set up and manage their own integrations.
+                Focus on your core product while we handle integrations. 10x faster than competitors, 90% cheaper than internal development, and 2-3 months faster to market.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -55,24 +54,24 @@ export default function StartupsHero() {
                     variant="outline"
                     className="w-full border-gray-700 bg-transparent text-base font-semibold text-gray-100 hover:border-gray-600 hover:bg-gray-800/50 sm:w-auto"
                   >
-                    Book Consultation
+                    Book Demo
                   </Button>
                 </a>
               </div>
 
-              {/* Stats */}
+              {/* Stats - updated to match user requirements */}
               <div className="mt-12 grid grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay={400}>
                 <div>
                   <div className="mb-1 font-nacelle text-3xl font-bold text-white">85%</div>
-                  <div className="text-sm text-gray-400">Faster integration development</div>
+                  <div className="text-sm text-gray-400">Time reduction with support</div>
                 </div>
                 <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">40%</div>
-                  <div className="text-sm text-gray-400">Fewer support tickets</div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">50%</div>
+                  <div className="text-sm text-gray-400">Cheaper than Zapier</div>
                 </div>
                 <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">5-10x</div>
-                  <div className="text-sm text-gray-400">Execution speed</div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">10x</div>
+                  <div className="text-sm text-gray-400">Faster than n8n</div>
                 </div>
               </div>
             </div>

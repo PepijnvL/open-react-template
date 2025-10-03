@@ -4,7 +4,7 @@ export default function DeveloperHero() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="py-8 md:py-12 lg:py-16">
+        <div className="pb-12 pt-20 md:pb-20 md:pt-28">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
@@ -22,13 +22,11 @@ export default function DeveloperHero() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Build automation.
+              Build integrations.
               <br />
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                Ship faster.
+                10x faster.
               </span>
-              <br />
-              Pay nothing.
             </h1>
 
             <div className="mx-auto max-w-3xl">
@@ -37,8 +35,8 @@ export default function DeveloperHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Managed cloud platform for developers. Build workflows, connect APIs, automate tasks.
-                Custom connectors in minutes. 5-10x faster performance. Zero DevOps.
+                Executions in &lt;0.1s. Custom connectors in minutes, not months.
+                Built-in user management for your projects. 500 free executions to start.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -84,18 +82,6 @@ export default function DeveloperHero() {
                 </div>
               </div>
 
-              {/* Quick start CTA */}
-              <div className="mt-12" data-aos="fade-up" data-aos-delay={500}>
-                <div className="rounded-lg border border-gray-800 bg-gray-950 p-6 text-center">
-                  <div className="mb-3 text-gray-400">Start building in seconds with the web UI</div>
-                  <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
-                    <button className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-500">
-                      Open Builder
-                      <span>→</span>
-                    </button>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -57,12 +57,6 @@ export default function Header() {
             <Link href="/pricing" className="text-sm text-gray-300 hover:text-white transition-colors">
               Pricing
             </Link>
-            <Link href="/docs" className="text-sm text-gray-300 hover:text-white transition-colors">
-              Docs
-            </Link>
-            <Link href="/community" className="text-sm text-gray-300 hover:text-white transition-colors">
-              Community
-            </Link>
           </nav>
 
           {/* Desktop sign in links */}
