@@ -222,7 +222,7 @@ export default function FeatureCards() {
                               repeat: Infinity,
                             }}
                           >
-                            {item.status === "completed" ? "✓" : "..."}
+                            {typeof item !== 'string' && item.status === "completed" ? "✓" : "..."}
                           </motion.span>
                         </motion.div>
                       ))}
@@ -243,7 +243,7 @@ export default function FeatureCards() {
                             borderColor: "rgba(156, 163, 175, 0.5)",
                           }}
                         >
-                          {item}
+                          {typeof item === 'string' ? item : item.name}
                         </motion.div>
                       ))}
                     </div>

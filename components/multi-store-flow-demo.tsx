@@ -56,19 +56,19 @@ function CustomNode({ data, selected }: NodeProps) {
             }}
           >
             {isCodeIcon ? (
-              <Code className="h-6 w-6" style={{ color: nodeColor }} />
+              <Code className="h-6 w-6" style={{ color: nodeColor } as React.CSSProperties} />
             ) : (
-              <Image src={data.icon as string} alt={data.label} width={24} height={24} className="h-6 w-6 object-contain" />
+              <Image src={data.icon as string} alt={data.label as string} width={24} height={24} className="h-6 w-6 object-contain" />
             )}
           </div>
 
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold text-gray-900 leading-tight">
-              {data.label}
+              {data.label as string}
             </div>
-            {data.description && (
+            {(data.description as string) && (
               <div className="text-xs text-gray-500 truncate leading-tight mt-0.5">
-                {data.description}
+                {data.description as string}
               </div>
             )}
           </div>

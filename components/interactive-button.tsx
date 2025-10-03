@@ -57,7 +57,7 @@ const InteractiveButton = forwardRef<HTMLButtonElement, InteractiveButtonProps>(
             y: mousePosition.y * 0.1
           }}
           transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-          {...props}
+          {...(props as any)}
         >
           <span className="relative z-10 font-medium">{children}</span>
           <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-white/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

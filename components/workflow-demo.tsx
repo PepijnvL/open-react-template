@@ -65,19 +65,19 @@ function CustomNode({ data, selected }: NodeProps) {
             }}
           >
             {isImageIcon ? (
-              <Image src={data.icon} alt={data.label} width={20} height={20} className="h-5 w-5" />
+              <Image src={data.icon as string} alt={data.label as string} width={20} height={20} className="h-5 w-5" />
             ) : (
-              <Sparkles className="h-5 w-5" style={{ color: nodeColor }} />
+              <Sparkles className="h-5 w-5" style={{ color: nodeColor } as React.CSSProperties} />
             )}
           </div>
 
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-              {data.label}
+              {data.label as string}
             </div>
-            {data.description && (
+            {(data.description as string) && (
               <div className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                {data.description}
+                {data.description as string}
               </div>
             )}
           </div>
