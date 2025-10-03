@@ -35,8 +35,8 @@ export default function EcommerceSaasHero() {
 
             {/* Description */}
             <p className="mb-8 text-lg text-indigo-200/65 max-w-3xl mx-auto">
-              Your customers have 3 Shopify stores, 2 Amazon accounts, and a WooCommerce site.
-              They all need to ship through Shippo. Built-in user management lets each customer connect all their stores—without you rebuilding the same integration 6 times.
+              Your customers run 3-6 stores on average. That's $234/month just in Shopify fees, plus building separate integrations for each store.
+              With Kariz: Build once → customers connect unlimited stores → you're done.
             </p>
 
             {/* Problem/Solution cards */}
@@ -49,10 +49,10 @@ export default function EcommerceSaasHero() {
                   <span className="font-semibold">Without Kariz</span>
                 </div>
                 <ul className="space-y-1.5 text-sm text-gray-400">
-                  <li>• Rebuild integration for every customer's store</li>
-                  <li>• Manually manage OAuth tokens & credentials</li>
-                  <li>• Support tickets for inventory sync issues</li>
-                  <li>• No unified dashboard across stores</li>
+                  <li>• Separate OAuth setup for each customer's 6 stores</li>
+                  <li>• Tracking numbers don't sync to Shippo automatically</li>
+                  <li>• Inventory overselling across stores sharing warehouse</li>
+                  <li>• Customer support drowning in per-store setup tickets</li>
                 </ul>
               </div>
 
@@ -64,10 +64,10 @@ export default function EcommerceSaasHero() {
                   <span className="font-semibold">With Kariz</span>
                 </div>
                 <ul className="space-y-1.5 text-sm text-gray-400">
-                  <li>• Build once, customers connect unlimited stores</li>
-                  <li>• Built-in user management handles auth</li>
-                  <li>• Customers troubleshoot their own connections</li>
-                  <li>• Automatic inventory sync across all stores</li>
+                  <li>• Customer adds their 6th store in 30 seconds via magic link</li>
+                  <li>• One integration code powers all their storefronts</li>
+                  <li>• Real-time inventory updates prevent overselling</li>
+                  <li>• Zero support tickets for OAuth or connection issues</li>
                 </ul>
               </div>
             </div>
@@ -75,16 +75,16 @@ export default function EcommerceSaasHero() {
             {/* Stats */}
             <div className="mb-8 grid gap-4 text-center sm:grid-cols-3">
               <div className="rounded-lg border border-gray-800/50 bg-gray-950/50 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-2xl font-bold text-white">3-6 stores</div>
-                <div className="text-sm text-gray-400">Average per customer</div>
+                <div className="mb-1 text-2xl font-bold text-white">$234/month</div>
+                <div className="text-sm text-gray-400">Shopify fees for 6 stores</div>
               </div>
               <div className="rounded-lg border border-gray-800/50 bg-gray-950/50 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-2xl font-bold text-white">1 integration</div>
-                <div className="text-sm text-gray-400">Powers all their stores</div>
+                <div className="mb-1 text-2xl font-bold text-white">85% of retailers</div>
+                <div className="text-sm text-gray-400">Use multiple platforms (2024)</div>
               </div>
               <div className="rounded-lg border border-gray-800/50 bg-gray-950/50 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-2xl font-bold text-white">Zero setup</div>
-                <div className="text-sm text-gray-400">For your support team</div>
+                <div className="mb-1 text-2xl font-bold text-white">30 seconds</div>
+                <div className="text-sm text-gray-400">To connect a new store</div>
               </div>
             </div>
 

@@ -20,50 +20,50 @@ export default function EcommerceUseCases() {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 ),
-                title: "Multi-Store Fulfillment via Shippo",
-                description: "3 Shopify stores + 2 Amazon accounts all shipping through one Shippo integration. Each customer connects all their stores, you handle the routing.",
-                platforms: ["Shopify", "Amazon", "WooCommerce"],
+                title: "Fix Shippo Tracking Sync Issues",
+                description: "Shopify stores with manual fulfillment settings → Shippo → automatic tracking updates. No more \"orders not marked as fulfilled\" problems. Customer connects each store once, tracking flows automatically.",
+                platforms: ["Shopify", "Shippo", "Amazon"],
                 badge: "Most Popular"
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 ),
-                title: "Unified Inventory Across Stores",
-                description: "Customer has 5 Shopify stores pulling from same warehouse. Update inventory once, sync to all stores automatically. No more overselling.",
-                platforms: ["Shopify", "BigCommerce", "Magento"],
+                title: "Solve Multi-Store Inventory Overselling",
+                description: "5 Shopify stores, 1 warehouse. Item sells on Store A → instantly updates on Stores B-E. Shopify doesn't sync inventory between stores by default—your integration does it in real-time.",
+                platforms: ["Shopify", "BigCommerce", "WooCommerce"],
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                 ),
-                title: "Consolidated Payments & Reporting",
-                description: "Stripe accounts from 4 different stores → unified accounting dashboard. Single integration, unlimited stores per customer.",
-                platforms: ["Stripe", "PayPal", "Shopify Payments"],
+                title: "Eliminate Per-Store Account Management",
+                description: "Each Shopify store needs separate admin account ($39/mo × 6 = $234/mo). Your customers use one dashboard to manage all stores. They handle which stores to connect, you handle the unified data flow.",
+                platforms: ["Shopify", "WooCommerce", "BigCommerce"],
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 ),
-                title: "Multi-Store Order Management",
-                description: "All orders from customer's Shopify, Amazon, and eBay stores flow into your OMS. Built-in user management handles all the OAuth complexity.",
+                title: "Centralize Order Management Sans OAuth Hell",
+                description: "Customer has Shopify, Amazon, eBay stores. Without Kariz: manage 3 separate OAuth apps, track credentials, handle token refreshes. With Kariz: customer clicks magic link once per store, you're done.",
                 platforms: ["Shopify", "Amazon", "eBay"],
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 ),
-                title: "Product Sync Between Stores",
-                description: "Customer uploads product once, you distribute to all their connected stores (Shopify, WooCommerce, Amazon). They manage which stores, you handle the sync.",
-                platforms: ["Shopify", "WooCommerce", "Amazon"],
+                title: "Bulk Product Distribution Across Storefronts",
+                description: "Customer has regional stores (US, EU, UK Shopify accounts). Upload product data once → your integration pushes to all selected stores with localized pricing. Customer controls which stores receive updates.",
+                platforms: ["Shopify", "WooCommerce", "Magento"],
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 ),
-                title: "Multi-Channel Returns Processing",
-                description: "Returns from 6 different storefronts → unified returns workflow. Customer connects stores via magic links, you handle the business logic.",
-                platforms: ["All Major Platforms", "Custom APIs"],
+                title: "Unified Customer Support Across Stores",
+                description: "Customer support nightmare: managing inquiries from 6 different stores with different helpdesks. Your integration consolidates all customer data into one support dashboard. Zero duplicate customer records.",
+                platforms: ["Shopify", "Zendesk", "Gorgias"],
               },
             ].map((useCase, index) => (
               <div
