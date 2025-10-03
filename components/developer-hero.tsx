@@ -1,6 +1,23 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 export default function DeveloperHero() {
+  const [rotatingText, setRotatingText] = useState("any API");
+
+  useEffect(() => {
+    const options = ["any API", "any app"];
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % options.length;
+      setRotatingText(options[currentIndex]);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -16,22 +33,22 @@ export default function DeveloperHero() {
           </div>
 
           {/* Headline */}
-          <div className="pb-12 text-center md:pb-16">
+          <div className="pb-4 text-center md:pb-6">
             <h1
               className="mb-6 font-nacelle text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl"
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Build integrations.
-              <br />
+              Connect to{" "}
               <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                10x faster.
-              </span>
+                {rotatingText}
+              </span>{" "}
+              in minutes
             </h1>
 
             <div className="mx-auto max-w-3xl">
               <p
-                className="mb-10 text-lg text-gray-300 md:text-xl"
+                className="mb-6 text-lg text-gray-300 md:text-xl"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
@@ -43,7 +60,7 @@ export default function DeveloperHero() {
                 <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer">
                   <Button
                     size="lg"
-                    className="group w-full bg-emerald-600 px-8 text-base font-semibold text-white hover:bg-emerald-500 sm:w-auto"
+                    className="group w-full bg-indigo-600 px-8 text-base font-semibold text-white hover:bg-indigo-500 sm:w-auto"
                   >
                     Get Started Free
                     <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
@@ -60,27 +77,6 @@ export default function DeveloperHero() {
                 </a>
               </div>
 
-              {/* Trust elements */}
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={400}>
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 fill-green-500" viewBox="0 0 20 20">
-                    <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.707 7.707l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l4.293-4.293a1 1 0 011.414 1.414z" />
-                  </svg>
-                  <span>500 free executions/month</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 fill-green-500" viewBox="0 0 20 20">
-                    <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.707 7.707l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l4.293-4.293a1 1 0 011.414 1.414z" />
-                  </svg>
-                  <span>No credit card required</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 fill-green-500" viewBox="0 0 20 20">
-                    <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.707 7.707l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l4.293-4.293a1 1 0 011.414 1.414z" />
-                  </svg>
-                  <span>5-10x faster than n8n</span>
-                </div>
-              </div>
 
             </div>
           </div>
