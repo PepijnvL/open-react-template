@@ -2,7 +2,7 @@
 
 import PageIllustration from "@/components/page-illustration";
 
-export default function BookDemo() {
+export default function Demo() {
   return (
     <>
       <PageIllustration />
