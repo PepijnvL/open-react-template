@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import GlassCard from "./glass-card";
+import { useCurrency } from "@/hooks/useCurrency";
 
 interface PricingFeature {
   text: string;
@@ -83,6 +84,7 @@ export default function PricingSection({ tiers, className }: PricingSectionProps
 }
 
 function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean }) {
+  const { formatPrice } = useCurrency();
   const price = isYearly ? tier.yearlyPrice : tier.monthlyPrice;
   const period = isYearly ? "year" : "month";
 
@@ -96,7 +98,7 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
     >
       {/* Popular Badge */}
       {tier.popular && (
-        <div className="absolute -top-4 left-1/2 z-10 -translate-x-1/2">
+        <div className="absolute -top-5 left-1/2 z-10 -translate-x-1/2">
           <span className="whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
             Popular
           </span>
@@ -109,13 +111,6 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
         <p className="mt-2 text-sm text-gray-400">{tier.description}</p>
       </div>
 
-      {/* Users */}
-      {tier.users && (
-        <div className="mb-3">
-          <p className="text-sm font-medium text-purple-400">{tier.users}</p>
-        </div>
-      )}
-
       {/* Price */}
       <div className="mb-6">
         {price === null ? (
@@ -125,7 +120,7 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
         ) : (
           <>
             <div className="flex items-baseline">
-              <span className="text-4xl font-bold text-white">${price}</span>
+              <span className="text-4xl font-bold text-white">{formatPrice(price)}</span>
               <span className="ml-2 text-gray-400">/{period}</span>
             </div>
             {isYearly && (

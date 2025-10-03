@@ -4,30 +4,27 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "1",
-      title: "Connect Your Apps",
+      title: "Create Your Integration",
       description:
-        "Choose from 50+ pre-built integrations or build custom connectors for any API in minutes.",
-      // TODO: Replace with actual screenshot
-      imagePlaceholder: "/images/how-it-works/connect-apps.png",
-      altText: "Kariz integration connection interface",
+        "Create users and manage integrations with our intuitive interface. Built-in user management makes it simple.",
+      image: "/images/how-it-works/step-1-create-user.png",
+      altText: "Kariz create new user interface",
     },
     {
       number: "2",
-      title: "Build Your Workflow",
+      title: "Connect Your Apps",
       description:
-        "Drag, drop, and connect. Create powerful automations with our visual workflow builder.",
-      // TODO: Replace with actual screenshot
-      imagePlaceholder: "/images/how-it-works/build-workflow.png",
-      altText: "Kariz visual workflow builder",
+        "Choose from 50+ pre-built integrations. Magic links make it easy for your users to connect their accounts.",
+      image: "/images/how-it-works/step-2-magic-link.png",
+      altText: "Kariz magic link integration selection",
     },
     {
       number: "3",
-      title: "Deploy to Users",
+      title: "Deploy Instantly",
       description:
-        "Let customers manage their own integrations. Built-in user management, zero support tickets.",
-      // TODO: Replace with actual screenshot
-      imagePlaceholder: "/images/how-it-works/deploy-users.png",
-      altText: "Kariz customer-facing integration dashboard",
+        "Let customers authorize and manage their own integrations. Zero support tickets, instant deployment.",
+      image: "/images/how-it-works/step-3-authorize.png",
+      altText: "Kariz authorization interface",
     },
   ];
 
@@ -36,13 +33,13 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-12 text-center md:pb-16">
+          <div className="mx-auto max-w-6xl pb-12 text-center md:pb-16">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
               <span className="bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                 How it works
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl whitespace-nowrap">
               Three steps to customer-facing integrations
             </h2>
             <p className="text-lg text-indigo-200/65">
@@ -66,81 +63,19 @@ export default function HowItWorks() {
                     </h3>
                   </div>
 
-                  {/* Image placeholder - Large and prominent */}
-                  <div className="relative mb-6 overflow-hidden rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900 to-gray-800">
+                  {/* Screenshot - Large and prominent */}
+                  <div className="relative mb-6 overflow-hidden rounded-xl border border-gray-800/50 bg-white/5">
                     <div className="relative aspect-[4/3] w-full">
-                      {/*
-                        TODO: Replace with actual screenshot
-
-                        When you have images, replace this entire div with:
-                        <Image
-                          src={step.imagePlaceholder}
-                          alt={step.altText}
-                          width={600}
-                          height={450}
-                          className="h-full w-full object-cover"
-                        />
-
-                        Or for video:
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="h-full w-full object-cover"
-                        >
-                          <source src="/videos/step-{index+1}.mp4" type="video/mp4" />
-                        </video>
-                      */}
-
-                      {/* Placeholder content */}
-                      <div className="flex h-full w-full items-center justify-center p-8">
-                        <div className="text-center">
-                          <div className="mb-3 inline-flex items-center justify-center rounded-full bg-gray-800/80 p-4">
-                            <svg
-                              className="h-10 w-10 text-indigo-500/70"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              {index === 0 && (
-                                // Apps/integrations icon
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"
-                                />
-                              )}
-                              {index === 1 && (
-                                // Workflow builder icon
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                                />
-                              )}
-                              {index === 2 && (
-                                // Deploy/users icon
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                                />
-                              )}
-                            </svg>
-                          </div>
-                          <p className="text-xs text-gray-600">
-                            Add screenshot or video here
-                          </p>
-                        </div>
-                      </div>
+                      <Image
+                        src={step.image}
+                        alt={step.altText}
+                        fill
+                        className="object-contain p-2"
+                      />
                     </div>
 
                     {/* Subtle gradient overlay */}
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent" />
                   </div>
 
                   {/* Description */}
@@ -156,6 +91,52 @@ export default function HowItWorks() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Feature highlights */}
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3 md:mt-16">
+            <div className="rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-6 text-center backdrop-blur-sm">
+              <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-purple-500/10 p-3">
+                <svg className="h-6 w-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h4 className="mb-2 font-nacelle font-semibold text-white">
+                AI-Powered Builder
+              </h4>
+              <p className="text-sm text-gray-400">
+                Describe your automation in plain English. AI generates the workflow.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-6 text-center backdrop-blur-sm">
+              <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-indigo-500/10 p-3">
+                <svg className="h-6 w-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h4 className="mb-2 font-nacelle font-semibold text-white">
+                Visual Canvas
+              </h4>
+              <p className="text-sm text-gray-400">
+                See your workflow come to life. Drag, drop, and connect nodes visually.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-gray-800/50 bg-gradient-to-br from-gray-900/50 to-gray-950/50 p-6 text-center backdrop-blur-sm">
+              <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-pink-500/10 p-3">
+                <svg className="h-6 w-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="mb-2 font-nacelle font-semibold text-white">
+                Instant Deploy
+              </h4>
+              <p className="text-sm text-gray-400">
+                From idea to production in minutes. Test, refine, and deploy with one click.
+              </p>
+            </div>
           </div>
 
           {/* Bottom CTA */}

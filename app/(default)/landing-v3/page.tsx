@@ -7,7 +7,6 @@ import SocialProofV2 from "@/components/social-proof-v2";
 import HowItWorks from "@/components/how-it-works";
 import FeaturesNew from "@/components/features-new";
 import AIAgentsFeatureV3 from "@/components/ai-agents-feature-v3";
-import WorkflowShowcase from "@/components/workflow-showcase";
 import UserManagementV3 from "@/components/user-management-v3";
 import IntegrationsNew from "@/components/integrations-new";
 import PricingTeaser from "@/components/pricing-teaser";
@@ -26,7 +25,6 @@ export default function LandingV3() {
       <HeroHomeV3 />
       <SocialProofV2 />
       <HowItWorks />
-      <WorkflowShowcase />
       <FeaturesNew />
       <AIAgentsFeatureV3 />
 

@@ -1,9 +1,20 @@
 "use client";
 
-import VideoThumb from "@/public/images/hero-image-01.jpg";
-import ModalVideo from "@/components/modal-video";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import FlipWords from "@/components/flip-words";
+
+const WorkflowDemo = dynamic(() => import("@/app/(default)/workflow-demo/page"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-[600px] w-full items-center justify-center rounded-2xl border-2 border-gray-200 bg-gray-900/50">
+      <div className="text-center">
+        <div className="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-indigo-500/30 border-t-indigo-500"></div>
+        <p className="text-gray-400">Loading interactive demo...</p>
+      </div>
+    </div>
+  ),
+});
 
 export default function HeroHomeV3() {
   const flipWords = ["workflows", "integrations", "processes", "tasks"];
@@ -23,7 +34,7 @@ export default function HeroHomeV3() {
               <FlipWords words={flipWords} />
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                with production-ready power
+                for your users
               </span>
             </h1>
 
@@ -33,8 +44,8 @@ export default function HeroHomeV3() {
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                Enterprise-grade performance meets intuitive design. Built-in user management lets your customers
-                manage their own integrations. Custom connectors, 500 free executions, and blazing-fast execution for production workloads.
+                Create integrations for your users in minutes using Kariz. No more dealing with OAuth or months of custom development.
+                Build once, deploy to unlimited users—without being the integration middleman.
               </p>
 
               {/* Audience navigation */}
@@ -97,17 +108,9 @@ export default function HeroHomeV3() {
             </div>
           </div>
 
-          {/* Product demo/screenshot */}
+          {/* Interactive Workflow Demo */}
           <div data-aos="fade-up" data-aos-delay={500}>
-            <ModalVideo
-              thumb={VideoThumb}
-              thumbWidth={1104}
-              thumbHeight={576}
-              thumbAlt="AI Automation Platform Demo"
-              video="videos//video.mp4"
-              videoWidth={1920}
-              videoHeight={1080}
-            />
+            <WorkflowDemo />
           </div>
         </div>
       </div>
