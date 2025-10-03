@@ -1,6 +1,23 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 export default function StartupsHero() {
+  const [rotatingText, setRotatingText] = useState("any app");
+
+  useEffect(() => {
+    const options = ["any app", "any AI agent", "any LLM"];
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % options.length;
+      setRotatingText(options[currentIndex]);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -25,7 +42,7 @@ export default function StartupsHero() {
               Let your customers connect
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                any app to your software
+                {rotatingText} to your software
               </span>
             </h1>
 
