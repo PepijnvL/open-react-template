@@ -22,10 +22,10 @@ export default function StartupsHero() {
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Stop being the
+              Let your customers connect
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                integration middleman
+                any app to your software
               </span>
             </h1>
 
@@ -35,7 +35,7 @@ export default function StartupsHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Focus on your core product while we handle integrations. 10x faster than competitors, 90% cheaper than internal development, and 2-3 months faster to market.
+                Focus on your core product while we handle integrations.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -60,18 +60,18 @@ export default function StartupsHero() {
               </div>
 
               {/* Stats - updated to match user requirements */}
-              <div className="mt-12 grid grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay={400}>
-                <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">10x</div>
-                  <div className="text-sm text-gray-400">Faster than competitors</div>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={400}>
+                <div className="flex items-center gap-2">
+                  <span className="font-nacelle text-lg font-semibold text-white">10x</span>
+                  <span>faster than competitors</span>
                 </div>
-                <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">90%</div>
-                  <div className="text-sm text-gray-400">Cheaper than internal dev</div>
+                <div className="flex items-center gap-2">
+                  <span className="font-nacelle text-lg font-semibold text-white">90%</span>
+                  <span>cheaper than internal dev</span>
                 </div>
-                <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">2-3 mo</div>
-                  <div className="text-sm text-gray-400">Faster GTM</div>
+                <div className="flex items-center gap-2">
+                  <span className="font-nacelle text-lg font-semibold text-white">2-3 mo</span>
+                  <span>faster GTM</span>
                 </div>
               </div>
             </div>
