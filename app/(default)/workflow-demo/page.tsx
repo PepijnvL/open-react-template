@@ -23,7 +23,7 @@ export default function WorkflowDemo() {
   };
 
   return (
-    <div className="relative h-[600px] w-full rounded-2xl border-2 border-gray-200 bg-[#f5f5f5] shadow-2xl overflow-hidden">
+    <div className="relative h-[450px] md:h-[600px] w-full rounded-2xl border-2 border-gray-200 bg-[#f5f5f5] shadow-2xl overflow-hidden">
       <div className="grid h-full md:grid-cols-3 grid-cols-1">
         {/* React Flow Canvas - Full width on mobile, 2/3 on desktop */}
         <div className="md:col-span-2 col-span-1 relative md:border-r border-gray-200">

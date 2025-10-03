@@ -104,7 +104,7 @@ const nodeTypes = {
   custom: MobileNode,
 };
 
-// Mobile nodes - vertical layout (50% reduced spacing)
+// Mobile nodes - vertical layout (100px spacing)
 const nodes: Node[] = [
   {
     id: "1",
@@ -128,7 +128,7 @@ const nodes: Node[] = [
       color: "#96BF48",
       isFirst: false,
     },
-    position: { x: 50, y: 125 },
+    position: { x: 50, y: 150 },
   },
   {
     id: "3",
@@ -140,7 +140,7 @@ const nodes: Node[] = [
       color: "#EA4335",
       isFirst: false,
     },
-    position: { x: 50, y: 200 },
+    position: { x: 50, y: 250 },
   },
 ];
 

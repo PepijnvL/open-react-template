@@ -30,7 +30,7 @@ export default function HeroHomeV3() {
               className="mb-6 font-nacelle text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl"
               data-aos="fade-up"
             >
-              Automate your{" "}
+              Automate{" "}
               <FlipWords words={flipWords} />
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
@@ -44,22 +44,19 @@ export default function HeroHomeV3() {
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                Create integrations for your users in minutes using Kariz. No more dealing with OAuth or months of custom development.
-                Build once, deploy to unlimited users—without being the integration middleman.
+                Ship customer-facing integrations in minutes, not months.
               </p>
 
               {/* Audience navigation */}
-              <div className="mb-10 flex flex-wrap items-center justify-center gap-4 text-sm" data-aos="fade-up" data-aos-delay={200}>
-                <a href="/for-developers" className="text-gray-400 hover:text-emerald-400 transition-colors">
-                  For Developers
+              <div className="mb-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm" data-aos="fade-up" data-aos-delay={200}>
+                <a href="/for-developers" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">
+                  Developers
                 </a>
-                <span className="text-gray-600">•</span>
-                <a href="/for-ecommerce" className="text-gray-400 hover:text-indigo-400 transition-colors">
-                  For E-commerce
+                <a href="/for-ecommerce" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-400 transition-all">
+                  E-commerce
                 </a>
-                <span className="text-gray-600">•</span>
-                <a href="/for-startups" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  For Startups
+                <a href="/for-startups" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-purple-400 transition-all">
+                  Startups
                 </a>
               </div>
 
