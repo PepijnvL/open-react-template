@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight, Zap, Check, Code2 } from "lucide-react";
+import Image from "next/image";
 
 export default function CustomConnectorShowcase() {
   const [activeStep, setActiveStep] = useState(0);
@@ -48,6 +49,7 @@ export default function CustomConnectorShowcase() {
   const endpoints = [
     { method: "POST", path: "/v1/customers", label: "Create Customer" },
     { method: "GET", path: "/v1/charges", label: "List Charges" },
+    { method: "PUT", path: "/v1/subscriptions", label: "Update Subscription" },
   ];
 
   return (
@@ -57,7 +59,7 @@ export default function CustomConnectorShowcase() {
           {/* Main Visual Demo */}
           <div className="relative">
             {/* Time Comparison Badge */}
-            <div className="absolute -top-4 right-4 z-20 rounded-full border border-emerald-500/30 bg-gray-950 px-4 py-2 text-sm font-semibold text-emerald-400 shadow-lg">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 rounded-full border border-emerald-500/30 bg-gray-950 px-4 py-2 text-sm font-semibold text-emerald-400 shadow-lg">
               <span className="text-gray-500">Traditional: 2-4 weeks</span>
               <span className="mx-2">→</span>
               <span>Kariz: 5 minutes</span>
@@ -96,40 +98,50 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="space-y-6 min-h-[320px]"
+                  className="h-[380px] flex flex-col justify-center"
                 >
-                  <div className="mx-auto max-w-2xl">
-                    <label className="mb-2 block text-sm font-medium text-gray-400">
-                      API Documentation URL
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        readOnly
-                        value="https://docs.stripe.com/api"
-                        className="w-full rounded-lg border border-indigo-500/30 bg-indigo-950/30 px-4 py-4 pr-12 font-mono text-sm text-white placeholder-gray-500 focus:border-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
-                      />
-                      <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md bg-indigo-600 p-2 text-white transition-colors hover:bg-indigo-500">
-                        <ArrowRight className="h-4 w-4" />
-                      </button>
+                  <div className="space-y-6">
+                    <div className="mx-auto max-w-2xl">
+                      <label className="mb-3 block text-base font-medium text-gray-300">
+                        API Documentation URL
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          readOnly
+                          value="https://docs.stripe.com/api"
+                          className="w-full rounded-lg border-2 border-indigo-500/30 bg-indigo-950/30 px-5 py-5 pr-14 font-mono text-base text-white placeholder-gray-500 shadow-lg shadow-indigo-500/10 focus:border-indigo-500/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+                        />
+                        <button className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md bg-indigo-600 p-2.5 text-white transition-colors hover:bg-indigo-500">
+                          <ArrowRight className="h-5 w-5" />
+                        </button>
+                      </div>
+                      <p className="mt-3 text-sm text-gray-400">
+                        Works with any API - public or private. Supports OpenAPI, Swagger, or any docs format.
+                      </p>
                     </div>
-                    <p className="mt-2 text-xs text-gray-500">
-                      Works with any API - public or private. Supports OpenAPI, Swagger, or any docs format.
-                    </p>
-                  </div>
 
-                  {/* Examples */}
-                  <div className="mx-auto max-w-2xl">
-                    <div className="text-xs font-medium text-gray-500">Try with:</div>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {["Stripe", "Shopify", "GitHub", "Your API"].map((api) => (
-                        <div
-                          key={api}
-                          className="rounded-full border border-gray-800 bg-gray-900/50 px-3 py-1 text-xs text-gray-400"
-                        >
-                          {api}
+                    {/* Examples */}
+                    <div className="mx-auto max-w-2xl">
+                      <div className="text-sm font-medium text-gray-400">Try with:</div>
+                      <div className="mt-3 flex flex-wrap gap-3">
+                        <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
+                          <Code2 className="h-4 w-4 text-blue-400" />
+                          <span>Stripe</span>
                         </div>
-                      ))}
+                        <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
+                          <Image src="/icons/apps/shopify-logo.svg" alt="Shopify" width={16} height={16} className="h-4 w-4" />
+                          <span>Shopify</span>
+                        </div>
+                        <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
+                          <Image src="/icons/apps/github-logo.svg" alt="GitHub" width={16} height={16} className="h-4 w-4" />
+                          <span>GitHub</span>
+                        </div>
+                        <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:bg-gray-800/50">
+                          <Code2 className="h-4 w-4 text-gray-400" />
+                          <span>Your API</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -141,12 +153,12 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="mx-auto max-w-2xl space-y-6 min-h-[320px]"
+                  className="mx-auto max-w-2xl space-y-6 h-[380px] flex flex-col justify-center"
                 >
                   <div className="rounded-xl border border-purple-500/20 bg-purple-950/30 p-6">
-                    <div className="mb-4 flex items-center gap-3">
-                      <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/20">
-                        <Zap className="h-5 w-5 text-purple-400" />
+                    <div className="mb-6 flex items-center gap-4">
+                      <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-purple-500/20">
+                        <Zap className="h-6 w-6 text-purple-400" />
                         {/* Animated sparkles around icon */}
                         {[0, 1, 2, 3].map((i) => (
                           <motion.div
@@ -170,13 +182,13 @@ export default function CustomConnectorShowcase() {
                         ))}
                       </div>
                       <div>
-                        <div className="font-semibold text-white">AI is building your connector...</div>
-                        <div className="text-sm text-gray-400">Analyzing API documentation</div>
+                        <div className="text-lg font-semibold text-white">AI is building your connector...</div>
+                        <div className="text-base text-gray-400">Analyzing API documentation</div>
                       </div>
                     </div>
 
                     {/* Progress Steps */}
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {[
                         { label: "Reading API documentation", delay: 0 },
                         { label: "Mapping endpoints", delay: 0.2 },
@@ -194,11 +206,11 @@ export default function CustomConnectorShowcase() {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: task.delay + 0.3 }}
-                            className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20"
+                            className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20"
                           >
-                            <Check className="h-3 w-3 text-emerald-400" />
+                            <Check className="h-4 w-4 text-emerald-400" />
                           </motion.div>
-                          <span className="text-sm text-gray-300">{task.label}</span>
+                          <span className="text-base text-gray-300">{task.label}</span>
                           <motion.div
                             animate={{ opacity: [0.5, 1, 0.5] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
@@ -242,7 +254,7 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="mx-auto max-w-2xl"
+                  className="mx-auto max-w-2xl h-[380px] flex flex-col justify-center"
                 >
                   <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/30 p-6">
                     <div className="mb-4 flex items-center gap-3">
@@ -251,7 +263,7 @@ export default function CustomConnectorShowcase() {
                       </div>
                       <div>
                         <div className="font-semibold text-white">Connector Ready!</div>
-                        <div className="text-sm text-gray-400">2 actions available</div>
+                        <div className="text-sm text-gray-400">3 actions available</div>
                       </div>
                     </div>
 
@@ -270,6 +282,8 @@ export default function CustomConnectorShowcase() {
                               className={`rounded px-2 py-1 font-mono text-xs font-semibold ${
                                 endpoint.method === "POST"
                                   ? "bg-blue-500/20 text-blue-400"
+                                  : endpoint.method === "PUT"
+                                  ? "bg-amber-500/20 text-amber-400"
                                   : "bg-emerald-500/20 text-emerald-400"
                               }`}
                             >
@@ -301,18 +315,18 @@ export default function CustomConnectorShowcase() {
             {[
               {
                 icon: Zap,
-                title: "AI-Powered",
-                description: "Automatically understands any API documentation format",
+                title: "Lightning Fast",
+                description: "Executions in <0.1s. 10x faster than competitors like n8n and Zapier.",
               },
               {
                 icon: Code2,
-                title: "No Code Required",
-                description: "Visual interface to map and configure endpoints",
+                title: "Minutes, Not Months",
+                description: "Build custom connectors in 5-10 minutes. Traditional development takes 2-4 weeks.",
               },
               {
                 icon: Check,
-                title: "Ready in Minutes",
-                description: "From API docs to working connector in under 5 minutes",
+                title: "Built-in User Management",
+                description: "Let your users connect their own accounts. No OAuth headaches, just magic links.",
               },
             ].map((feature, i) => (
               <div

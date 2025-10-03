@@ -35,7 +35,7 @@ export default function EcommerceSaasHero() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="pb-12 pt-8 md:pb-20 md:pt-10">
+        <div className="pb-16 pt-8 md:pb-24 md:pt-10">
           {/* Hero content */}
           <div className="mx-auto max-w-4xl text-center">
             {/* Badge */}

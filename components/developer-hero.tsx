@@ -21,7 +21,7 @@ export default function DeveloperHero() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="pb-12 pt-8 md:pb-20 md:pt-10">
+        <div className="pb-16 pt-8 md:pb-24 md:pt-10">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
@@ -52,8 +52,7 @@ export default function DeveloperHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Executions in &lt;0.1s. Custom connectors in minutes, not months.
-                Built-in user management for your projects. 500 free executions to start.
+                Stop wrestling with API integrations. Start shipping features.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
