@@ -1,6 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function EcommerceSaasHero() {
+  const [rotatingText, setRotatingText] = useState("your ERP");
+
+  useEffect(() => {
+    const options = [
+      "your ERP",
+      "your main store",
+      "your fulfillment center",
+      "your warehouse"
+    ];
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % options.length;
+      setRotatingText(options[currentIndex]);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative">
       {/* Radial gradient */}
@@ -14,7 +35,7 @@ export default function EcommerceSaasHero() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="pb-12 pt-32 md:pb-20 md:pt-40">
+        <div className="pb-12 pt-20 md:pb-20 md:pt-28">
           {/* Hero content */}
           <div className="mx-auto max-w-4xl text-center">
             {/* Badge */}
@@ -29,55 +50,18 @@ export default function EcommerceSaasHero() {
             <h1 className="mb-6 font-nacelle text-4xl font-extrabold tracking-tight text-white md:text-6xl">
               Connect multiple stores to{" "}
               <span className="bg-gradient-to-r from-indigo-500 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                one fulfillment system
+                {rotatingText}
               </span>
             </h1>
 
             {/* Description */}
             <p className="mb-8 text-lg text-indigo-200/65 max-w-3xl mx-auto">
-              Your customers run 3-6 stores on average. That's $234/month just in Shopify fees, plus building separate integrations for each store.
-              With Kariz: Build once → customers connect unlimited stores → you're done.
+              Orchestrate operations across Shopify, Amazon, WooCommerce, and your warehouse.
+              One integration syncs inventory, routes orders, and updates tracking—automatically.
             </p>
 
-            {/* Problem/Solution cards */}
-            <div className="mb-8 grid gap-4 md:grid-cols-2 text-left">
-              <div className="rounded-xl border border-red-900/30 bg-red-950/20 p-5 backdrop-blur-sm">
-                <div className="mb-2 flex items-center gap-2 text-red-400">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="font-semibold">Without Kariz</span>
-                </div>
-                <ul className="space-y-1.5 text-sm text-gray-400">
-                  <li>• Separate OAuth setup for each customer's 6 stores</li>
-                  <li>• Tracking numbers don't sync to Shippo automatically</li>
-                  <li>• Inventory overselling across stores sharing warehouse</li>
-                  <li>• Customer support drowning in per-store setup tickets</li>
-                </ul>
-              </div>
-
-              <div className="rounded-xl border border-green-900/30 bg-green-950/20 p-5 backdrop-blur-sm">
-                <div className="mb-2 flex items-center gap-2 text-green-400">
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="font-semibold">With Kariz</span>
-                </div>
-                <ul className="space-y-1.5 text-sm text-gray-400">
-                  <li>• Customer adds their 6th store in 30 seconds via magic link</li>
-                  <li>• One integration code powers all their storefronts</li>
-                  <li>• Real-time inventory updates prevent overselling</li>
-                  <li>• Zero support tickets for OAuth or connection issues</li>
-                </ul>
-              </div>
-            </div>
-
             {/* Stats */}
-            <div className="mb-8 grid gap-4 text-center sm:grid-cols-3">
-              <div className="rounded-lg border border-gray-800/50 bg-gray-950/50 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-2xl font-bold text-white">$234/month</div>
-                <div className="text-sm text-gray-400">Shopify fees for 6 stores</div>
-              </div>
+            <div className="mb-8 grid gap-4 text-center sm:grid-cols-2 max-w-2xl mx-auto">
               <div className="rounded-lg border border-gray-800/50 bg-gray-950/50 p-4 backdrop-blur-sm">
                 <div className="mb-1 text-2xl font-bold text-white">85% of retailers</div>
                 <div className="text-sm text-gray-400">Use multiple platforms (2024)</div>
@@ -114,8 +98,8 @@ export default function EcommerceSaasHero() {
             </div>
 
             {/* Trust line */}
-            <p className="mt-6 text-sm text-gray-500">
-              500 free executions • No credit card required • Shopify, Amazon, WooCommerce & 50+ more
+            <p className="mt-4 text-xs text-gray-600">
+              Shopify, Amazon, WooCommerce & 50+ more platforms
             </p>
           </div>
         </div>

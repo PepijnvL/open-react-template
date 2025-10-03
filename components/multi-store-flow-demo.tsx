@@ -220,9 +220,9 @@ export default function MultiStoreFlowDemo() {
       </div>
 
       {/* Text below diagram */}
-      <div className="mt-4 text-center">
-        <p className="text-sm font-medium text-gray-400">
-          3 stores → 1 integration → Built once, deployed to unlimited customers
+      <div className="mt-6 text-center">
+        <p className="text-sm text-gray-500">
+          Build once → connect unlimited stores → sync everything automatically
         </p>
       </div>
     </div>

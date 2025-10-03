@@ -6,7 +6,6 @@ export const metadata = {
 import PageIllustration from "@/components/page-illustration";
 import EcommerceSaasHero from "@/components/ecommerce-saas-hero";
 import MultiStoreFlowDemo from "@/components/multi-store-flow-demo";
-import UserManagementFeature from "@/components/user-management-feature";
 import EcommerceUseCases from "@/components/ecommerce-use-cases";
 import PricingTeaser from "@/components/pricing-teaser";
 import Cta from "@/components/cta";
@@ -18,12 +17,11 @@ export default function ForEcommerce() {
       <EcommerceSaasHero />
       <section className="relative">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="py-12 md:py-20">
+          <div className="pb-12 pt-4 md:pb-20 md:pt-8">
             <MultiStoreFlowDemo />
           </div>
         </div>
       </section>
-      <UserManagementFeature />
       <EcommerceUseCases />
       <PricingTeaser />
       <Cta />
