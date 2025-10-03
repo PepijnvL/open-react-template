@@ -268,32 +268,36 @@ export default function UserManagementExplainer() {
               Common Use Cases
             </h3>
             <div className="grid gap-6 md:grid-cols-3">
-              {/* SaaS Products */}
+              {/* SaaS Products - Primary Focus */}
               <div className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gradient-to-br from-purple-950/30 to-gray-950 p-6 transition-all hover:border-purple-500/30" data-aos="fade-up">
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-purple-500/20 blur-3xl" />
 
-                <div className="relative">
-                  {/* Mini UI Mockup */}
+                <div className="relative flex h-full flex-col">
+                  {/* Mini UI Mockup - Multiple accounts for one user */}
                   <div className="mb-4 overflow-hidden rounded-lg border border-purple-500/20 bg-gray-950/50 p-4">
                     <div className="mb-3 flex items-center gap-2">
                       <div className="h-2 w-2 rounded-full bg-purple-400" />
                       <div className="h-1.5 flex-1 rounded bg-gray-800" />
                     </div>
-                    <div className="flex items-center justify-between rounded-lg border border-purple-500/30 bg-purple-500/10 p-3">
-                      <div className="flex items-center gap-2">
-                        <Image src="/icons/Shopify.svg" alt="App" width={16} height={16} />
-                        <span className="text-xs font-medium text-white">Connect your CRM</span>
-                      </div>
-                      <ArrowRight className="h-3 w-3 text-purple-400" />
+                    <div className="space-y-2">
+                      {['Personal Gmail', 'Work Gmail', 'Team Gmail'].map((account, i) => (
+                        <div key={i} className="flex items-center justify-between rounded-lg border border-purple-500/30 bg-purple-500/10 p-2">
+                          <div className="flex items-center gap-2">
+                            <Image src="/icons/Gmail.svg" alt="Gmail" width={14} height={14} />
+                            <span className="text-[10px] font-medium text-white">{account}</span>
+                          </div>
+                          <div className="h-1 w-1 rounded-full bg-emerald-400" />
+                        </div>
+                      ))}
                     </div>
                   </div>
 
                   <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">SaaS Products</h4>
                   <p className="mb-3 text-sm text-purple-300">
-                    "Connect your CRM" button in your app
+                    One user, multiple accounts
                   </p>
                   <p className="text-xs leading-relaxed text-gray-500">
-                    Each customer connects their Salesforce, HubSpot, or Pipedrive. They manage their own connection.
+                    Your customers can connect multiple accounts of the same app. Each connection is isolated and managed independently.
                   </p>
                 </div>
               </div>
@@ -302,7 +306,7 @@ export default function UserManagementExplainer() {
               <div className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gradient-to-br from-indigo-950/30 to-gray-950 p-6 transition-all hover:border-indigo-500/30" data-aos="fade-up" data-aos-delay={100}>
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-indigo-500/20 blur-3xl" />
 
-                <div className="relative">
+                <div className="relative flex h-full flex-col">
                   {/* Mini UI Mockup - Multiple workspaces */}
                   <div className="mb-4 overflow-hidden rounded-lg border border-indigo-500/20 bg-gray-950/50 p-4">
                     <div className="space-y-2">
@@ -332,7 +336,7 @@ export default function UserManagementExplainer() {
               <div className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gradient-to-br from-pink-950/30 to-gray-950 p-6 transition-all hover:border-pink-500/30" data-aos="fade-up" data-aos-delay={200}>
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-pink-500/20 blur-3xl" />
 
-                <div className="relative">
+                <div className="relative flex h-full flex-col">
                   {/* Mini UI Mockup - Store grid */}
                   <div className="mb-4 overflow-hidden rounded-lg border border-pink-500/20 bg-gray-950/50 p-4">
                     <div className="grid grid-cols-3 gap-2">
