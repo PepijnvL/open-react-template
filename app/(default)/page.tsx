@@ -12,7 +12,6 @@ import AIAgentsFeature from "@/components/ai-agents-feature";
 import UserManagementFeature from "@/components/user-management-feature";
 import IntegrationsNew from "@/components/integrations-new";
 import PricingTeaser from "@/components/pricing-teaser";
-import Cta from "@/components/cta";
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
       <UserManagementFeature />
       <IntegrationsNew />
       <PricingTeaser />
-      <Cta />
     </>
   );
 }

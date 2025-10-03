@@ -44,7 +44,7 @@ export default function AppActionsFlowV3() {
         {apps.map((app, appIndex) => (
           <motion.div
             key={appIndex}
-            className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 shadow-xl border border-gray-200"
+            className="bg-gradient-to-br from-slate-900/80 to-slate-950/80 rounded-2xl p-6 shadow-xl border border-white/10 backdrop-blur-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -75,14 +75,14 @@ export default function AppActionsFlowV3() {
                   className="w-full h-full object-contain"
                 />
               </motion.div>
-              <h3 className="text-xl font-bold text-gray-900">{app.name}</h3>
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-3"></div>
+              <h3 className="text-xl font-bold text-white">{app.name}</h3>
+              <div className="h-px w-16 bg-gradient-to-r from-transparent via-gray-600 to-transparent mt-3"></div>
             </div>
 
             {/* Downward Arrow Indicator */}
             <div className="flex justify-center mb-4">
               <motion.svg
-                className="w-6 h-6 text-gray-400"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -108,14 +108,14 @@ export default function AppActionsFlowV3() {
             {/* Actions Section */}
             <div className="space-y-3">
               <div className="text-center mb-3">
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
                   Available Actions
                 </span>
               </div>
               {app.actions.map((action, actionIndex) => (
                 <motion.div
                   key={actionIndex}
-                  className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all cursor-pointer"
+                  className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg border border-white/10 shadow-sm hover:bg-slate-800/80 hover:border-white/20 transition-all cursor-pointer"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
@@ -127,11 +127,11 @@ export default function AppActionsFlowV3() {
                   whileHover={{ scale: 1.02, x: 4 }}
                 >
                   <span className="text-2xl">{action.icon}</span>
-                  <span className="text-sm font-medium text-gray-700 flex-1">
+                  <span className="text-sm font-medium text-gray-300 flex-1">
                     {action.name}
                   </span>
                   <svg
-                    className="w-4 h-4 text-gray-400"
+                    className="w-4 h-4 text-gray-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -149,19 +149,6 @@ export default function AppActionsFlowV3() {
           </motion.div>
         ))}
       </div>
-
-      {/* Description */}
-      <motion.div
-        className="mt-12 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">App Actions</h3>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Each app provides multiple actions you can use in your workflows. Select an app to see its available actions below.
-        </p>
-      </motion.div>
     </div>
   );
 }

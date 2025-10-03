@@ -56,28 +56,6 @@ export default function PricingTeaser() {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                className="btn group w-full bg-gradient-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] sm:w-auto"
-                href="/pricing"
-              >
-                <span className="relative inline-flex items-center">
-                  View Full Pricing
-                  <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                    -&gt;
-                  </span>
-                </span>
-              </a>
-              <a
-                className="btn w-full bg-gradient-to-t from-gray-800 to-gray-800 bg-[length:100%_100%] bg-[bottom] text-gray-300 shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] sm:w-auto"
-                href="https://app.trykariz.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start Free
-              </a>
-            </div>
           </div>
         </div>
       </div>

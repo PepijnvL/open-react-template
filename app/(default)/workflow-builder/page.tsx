@@ -160,43 +160,8 @@ export default function WorkflowBuilder() {
   );
 
   const addNodeToCanvas = (nodeTemplate: any) => {
-    const isFirst = nodes.length === 0;
-    const newNode = {
-      id: `node-${nodeCounter}`,
-      type: "custom",
-      data: {
-        label: nodeTemplate.label,
-        description: nodeTemplate.description,
-        icon: nodeTemplate.icon,
-        color: nodeTemplate.color,
-        isFirst: isFirst,
-        onAddNode: () => setShowNodePanel(true),
-      },
-      position: {
-        x: 100 + (nodeCounter - 1) * 300,
-        y: 250,
-      },
-    };
-
-    setNodes((nds) => [...nds, newNode]);
-
-    // Auto-connect to previous node
-    if (nodes.length > 0) {
-      const lastNode = nodes[nodes.length - 1];
-      const newEdge = {
-        id: `edge-${lastNode.id}-${newNode.id}`,
-        source: lastNode.id,
-        target: newNode.id,
-        animated: true,
-        style: { stroke: "#888", strokeWidth: 2 },
-        type: "smoothstep",
-      };
-      setEdges((eds) => [...eds, newEdge]);
-    }
-
-    setNodeCounter((c) => c + 1);
-    setShowNodePanel(false);
-    setSearchQuery("");
+    // Redirect to signup
+    window.location.href = "https://app.trykariz.com";
   };
 
   const filteredNodes = availableNodes.map(category => ({
@@ -216,13 +181,13 @@ export default function WorkflowBuilder() {
             <h1 className="text-xl font-bold text-gray-900">Workflow Builder</h1>
             <p className="text-sm text-gray-500">Build your automation workflow</p>
           </div>
-          <button
-            onClick={() => setShowNodePanel(true)}
+          <a
+            href="https://app.trykariz.com"
             className="flex items-center gap-2 rounded-lg bg-[#ff6d5a] px-5 py-2.5 font-medium text-white shadow-sm transition-all hover:bg-[#ff5542] hover:shadow-md"
           >
             <Plus className="h-4 w-4" />
             Add Node
-          </button>
+          </a>
         </div>
       </div>
 
@@ -263,7 +228,7 @@ export default function WorkflowBuilder() {
             </div>
             <h2 className="mb-2 text-2xl font-bold text-gray-900">Build Your First Workflow</h2>
             <p className="text-gray-600">
-              Click the "Add Node" button to get started
+              Create an account at <a href="https://app.trykariz.com" className="pointer-events-auto text-[#ff6d5a] hover:underline font-semibold">app.trykariz.com</a> to build real workflows
             </p>
           </div>
         </div>
@@ -297,6 +262,7 @@ export default function WorkflowBuilder() {
                   placeholder="Search nodes..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => window.location.href = "https://app.trykariz.com"}
                   className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-[#ff6d5a] focus:outline-none focus:ring-2 focus:ring-[#ff6d5a]/20"
                   autoFocus
                 />

@@ -1,4 +1,4 @@
-rying to s"use client";
+"use client";
 
 import PageIllustration from "@/components/page-illustration";
 import HeroHomeV5 from "@/components/hero-home-v5";

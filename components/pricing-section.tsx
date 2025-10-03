@@ -14,6 +14,7 @@ interface PricingTier {
   description: string;
   monthlyPrice: number | null;
   yearlyPrice: number | null;
+  users?: string;
   features: PricingFeature[];
   cta: string;
   ctaLink: string;
@@ -95,8 +96,8 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
     >
       {/* Popular Badge */}
       {tier.popular && (
-        <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
-          <span className="whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1 text-xs font-semibold text-white">
+        <div className="absolute -top-4 left-1/2 z-10 -translate-x-1/2">
+          <span className="whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
             Popular
           </span>
         </div>
@@ -107,6 +108,13 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
         <h3 className="text-lg font-bold text-white">{tier.name}</h3>
         <p className="mt-2 text-sm text-gray-400">{tier.description}</p>
       </div>
+
+      {/* Users */}
+      {tier.users && (
+        <div className="mb-3">
+          <p className="text-sm font-medium text-purple-400">{tier.users}</p>
+        </div>
+      )}
 
       {/* Price */}
       <div className="mb-6">
@@ -146,39 +154,20 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
       <div className="flex-1 space-y-3">
         {tier.features.map((feature, idx) => (
           <div key={idx} className="flex items-start gap-3">
-            {feature.included ? (
-              <svg
-                className="mt-0.5 h-5 w-5 shrink-0 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="mt-0.5 h-5 w-5 shrink-0 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            )}
-            <span className={cn(
-              "text-sm",
-              feature.included ? "text-gray-300" : "text-gray-600"
-            )}>
+            <svg
+              className="mt-0.5 h-5 w-5 shrink-0 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span className="text-sm text-gray-300">
               {feature.text}
             </span>
           </div>
