@@ -94,8 +94,17 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
+                  className="text-indigo-200/65 transition"
                   href="/demo"
+                  style={{
+                    color: 'rgb(165 180 252 / 0.65)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'rgb(99 102 241)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'rgb(165 180 252 / 0.65)';
+                  }}
                 >
                   Book Consultation
                 </a>

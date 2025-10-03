@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import Header from "@/components/ui/header";
 import Analytics from "@/components/analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import Leadfeeder from "@/components/leadfeeder";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default function RootLayout({
       >
         <Analytics />
         <VercelAnalytics />
+        <Leadfeeder />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
