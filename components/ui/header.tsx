@@ -92,14 +92,12 @@ export default function Header() {
           {/* Desktop and Mobile CTAs */}
           <ul className="flex items-center justify-end gap-2">
             <li>
-              <a
-                href="https://cal.com/kariz-pepijn/meeting"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book-demo"
                 className="btn-sm relative bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] py-[5px] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%]"
               >
                 Book Demo
-              </a>
+              </Link>
             </li>
             <li>
               <a

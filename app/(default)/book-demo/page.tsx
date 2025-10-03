@@ -2,7 +2,7 @@
 
 import PageIllustration from "@/components/page-illustration";
 
-export default function Enterprise() {
+export default function BookDemo() {
   return (
     <>
       <PageIllustration />
@@ -15,14 +15,14 @@ export default function Enterprise() {
                 className="mb-6 font-nacelle text-4xl font-bold text-white md:text-5xl"
                 data-aos="fade-up"
               >
-                Enterprise Solutions
+                Book a Demo
               </h1>
               <p
                 className="text-lg text-gray-400"
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                Schedule a consultation to discuss your enterprise needs
+                Schedule a personalized demo and see how Kariz can transform your workflow
               </p>
             </div>
 
@@ -38,7 +38,7 @@ export default function Enterprise() {
                   width="100%"
                   height="800"
                   frameBorder="0"
-                  title="Schedule a meeting"
+                  title="Schedule a demo"
                   className="rounded-2xl"
                 />
                 {/* Overlay to hide Cal.com branding */}
