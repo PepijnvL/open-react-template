@@ -60,22 +60,22 @@ export default function Header() {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
                   <div className="rounded-lg border border-gray-800 bg-gray-900/95 py-2 shadow-xl backdrop-blur-sm">
                     <Link
-                      href="/for-developers"
+                      href="/developers"
                       className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-emerald-400 transition-colors"
                     >
-                      For Developers
+                      Developers
                     </Link>
                     <Link
-                      href="/for-ecommerce"
+                      href="/ecommerce"
                       className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-indigo-400 transition-colors"
                     >
-                      For E-commerce
+                      E-commerce
                     </Link>
                     <Link
-                      href="/for-startups"
+                      href="/startups"
                       className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-purple-400 transition-colors"
                     >
-                      For Startups
+                      Startups
                     </Link>
                   </div>
                 </div>
@@ -130,25 +130,25 @@ export default function Header() {
                 {mobileSolutionsOpen && (
                   <div className="bg-gray-800/30 py-1">
                     <Link
-                      href="/for-developers"
+                      href="/developers"
                       className="block px-6 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-emerald-400 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      For Developers
+                      Developers
                     </Link>
                     <Link
-                      href="/for-ecommerce"
+                      href="/ecommerce"
                       className="block px-6 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-indigo-400 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      For E-commerce
+                      E-commerce
                     </Link>
                     <Link
-                      href="/for-startups"
+                      href="/startups"
                       className="block px-6 py-2 text-sm text-gray-300 hover:bg-gray-800/50 hover:text-purple-400 transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      For Startups
+                      Startups
                     </Link>
                   </div>
                 )}

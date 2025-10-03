@@ -49,13 +49,13 @@ export default function HeroHomeV3() {
 
               {/* Audience navigation */}
               <div className="mb-6 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm" data-aos="fade-up" data-aos-delay={200}>
-                <a href="/for-developers" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">
+                <a href="/developers" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all">
                   Developers
                 </a>
-                <a href="/for-ecommerce" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-400 transition-all">
+                <a href="/ecommerce" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-400 transition-all">
                   E-commerce
                 </a>
-                <a href="/for-startups" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-purple-400 transition-all">
+                <a href="/startups" className="rounded-full border border-gray-700 bg-transparent px-3 py-1 sm:px-4 sm:py-1.5 text-gray-300 hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-purple-400 transition-all">
                   Startups
                 </a>
               </div>

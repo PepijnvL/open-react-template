@@ -57,25 +57,25 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="/for-developers"
+                  href="/developers"
                 >
-                  For Developers
+                  Developers
                 </a>
               </li>
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="/for-ecommerce"
+                  href="/ecommerce"
                 >
-                  For E-commerce
+                  E-commerce
                 </a>
               </li>
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="/for-startups"
+                  href="/startups"
                 >
-                  For Startups & SaaS
+                  Startups
                 </a>
               </li>
             </ul>
