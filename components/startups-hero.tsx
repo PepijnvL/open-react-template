@@ -62,16 +62,16 @@ export default function StartupsHero() {
               {/* Stats - updated to match user requirements */}
               <div className="mt-12 grid grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay={400}>
                 <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">85%</div>
-                  <div className="text-sm text-gray-400">Time reduction with support</div>
-                </div>
-                <div>
-                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">50%</div>
-                  <div className="text-sm text-gray-400">Cheaper than Zapier</div>
-                </div>
-                <div>
                   <div className="mb-1 font-nacelle text-3xl font-bold text-white">10x</div>
-                  <div className="text-sm text-gray-400">Faster than n8n</div>
+                  <div className="text-sm text-gray-400">Faster than competitors</div>
+                </div>
+                <div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">90%</div>
+                  <div className="text-sm text-gray-400">Cheaper than internal dev</div>
+                </div>
+                <div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">2-3 mo</div>
+                  <div className="text-sm text-gray-400">Faster GTM</div>
                 </div>
               </div>
             </div>
