@@ -96,7 +96,7 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="space-y-6"
+                  className="space-y-6 min-h-[320px]"
                 >
                   <div className="mx-auto max-w-2xl">
                     <label className="mb-2 block text-sm font-medium text-gray-400">
@@ -141,7 +141,7 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="mx-auto max-w-2xl space-y-6"
+                  className="mx-auto max-w-2xl space-y-6 min-h-[320px]"
                 >
                   <div className="rounded-xl border border-purple-500/20 bg-purple-950/30 p-6">
                     <div className="mb-4 flex items-center gap-3">
