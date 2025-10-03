@@ -4,7 +4,7 @@ export default function DeveloperHero() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="pb-12 pt-20 md:pb-20 md:pt-28">
+        <div className="pb-12 pt-16 md:pb-20 md:pt-20">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">

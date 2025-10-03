@@ -21,7 +21,7 @@ export default function ForStartupsPage() {
       {/* Integration Dashboard Preview */}
       <section className="relative">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="pb-12 pt-4 md:pb-20 md:pt-8">
+          <div className="pb-12 md:pb-20">
             <IntegrationDashboardPreview />
           </div>
         </div>

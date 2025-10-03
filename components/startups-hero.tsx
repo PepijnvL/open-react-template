@@ -4,7 +4,7 @@ export default function StartupsHero() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="pb-12 pt-20 md:pb-20 md:pt-28">
+        <div className="pb-8 pt-16 md:pb-12 md:pt-20">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
@@ -16,7 +16,7 @@ export default function StartupsHero() {
           </div>
 
           {/* Headline */}
-          <div className="pb-12 text-center md:pb-16">
+          <div className="pb-4 text-center md:pb-6">
             <h1
               className="mb-6 font-nacelle text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl"
               data-aos="fade-up"
