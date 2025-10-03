@@ -3,21 +3,9 @@ export const metadata = {
   description: "Access your Kariz account to manage integrations, workflows, and automations. Build customer-facing integrations faster with our powerful platform.",
 };
 
-"use client";
-
-import { useEffect } from "react";
 import PageIllustration from "@/components/page-illustration";
 
 export default function SignIn() {
-  useEffect(() => {
-    // Redirect to app after a brief moment to allow SEO crawlers to index
-    const timer = setTimeout(() => {
-      window.location.href = "https://app.trykariz.com";
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
       <PageIllustration />
@@ -37,7 +25,7 @@ export default function SignIn() {
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                Access your account to manage integrations and workflows
+                Access your Kariz account to manage integrations and workflows
               </p>
 
               <div
@@ -49,11 +37,8 @@ export default function SignIn() {
                   href="https://app.trykariz.com"
                   className="btn bg-gradient-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] px-8 py-3 rounded-lg font-medium"
                 >
-                  Go to Application
+                  Go to Application →
                 </a>
-                <p className="text-sm text-gray-500">
-                  Redirecting automatically...
-                </p>
               </div>
             </div>
 
