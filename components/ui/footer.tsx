@@ -87,19 +87,15 @@ export default function Footer() {
               <li>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="https://app.trykariz.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/signin"
                 >
                   Sign In
                 </a>
               </li>
               <li>
                 <a
-                  className="text-indigo-200/65 transition hover:text-indigo-500"
-                  href="https://cal.com/kariz-pepijn/meeting"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  className="text-indigo-200/65"
+                  href="/demo"
                 >
                   Book Consultation
                 </a>

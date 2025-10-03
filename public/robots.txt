@@ -1,0 +1,30 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow test and development pages
+Disallow: /animations-test
+Disallow: /component-test
+Disallow: /graphics-library
+Disallow: /gumloop-animated
+Disallow: /gumloop-components
+Disallow: /gumloop-extracts
+Disallow: /gumloop-graphics
+Disallow: /gumloop-inspired
+Disallow: /gumloop-inspired2
+Disallow: /gumloop-inspired3
+Disallow: /landing-v2
+Disallow: /landing-v3
+Disallow: /landing-v4
+Disallow: /landing-v5
+Disallow: /landing-v6
+Disallow: /landing-v7
+Disallow: /magicui-demo
+Disallow: /reactflow
+Disallow: /tools-demo
+Disallow: /workflow-builder
+Disallow: /workflow-demo
+Disallow: /workflow-demo-v2
+
+# Sitemap location
+Sitemap: https://www.runkariz.com/sitemap.xml
