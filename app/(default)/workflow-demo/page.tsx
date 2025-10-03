@@ -1,185 +1,20 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import {
-  ReactFlow,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  BackgroundVariant,
-  Connection,
-  Node,
-  Handle,
-  Position,
-  NodeProps,
-  type Edge,
-} from "@xyflow/react";
-import {
-  Plus,
-  Send,
-  Loader2,
-  Sparkles,
-} from "lucide-react";
-import Image from "next/image";
-
-import "@xyflow/react/dist/style.css";
-
-// n8n-Style Custom Node Component
-function CustomNode({ data, selected }: NodeProps) {
-  const nodeColor = data.color || "#6366f1";
-  const isImageIcon = typeof data.icon === "string";
-  const isFirstNode = data.isFirst === true;
-
-  return (
-    <div className="relative">
-      {/* Input handle on LEFT (hidden for first node) */}
-      {!isFirstNode && (
-        <Handle
-          type="target"
-          position={Position.Left}
-          className="!h-4 !w-4 !rounded-full !border-2 !bg-white !transition-all hover:!scale-110"
-          style={{
-            left: -8,
-            borderColor: "#888",
-          }}
-        />
-      )}
-
-      {/* Main node */}
-      <div
-        className={`group relative min-w-[200px] rounded-lg bg-white shadow-lg transition-all duration-200 ${
-          selected
-            ? "ring-2 ring-blue-500"
-            : "hover:shadow-xl"
-        }`}
-        style={{
-          border: `2px solid ${selected ? nodeColor : "#e5e5e5"}`,
-        }}
-      >
-        <div className="flex items-center gap-3 p-3">
-          <div
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded"
-            style={{
-              backgroundColor: `${nodeColor}15`,
-            }}
-          >
-            {isImageIcon ? (
-              <Image src={data.icon as string} alt={data.label as string} width={20} height={20} className="h-5 w-5" />
-            ) : (
-              <Sparkles className="h-5 w-5" style={{ color: nodeColor } as React.CSSProperties} />
-            )}
-          </div>
-
-          <div className="flex-1 min-w-0">
-            <div className="text-sm font-semibold text-gray-900">
-              {data.label as string}
-            </div>
-            {(data.description as string) && (
-              <div className="text-xs text-gray-500 truncate">
-                {data.description as string}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Output handle on RIGHT */}
-      <Handle
-        type="source"
-        position={Position.Right}
-        className="!h-4 !w-4 !rounded-full !border-2 !bg-white !transition-all hover:!scale-110"
-        style={{
-          right: -8,
-          borderColor: "#888",
-        }}
-      />
-    </div>
-  );
-}
-
-const nodeTypes = {
-  custom: CustomNode,
-};
-
-// Initial workflow nodes
-const initialNodes: Node[] = [
-  {
-    id: "1",
-    type: "custom",
-    data: {
-      label: "Webhook",
-      description: "New order received",
-      icon: "/icons/apps/webhook.svg",
-      color: "#6366f1",
-      isFirst: true,
-    },
-    position: { x: 50, y: 200 },
-  },
-  {
-    id: "2",
-    type: "custom",
-    data: {
-      label: "Shopify",
-      description: "Get order details",
-      icon: "/icons/apps/shopify.svg",
-      color: "#96BF48",
-      isFirst: false,
-    },
-    position: { x: 300, y: 200 },
-  },
-  {
-    id: "3",
-    type: "custom",
-    data: {
-      label: "Gmail",
-      description: "Send confirmation",
-      icon: "/icons/apps/gmail.svg",
-      color: "#EA4335",
-      isFirst: false,
-    },
-    position: { x: 550, y: 200 },
-  },
-];
-
-const initialEdges: Edge[] = [
-  {
-    id: "e1-2",
-    source: "1",
-    target: "2",
-    animated: false,
-    style: { stroke: "#999", strokeWidth: 2 },
-    type: "smoothstep",
-  },
-  {
-    id: "e2-3",
-    source: "2",
-    target: "3",
-    animated: false,
-    style: { stroke: "#999", strokeWidth: 2 },
-    type: "smoothstep",
-  },
-];
+import React, { useState } from "react";
+import { Send, Loader2, Sparkles } from "lucide-react";
+import WorkflowDesktop from "./WorkflowDesktop";
+import WorkflowMobile from "./WorkflowMobile";
 
 export default function WorkflowDemo() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([
     {
       role: "assistant",
-      content: "Hi! I'm your AI workflow assistant. Tell me what workflow you'd like to create, and I'll build it for you. For example: \"Create a workflow that sends a Slack message when a new Shopify order comes in\"",
+      content:
+        "Hi! I'm your AI workflow assistant. Tell me what workflow you'd like to create, and I'll build it for you. For example: \"Create a workflow that sends a Slack message when a new Shopify order comes in\"",
     },
   ]);
   const [isGenerating, setIsGenerating] = useState(false);
-
-  const onConnect = useCallback(
-    (params: Connection) => {
-      setEdges((eds) => addEdge(params, eds));
-    },
-    [setEdges]
-  );
 
   const handleSendMessage = () => {
     if (!chatInput.trim()) return;
@@ -189,41 +24,22 @@ export default function WorkflowDemo() {
 
   return (
     <div className="relative h-[600px] w-full rounded-2xl border-2 border-gray-200 bg-[#f5f5f5] shadow-2xl overflow-hidden">
-      <div className="grid h-full grid-cols-3">
-        {/* React Flow Canvas - 2/3 width */}
-        <div className="col-span-2 relative border-r border-gray-200">
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            nodeTypes={nodeTypes}
-            fitView
-            proOptions={{ hideAttribution: true }}
-            className="bg-[#f5f5f5]"
-            defaultEdgeOptions={{
-              animated: false,
-              style: { strokeWidth: 2, stroke: "#999" },
-            }}
-            nodesDraggable={false}
-            nodesConnectable={false}
-            elementsSelectable={false}
-            panOnDrag={false}
-            zoomOnScroll={false}
-            zoomOnPinch={false}
-            zoomOnDoubleClick={false}
-          >
-            <Controls className="!left-4 !bottom-4 rounded-lg border border-gray-300 bg-white shadow-lg" />
-            <Background
-              variant={BackgroundVariant.Dots}
-              gap={20}
-              size={1}
-              color="#d0d0d0"
-              className="bg-[#f5f5f5]"
-            />
-          </ReactFlow>
+      <div className="grid h-full md:grid-cols-3 grid-cols-1">
+        {/* React Flow Canvas - Full width on mobile, 2/3 on desktop */}
+        <div className="md:col-span-2 col-span-1 relative md:border-r border-gray-200">
+          {/* Desktop workflow - hidden on mobile */}
+          <div className="hidden md:block h-full w-full">
+            <WorkflowDesktop />
+          </div>
+
+          {/* Mobile workflow - hidden on desktop */}
+          <div className="block md:hidden h-full w-full">
+            <WorkflowMobile />
+          </div>
         </div>
 
-        {/* Chat Interface - 1/3 width */}
-        <div className="col-span-1 flex flex-col bg-white">
+        {/* Chat Interface - Hidden on mobile, 1/3 width on desktop */}
+        <div className="hidden md:flex md:col-span-1 flex-col bg-white">
           {/* Chat Header */}
           <div className="border-b border-gray-200 p-4">
             <div className="flex items-center gap-2">
@@ -286,7 +102,12 @@ export default function WorkflowDemo() {
               </button>
             </div>
             <p className="mt-2 text-xs text-center text-gray-500">
-              <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer" className="text-[#ff6d5a] hover:underline">
+              <a
+                href="https://app.trykariz.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#ff6d5a] hover:underline"
+              >
                 Create an account
               </a>{" "}
               to build real workflows
