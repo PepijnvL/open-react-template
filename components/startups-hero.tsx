@@ -1,27 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
 
 export default function StartupsHero() {
-  const [rotatingText, setRotatingText] = useState("any app");
-
-  useEffect(() => {
-    const options = ["any app", "any AI agent", "any LLM"];
-    let currentIndex = 0;
-
-    const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % options.length;
-      setRotatingText(options[currentIndex]);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="pb-8 pt-16 md:pb-12 md:pt-20">
+        <div className="pb-12 pt-16 md:pb-20 md:pt-20">
           {/* Badge */}
           <div className="mb-6 text-center" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
@@ -33,16 +19,16 @@ export default function StartupsHero() {
           </div>
 
           {/* Headline */}
-          <div className="pb-4 text-center md:pb-6">
+          <div className="pb-12 text-center md:pb-16">
             <h1
               className="mb-6 font-nacelle text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl"
               data-aos="fade-up"
               data-aos-delay={100}
             >
-              Let your customers connect
+              Stop being the
               <br />
               <span className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-indigo-400),var(--color-purple-400),var(--color-pink-400),var(--color-indigo-400))] bg-[length:200%_auto] bg-clip-text text-transparent">
-                {rotatingText} to your software
+                integration middleman
               </span>
             </h1>
 
@@ -52,7 +38,8 @@ export default function StartupsHero() {
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-                Focus on your core product while we handle integrations.
+                Focus on your core product while we handle integrations. 85% faster development with custom support.
+                Cheaper than Zapier, faster than n8n, and customers manage their own connections.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row" data-aos="fade-up" data-aos-delay={300}>
@@ -77,18 +64,18 @@ export default function StartupsHero() {
               </div>
 
               {/* Stats - updated to match user requirements */}
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400" data-aos="fade-up" data-aos-delay={400}>
-                <div className="flex items-center gap-2">
-                  <span className="font-nacelle text-lg font-semibold text-white">10x</span>
-                  <span>faster than competitors</span>
+              <div className="mt-12 grid grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay={400}>
+                <div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">85%</div>
+                  <div className="text-sm text-gray-400">Time reduction with support</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-nacelle text-lg font-semibold text-white">90%</span>
-                  <span>cheaper than internal dev</span>
+                <div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">50%</div>
+                  <div className="text-sm text-gray-400">Cheaper than Zapier</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-nacelle text-lg font-semibold text-white">2-3 mo</span>
-                  <span>faster GTM</span>
+                <div>
+                  <div className="mb-1 font-nacelle text-3xl font-bold text-white">10x</div>
+                  <div className="text-sm text-gray-400">Faster than n8n</div>
                 </div>
               </div>
             </div>

@@ -48,8 +48,6 @@ export default function CustomConnectorShowcase() {
   const endpoints = [
     { method: "POST", path: "/v1/customers", label: "Create Customer" },
     { method: "GET", path: "/v1/charges", label: "List Charges" },
-    { method: "POST", path: "/v1/refunds", label: "Create Refund" },
-    { method: "GET", path: "/v1/invoices", label: "Get Invoices" },
   ];
 
   return (
@@ -147,8 +145,29 @@ export default function CustomConnectorShowcase() {
                 >
                   <div className="rounded-xl border border-purple-500/20 bg-purple-950/30 p-6">
                     <div className="mb-4 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/20">
+                      <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/20">
                         <Zap className="h-5 w-5 text-purple-400" />
+                        {/* Animated sparkles around icon */}
+                        {[0, 1, 2, 3].map((i) => (
+                          <motion.div
+                            key={i}
+                            animate={{
+                              scale: [0, 1, 0],
+                              opacity: [0, 1, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              delay: i * 0.5,
+                            }}
+                            className="absolute h-1 w-1 rounded-full bg-purple-400"
+                            style={{
+                              top: i === 0 ? '0' : i === 1 ? '50%' : i === 2 ? '100%' : '50%',
+                              left: i === 0 ? '50%' : i === 1 ? '100%' : i === 2 ? '50%' : '0',
+                              transform: 'translate(-50%, -50%)',
+                            }}
+                          />
+                        ))}
                       </div>
                       <div>
                         <div className="font-semibold text-white">AI is building your connector...</div>
@@ -223,7 +242,7 @@ export default function CustomConnectorShowcase() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="mx-auto max-w-2xl space-y-6"
+                  className="mx-auto max-w-2xl"
                 >
                   <div className="rounded-xl border border-emerald-500/20 bg-emerald-950/30 p-6">
                     <div className="mb-4 flex items-center gap-3">
@@ -232,12 +251,12 @@ export default function CustomConnectorShowcase() {
                       </div>
                       <div>
                         <div className="font-semibold text-white">Connector Ready!</div>
-                        <div className="text-sm text-gray-400">4 actions available</div>
+                        <div className="text-sm text-gray-400">2 actions available</div>
                       </div>
                     </div>
 
                     {/* Generated Endpoints */}
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       {endpoints.map((endpoint, i) => (
                         <motion.div
                           key={i}
