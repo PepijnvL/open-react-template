@@ -180,25 +180,10 @@ export default function WorkflowDemo() {
     [setEdges]
   );
 
-  const handleSendMessage = async () => {
-    if (!chatInput.trim() || isGenerating) return;
-
-    const userMessage = chatInput;
-    setChatInput("");
-    setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
-    setIsGenerating(true);
-
-    // Simulate AI response (in production, call your LLM API)
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "I've created a workflow based on your request! The workflow shows how data flows from the trigger through each step. Want to create a real account to build and deploy this workflow?",
-        },
-      ]);
-      setIsGenerating(false);
-    }, 2000);
+  const handleSendMessage = () => {
+    if (!chatInput.trim()) return;
+    // Redirect to signup page
+    window.open("https://app.trykariz.com", "_blank");
   };
 
   return (
@@ -296,7 +281,7 @@ export default function WorkflowDemo() {
               </button>
             </div>
             <p className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">
-              <a href="#" className="text-[#ff6d5a] hover:underline">
+              <a href="https://app.trykariz.com" target="_blank" rel="noopener noreferrer" className="text-[#ff6d5a] hover:underline">
                 Create an account
               </a>{" "}
               to build real workflows

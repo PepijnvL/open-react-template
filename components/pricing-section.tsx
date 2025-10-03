@@ -156,19 +156,19 @@ function PricingCard({ tier, isYearly }: { tier: PricingTier; isYearly: boolean 
       <div className="flex-1 space-y-3">
         {tier.features.map((feature, idx) => (
           <div key={idx} className="flex items-start gap-3">
-            <svg
-              className="mt-0.5 h-5 w-5 shrink-0 text-green-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-400">
+              <svg
+                className="h-3 w-3 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
             <span className="text-sm text-gray-300">
               {feature.text}
             </span>

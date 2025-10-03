@@ -153,9 +153,11 @@ export default function Pricing() {
                 <ul className="mb-8 flex-grow space-y-4">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <Check className={`mt-0.5 h-5 w-5 shrink-0 ${
-                        plan.popular ? "text-indigo-400" : "text-emerald-500"
-                      }`} />
+                      <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                        plan.popular ? "bg-indigo-400" : "bg-purple-400"
+                      }`}>
+                        <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                      </div>
                       <span className={`text-base ${
                         feature.highlight ? "font-semibold text-gray-200" : "text-gray-300"
                       }`}>
