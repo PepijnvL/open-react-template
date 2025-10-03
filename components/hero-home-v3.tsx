@@ -102,7 +102,7 @@ export default function HeroHomeV3() {
                   <svg className="h-4 w-4 fill-indigo-500" viewBox="0 0 16 16">
                     <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm3.5 6.5l-4 4c-.1.1-.3.2-.5.2s-.4-.1-.5-.2l-2-2c-.3-.3-.3-.8 0-1.1.3-.3.8-.3 1.1 0l1.5 1.5 3.5-3.5c.3-.3.8-.3 1.1 0 .2.3.2.8-.2 1.1z"/>
                   </svg>
-                  <span>Trusted by 500+ teams</span>
+                  <span>50+ integrations ready</span>
                 </div>
               </div>
             </div>
