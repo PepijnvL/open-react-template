@@ -39,8 +39,8 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "Kariz - Customer-Facing Integration Platform",
-  description: "Build powerful integrations your customers can manage themselves. Free tier, custom connectors, 5-10x faster than n8n.",
+  title: "Kariz - Integration Platform for SaaS Products",
+  description: "Add user-facing integrations to your product. Your customers connect their apps, you skip months of OAuth development.",
 };
 
 export default function RootLayout({
