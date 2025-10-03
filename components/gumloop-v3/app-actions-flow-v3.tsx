@@ -2,17 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Mail, Inbox, Search, Upload, FolderPlus, Share2, MessageSquare, Hash, Paperclip } from "lucide-react";
 
-// Define apps with their available actions - using actual SVG icons from /public/icons/
+// Define apps with their available actions - using Lucide icons
 const apps = [
   {
     name: "Gmail",
     iconPath: "/icons/Gmail.svg",
     color: "from-red-500 to-red-600",
     actions: [
-      { name: "Send Email", icon: "📧" },
-      { name: "Read Inbox", icon: "📬" },
-      { name: "Search Messages", icon: "🔍" },
+      { name: "Send Email", icon: Mail },
+      { name: "Read Inbox", icon: Inbox },
+      { name: "Search Messages", icon: Search },
     ],
   },
   {
@@ -20,9 +21,9 @@ const apps = [
     iconPath: "/icons/Google Drive.svg",
     color: "from-blue-500 to-blue-600",
     actions: [
-      { name: "Upload File", icon: "⬆️" },
-      { name: "Create Folder", icon: "📁" },
-      { name: "Share Document", icon: "🔗" },
+      { name: "Upload File", icon: Upload },
+      { name: "Create Folder", icon: FolderPlus },
+      { name: "Share Document", icon: Share2 },
     ],
   },
   {
@@ -30,9 +31,9 @@ const apps = [
     iconPath: "/icons/Slack.svg",
     color: "from-purple-500 to-purple-600",
     actions: [
-      { name: "Send Message", icon: "💬" },
-      { name: "Create Channel", icon: "📁" },
-      { name: "Upload File", icon: "📎" },
+      { name: "Send Message", icon: MessageSquare },
+      { name: "Create Channel", icon: Hash },
+      { name: "Upload File", icon: Paperclip },
     ],
   },
 ];
@@ -126,7 +127,9 @@ export default function AppActionsFlowV3() {
                   }}
                   whileHover={{ scale: 1.02, x: 4 }}
                 >
-                  <span className="text-2xl">{action.icon}</span>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10">
+                    <action.icon className="w-4 h-4 text-gray-300" />
+                  </div>
                   <span className="text-sm font-medium text-gray-300 flex-1">
                     {action.name}
                   </span>
