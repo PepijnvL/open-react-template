@@ -128,7 +128,7 @@ const initialNodes: Node[] = [
     data: {
       label: "Amazon Store",
       description: "Marketplace channel",
-      icon: "/icons/apps/amazon",
+      icon: "/icons/apps/amazon.svg",
       color: "#FF9900",
       type: "input",
     },
