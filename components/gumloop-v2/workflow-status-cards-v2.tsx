@@ -5,14 +5,14 @@ import { StatusIcon } from "./icon-component";
 
 interface WorkflowStatus {
   name: string;
-  status: "completed" | "running" | "error";
+  status: "success" | "running" | "error";
   time: string;
 }
 
 const workflows: WorkflowStatus[] = [
-  { name: "Channel analyzer", status: "completed", time: "11:23 AM" },
+  { name: "Channel analyzer", status: "success", time: "11:23 AM" },
   { name: "Enrich Company Info", status: "running", time: "10:44 AM" },
-  { name: "Workspace analyzer", status: "completed", time: "12:15 PM" },
+  { name: "Workspace analyzer", status: "success", time: "12:15 PM" },
 ];
 
 export default function WorkflowStatusCardsV2() {
@@ -42,7 +42,7 @@ export default function WorkflowStatusCardsV2() {
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-gray-900">{workflow.name}</span>
               <span className="text-xs text-gray-500">
-                {workflow.status === "completed"
+                {workflow.status === "success"
                   ? `Completed at ${workflow.time}`
                   : workflow.status === "running"
                   ? `Started at ${workflow.time}`
@@ -54,7 +54,7 @@ export default function WorkflowStatusCardsV2() {
           {/* Right: Status badge */}
           <motion.div
             className={`px-3 py-1 rounded-full text-xs font-semibold ${
-              workflow.status === "completed"
+              workflow.status === "success"
                 ? "bg-green-100 text-green-700"
                 : workflow.status === "running"
                 ? "bg-blue-100 text-blue-700"
@@ -72,7 +72,7 @@ export default function WorkflowStatusCardsV2() {
               repeat: Infinity,
             }}
           >
-            {workflow.status === "completed" ? "✓ Done" : workflow.status === "running" ? "Running..." : "Error"}
+            {workflow.status === "success" ? "✓ Done" : workflow.status === "running" ? "Running..." : "Error"}
           </motion.div>
         </motion.div>
       ))}

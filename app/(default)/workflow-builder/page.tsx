@@ -67,19 +67,19 @@ function CustomNode({ data, selected }: NodeProps) {
             }}
           >
             {isImageIcon ? (
-              <Image src={data.icon} alt={data.label} width={20} height={20} className="h-5 w-5" />
+              <Image src={data.icon as string} alt={data.label as string} width={20} height={20} className="h-5 w-5" />
             ) : (
-              <FileText className="h-5 w-5" style={{ color: nodeColor }} />
+              <FileText className="h-5 w-5" style={{ color: nodeColor } as React.CSSProperties} />
             )}
           </div>
 
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold text-gray-900">
-              {data.label}
+              {data.label as string}
             </div>
-            {data.description && (
+            {(data.description as string) && (
               <div className="text-xs text-gray-500 truncate">
-                {data.description}
+                {data.description as string}
               </div>
             )}
           </div>
@@ -99,7 +99,7 @@ function CustomNode({ data, selected }: NodeProps) {
         />
         {/* Plus button appears on hover */}
         <button
-          onClick={() => data.onAddNode && data.onAddNode()}
+          onClick={() => data.onAddNode && (data.onAddNode as () => void)()}
           className="ml-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex h-6 w-6 items-center justify-center rounded-full bg-gray-700 hover:bg-gray-900 text-white"
         >
           <Plus className="h-4 w-4" />

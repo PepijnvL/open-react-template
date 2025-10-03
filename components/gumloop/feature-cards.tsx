@@ -202,16 +202,16 @@ export default function FeatureCards() {
                           }}
                         >
                           <span className="text-gray-700 font-medium truncate flex-1">
-                            {item.name}
+                            {typeof item === 'string' ? item : item.name}
                           </span>
                           <motion.span
                             className={`ml-2 px-2 py-1 rounded-full text-xs font-semibold ${
-                              item.status === "completed"
+                              typeof item !== 'string' && item.status === "completed"
                                 ? "bg-green-100 text-green-700"
                                 : "bg-blue-100 text-blue-700"
                             }`}
                             animate={
-                              item.status === "running"
+                              typeof item !== 'string' && item.status === "running"
                                 ? {
                                     opacity: [1, 0.5, 1],
                                   }

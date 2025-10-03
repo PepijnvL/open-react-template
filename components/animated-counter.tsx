@@ -43,8 +43,8 @@ export default function AnimatedCounter({
 }: AnimatedCounterProps) {
   const [displayValue, setDisplayValue] = useState(startOnMount ? 0 : value);
   const [isAnimating, setIsAnimating] = useState(false);
-  const animationFrameRef = useRef<number>();
-  const startTimeRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
+  const startTimeRef = useRef<number | undefined>(undefined);
   const startValueRef = useRef<number>(0);
 
   const formatNumber = (num: number): string => {

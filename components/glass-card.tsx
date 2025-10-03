@@ -26,6 +26,8 @@ interface GlassCardProps {
   opacity?: number;
   /** onClick handler */
   onClick?: () => void;
+  /** Custom styles */
+  style?: React.CSSProperties;
 }
 
 export default function GlassCard({

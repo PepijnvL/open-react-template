@@ -166,95 +166,80 @@ export default function UserManagementExplainer() {
               How User Management Works
             </h3>
 
-            <div className="relative">
-              {/* Connection lines for desktop */}
-              <div className="absolute left-0 top-24 hidden h-0.5 w-full lg:block">
-                <div className="h-full w-full bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
+            <div className="grid gap-6 md:grid-cols-3">
+              {/* Step 1 */}
+              <div className="group relative" data-aos="fade-up">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-indigo-500/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+
+                  <div className="relative flex flex-col">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10">
+                      <span className="font-nacelle text-2xl font-bold text-indigo-400">1</span>
+                    </div>
+
+                    <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">You Build Once</h4>
+                    <p className="mb-4 text-sm text-gray-400">Create integration workflow in your account</p>
+
+                    <div className="mt-auto overflow-hidden rounded-lg border border-gray-800/50">
+                      <Image
+                        src="/images/how-it-works/step-1-create-user.png"
+                        alt="Create user interface"
+                        width={400}
+                        height={300}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-3">
-                {/* Step 1 */}
-                <div className="group relative" data-aos="fade-up">
-                  <div className="absolute -right-3 top-24 z-10 hidden lg:block">
-                    <ArrowRight className="h-6 w-6 text-indigo-400" />
-                  </div>
+              {/* Step 2 */}
+              <div className="group relative" data-aos="fade-up" data-aos-delay={100}>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-indigo-500/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-indigo-500/30">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="relative flex flex-col">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10">
+                      <span className="font-nacelle text-2xl font-bold text-indigo-400">2</span>
+                    </div>
 
-                    <div className="relative">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10">
-                        <span className="font-nacelle text-2xl font-bold text-indigo-400">1</span>
-                      </div>
+                    <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Customers Connect</h4>
+                    <p className="mb-4 text-sm text-gray-400">They choose apps and set up their credentials</p>
 
-                      <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">You Build Once</h4>
-                      <p className="mb-4 text-sm text-gray-400">Create integration workflow in your account</p>
-
-                      <div className="overflow-hidden rounded-lg border border-gray-800/50">
-                        <Image
-                          src="/images/how-it-works/step-1-create-user.png"
-                          alt="Create user interface"
-                          width={400}
-                          height={300}
-                          className="w-full"
-                        />
-                      </div>
+                    <div className="mt-auto overflow-hidden rounded-lg border border-gray-800/50">
+                      <Image
+                        src="/images/how-it-works/step-2-magic-link.png"
+                        alt="Magic link interface"
+                        width={400}
+                        height={300}
+                        className="w-full"
+                      />
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Step 2 */}
-                <div className="group relative" data-aos="fade-up" data-aos-delay={100}>
-                  <div className="absolute -right-3 top-24 z-10 hidden lg:block">
-                    <ArrowRight className="h-6 w-6 text-indigo-400" />
-                  </div>
+              {/* Step 3 */}
+              <div className="group relative" data-aos="fade-up" data-aos-delay={200}>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-emerald-500/30">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-indigo-500/30">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-
-                    <div className="relative">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10">
-                        <span className="font-nacelle text-2xl font-bold text-indigo-400">2</span>
-                      </div>
-
-                      <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Customers Connect</h4>
-                      <p className="mb-4 text-sm text-gray-400">They choose apps and set up their credentials</p>
-
-                      <div className="overflow-hidden rounded-lg border border-gray-800/50">
-                        <Image
-                          src="/images/how-it-works/step-2-magic-link.png"
-                          alt="Magic link interface"
-                          width={400}
-                          height={300}
-                          className="w-full"
-                        />
-                      </div>
+                  <div className="relative flex flex-col">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10">
+                      <Check className="h-6 w-6 text-emerald-400" />
                     </div>
-                  </div>
-                </div>
 
-                {/* Step 3 */}
-                <div className="group relative" data-aos="fade-up" data-aos-delay={200}>
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950 p-6 transition-all hover:border-emerald-500/30">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                    <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">It Just Works</h4>
+                    <p className="mb-4 text-sm text-gray-400">Each customer has isolated instance & dashboard</p>
 
-                    <div className="relative">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10">
-                        <Check className="h-6 w-6 text-emerald-400" />
-                      </div>
-
-                      <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">It Just Works</h4>
-                      <p className="mb-4 text-sm text-gray-400">Each customer has isolated instance & dashboard</p>
-
-                      <div className="overflow-hidden rounded-lg border border-gray-800/50">
-                        <Image
-                          src="/images/how-it-works/step-3-authorize.png"
-                          alt="Authorization interface"
-                          width={400}
-                          height={300}
-                          className="w-full"
-                        />
-                      </div>
+                    <div className="mt-auto overflow-hidden rounded-lg border border-gray-800/50">
+                      <Image
+                        src="/images/how-it-works/step-3-authorize.png"
+                        alt="Authorization interface"
+                        width={400}
+                        height={300}
+                        className="w-full"
+                      />
                     </div>
                   </div>
                 </div>
@@ -262,23 +247,23 @@ export default function UserManagementExplainer() {
             </div>
           </div>
 
-          {/* Use Cases - Visual Cards */}
+          {/* Multi-Tenancy Explanation */}
           <div className="mt-16">
-            <h3 className="mb-8 text-center font-nacelle text-2xl font-semibold text-white">
-              Common Use Cases
+            <h3 className="mb-4 text-center font-nacelle text-2xl font-semibold text-white">
+              True Multi-Tenancy for SaaS
             </h3>
+            <p className="mx-auto mb-8 max-w-2xl text-center text-gray-400">
+              Your customers can connect the same app multiple times with different credentials. Perfect for users managing multiple accounts, clients, or stores.
+            </p>
+
             <div className="grid gap-6 md:grid-cols-3">
               {/* SaaS Products - Primary Focus */}
               <div className="group relative overflow-hidden rounded-xl border border-gray-800 bg-gradient-to-br from-purple-950/30 to-gray-950 p-6 transition-all hover:border-purple-500/30" data-aos="fade-up">
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-purple-500/20 blur-3xl" />
 
                 <div className="relative flex h-full flex-col">
-                  {/* Mini UI Mockup - Multiple accounts for one user */}
-                  <div className="mb-4 overflow-hidden rounded-lg border border-purple-500/20 bg-gray-950/50 p-4">
-                    <div className="mb-3 flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-purple-400" />
-                      <div className="h-1.5 flex-1 rounded bg-gray-800" />
-                    </div>
+                  {/* Mini UI Mockup - Fixed height */}
+                  <div className="mb-4 h-32 overflow-hidden rounded-lg border border-purple-500/20 bg-gray-950/50 p-3">
                     <div className="space-y-2">
                       {['Personal Gmail', 'Work Gmail', 'Team Gmail'].map((account, i) => (
                         <div key={i} className="flex items-center justify-between rounded-lg border border-purple-500/30 bg-purple-500/10 p-2">
@@ -292,12 +277,12 @@ export default function UserManagementExplainer() {
                     </div>
                   </div>
 
-                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">SaaS Products</h4>
+                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Multiple Accounts</h4>
                   <p className="mb-3 text-sm text-purple-300">
-                    One user, multiple accounts
+                    Same app, different credentials
                   </p>
                   <p className="text-xs leading-relaxed text-gray-500">
-                    Your customers can connect multiple accounts of the same app. Each connection is isolated and managed independently.
+                    Users connect their personal Gmail, work Gmail, and team Gmail separately. Each has isolated data and permissions.
                   </p>
                 </div>
               </div>
@@ -307,9 +292,9 @@ export default function UserManagementExplainer() {
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-indigo-500/20 blur-3xl" />
 
                 <div className="relative flex h-full flex-col">
-                  {/* Mini UI Mockup - Multiple workspaces */}
-                  <div className="mb-4 overflow-hidden rounded-lg border border-indigo-500/20 bg-gray-950/50 p-4">
-                    <div className="space-y-2">
+                  {/* Mini UI Mockup - Fixed height */}
+                  <div className="mb-4 flex h-32 items-center overflow-hidden rounded-lg border border-indigo-500/20 bg-gray-950/50 p-3">
+                    <div className="w-full space-y-2">
                       {['Client A', 'Client B', 'Client C'].map((client, i) => (
                         <div key={i} className="flex items-center gap-2 rounded border border-gray-800 bg-gray-900/50 p-2">
                           <div className="flex h-6 w-6 items-center justify-center rounded bg-indigo-500/20 text-[8px] font-bold text-indigo-400">
@@ -322,12 +307,12 @@ export default function UserManagementExplainer() {
                     </div>
                   </div>
 
-                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Agency Platforms</h4>
+                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Client Workspaces</h4>
                   <p className="mb-3 text-sm text-indigo-300">
-                    Separate workspace per client
+                    One integration, many clients
                   </p>
                   <p className="text-xs leading-relaxed text-gray-500">
-                    Build automation once. Deploy to 50 clients. Each has isolated data and credentials.
+                    Build once, deploy to 50 clients. Each client has isolated data and their own credentials for the same integrations.
                   </p>
                 </div>
               </div>
@@ -337,24 +322,24 @@ export default function UserManagementExplainer() {
                 <div className="absolute bottom-0 right-0 h-32 w-32 translate-x-16 translate-y-16 rounded-full bg-pink-500/20 blur-3xl" />
 
                 <div className="relative flex h-full flex-col">
-                  {/* Mini UI Mockup - Store grid */}
-                  <div className="mb-4 overflow-hidden rounded-lg border border-pink-500/20 bg-gray-950/50 p-4">
-                    <div className="grid grid-cols-3 gap-2">
+                  {/* Mini UI Mockup - Fixed height */}
+                  <div className="mb-4 flex h-32 items-center overflow-hidden rounded-lg border border-pink-500/20 bg-gray-950/50 p-3">
+                    <div className="grid w-full grid-cols-3 gap-2">
                       {[1, 2, 3].map((store) => (
                         <div key={store} className="rounded border border-gray-800 bg-gray-900/50 p-2 text-center">
-                          <Image src="/icons/Shopify.svg" alt="Store" width={12} height={12} className="mx-auto mb-1" />
+                          <Image src="/icons/Shopify.svg" alt="Store" width={16} height={16} className="mx-auto mb-2" />
                           <div className="h-1 rounded bg-gray-800" />
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Multi-Store E-commerce</h4>
+                  <h4 className="mb-2 font-nacelle text-lg font-semibold text-white">Multi-Store Setup</h4>
                   <p className="mb-3 text-sm text-pink-300">
-                    Each store = separate user
+                    Each store, separate instance
                   </p>
                   <p className="text-xs leading-relaxed text-gray-500">
-                    Sync inventory across 10 Shopify stores. Each store has its own credentials but shares workflows.
+                    Connect 10 Shopify stores with unique credentials. Sync inventory across all while keeping each store's data isolated.
                   </p>
                 </div>
               </div>

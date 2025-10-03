@@ -41,7 +41,7 @@ export default function BinaryMatrix({
 }: BinaryMatrixProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [columns, setColumns] = useState<Column[]>([]);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;

@@ -38,17 +38,10 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
-interface CustomNodeData {
-  label: string;
-  description?: string;
-  icon?: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
-  color?: string;
-}
-
 // Enhanced Custom Node Component
-function CustomNode({ data, selected }: NodeProps<CustomNodeData>) {
-  const Icon = (data.icon || FileText) as React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
-  const nodeColor = data.color || "#6366f1";
+function CustomNode({ data, selected }: NodeProps) {
+  const Icon = (data.icon || FileText) as any;
+  const nodeColor = (data.color as string) || "#6366f1";
 
   return (
     <div
@@ -62,7 +55,7 @@ function CustomNode({ data, selected }: NodeProps<CustomNodeData>) {
         boxShadow: selected
           ? `0 20px 40px -12px ${nodeColor}40, 0 0 0 2px ${nodeColor}`
           : "0 10px 30px -10px rgba(0,0,0,0.5)",
-      }}
+      } as React.CSSProperties}
     >
       {/* Connection Handles */}
       <Handle
@@ -90,7 +83,7 @@ function CustomNode({ data, selected }: NodeProps<CustomNodeData>) {
           style={{
             background: `linear-gradient(135deg, ${nodeColor}30 0%, ${nodeColor}10 100%)`,
             boxShadow: `0 4px 12px ${nodeColor}20`
-          }}
+          } as React.CSSProperties}
         >
           <Icon
             className="h-6 w-6"
@@ -101,23 +94,23 @@ function CustomNode({ data, selected }: NodeProps<CustomNodeData>) {
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="text-sm font-semibold text-white mb-1">
-            {data.label}
+            {data.label as string}
           </div>
-          {data.description && (
+          {(data.description as string) && (
             <div className="text-xs text-gray-400 leading-relaxed">
-              {data.description}
+              {data.description as string}
             </div>
           )}
         </div>
 
         {/* Status Badge */}
-        {data.status && (
+        {(data.status as string) && (
           <div
             className="h-2.5 w-2.5 rounded-full animate-pulse"
             style={{
               backgroundColor: nodeColor,
               boxShadow: `0 0 8px ${nodeColor}80`
-            }}
+            } as React.CSSProperties}
           />
         )}
       </div>
